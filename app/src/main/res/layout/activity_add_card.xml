@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCardActivity">
+    <ImageView
+        android:id="@+id/ivBar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_70sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/small_header"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+        <ImageView
+            android:id="@+id/ivBack"
+            android:padding="@dimen/_10sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Add Card"
+            android:fontFamily="@font/regular"
+            android:textSize="@dimen/_14sdp"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:orientation="vertical"
+        android:layout_below="@id/ivBar">
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_below="@id/ivBar"
+            style="@style/CommonTextWrapcontent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"/>
+
+
+        <EditText
+            android:id="@+id/edEmail"
+            style="@style/Edittext"
+            android:layout_below="@id/tvEmail"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/grey"
+            android:hint="Enter name"
+            />
+        <TextView
+            android:layout_below="@id/ivBar"
+            style="@style/CommonTextWrapcontent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Credit Card Number"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"/>
+        <EditText
+            style="@style/Edittext"
+            android:layout_below="@id/tvEmail"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:inputType="number"
+            android:maxLength="16"
+            android:textColorHint="@color/grey"
+            android:hint="Enter credit card number"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_below="@id/ivBar"
+                    style="@style/CommonTextWrapcontent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="MM/YYYY"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12sdp"/>
+                <TextView
+                    android:id="@+id/tv_expiry_month_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:hint="MM/YYYY"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:textSize="16dp"
+                    android:textColorHint="@color/grey"
+                    android:background="@drawable/shape"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_below="@id/ivBar"
+                    style="@style/CommonTextWrapcontent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="CVV"
+
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12sdp"/>
+                <EditText
+                    style="@style/Edittext"
+                    android:layout_below="@id/tvEmail"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:inputType="numberPassword"
+                    android:layout_weight="1"
+                    android:maxLength="3"
+                    android:hint="CVV"
+                    android:textColorHint="@color/grey"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSave"
+            style="@style/Button"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:text="Add"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

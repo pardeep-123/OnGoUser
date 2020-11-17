@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.fragment.HomeFragment">
+    <RelativeLayout
+        android:id="@+id/hedder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivBar"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_70sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/small_header"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            >
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:src="@drawable/back"/>
+
+            <TextView
+                style="@style/CommonTextWrapcontent"
+                android:textColor="@color/white"
+                android:text="Drink &amp; Bevrages"
+                android:textSize="@dimen/_14sdp"
+                android:layout_centerInParent="true"/>
+            <ImageView
+                android:id="@+id/cart"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_alignParentRight="true"
+                android:padding="@dimen/_8sdp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/cart"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginRight="@dimen/_25sdp"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:background="@drawable/border_shape"
+            >
+
+            <ImageView
+                android:id="@+id/search"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/search">
+
+            </ImageView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/search"
+                android:hint="Search"
+                android:paddingRight="@dimen/_5sdp"
+                android:textSize="@dimen/_11sdp"
+                android:background="@color/transparent">
+            </EditText>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_below="@+id/hedder"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:gravity="center"
+            android:background="@drawable/border_shape"
+            >
+            <LinearLayout
+                android:id="@+id/ll_sort"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="@drawable/edit"
+                android:gravity="center">
+                <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:id="@+id/btn_sort"
+                    android:background="@color/transparent"
+                    android:fontFamily="@font/regular"
+                    android:text="Sort"
+                    android:drawableLeft="@drawable/sort"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+
+                  />
+
+            </LinearLayout>
+            <LinearLayout
+
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/edit">
+                <Button
+                    android:id="@+id/btn_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:fontFamily="@font/regular"
+                    android:text="Filter"
+                    android:drawableLeft="@drawable/filter"
+                    android:textAllCaps="false"
+                    android:background="@color/transparent"
+                    android:textColor="@color/white"
+                  />
+
+            </LinearLayout>
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:id="@+id/container"
+            android:visibility="visible"
+            />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rec_product"
+        android:padding="@dimen/_10sdp"
+        android:layout_below="@+id/filter"
+       >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

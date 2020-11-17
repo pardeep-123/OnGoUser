@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.activity.address.DeliveryOptions2Activity">
+    <ImageView
+        android:id="@+id/ivBar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_70sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/small_header"/>
+
+    <RelativeLayout
+        android:id="@+id/hedder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        >
+        <ImageView
+            android:id="@+id/ivBack"
+            android:padding="@dimen/_10sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/back"/>
+
+        <TextView
+            android:id="@+id/tvhedder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Add Address"
+            android:fontFamily="@font/regular"
+            android:textSize="@dimen/_14sdp"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivBar"
+        android:layout_margin="@dimen/_10sdp"
+        android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <TextView
+            style="@style/CommonTextWrapcontent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="Address"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textSize="@dimen/_12sdp"/>
+
+        <EditText
+            android:id="@+id/edaddresss"
+            style="@style/Edittext"
+            android:layout_below="@id/tvEmail"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:inputType="textEmailAddress"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:hint="Add"
+            android:singleLine="true"
+            android:textSize="16sp" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <TextView
+            style="@style/CommonTextWrapcontent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:text="City"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textSize="@dimen/_12sdp"/>
+
+        <EditText
+            android:id="@+id/edcity"
+            style="@style/Edittext"
+            android:layout_below="@id/tvEmail"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:inputType="textEmailAddress"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:hint="Add"
+            android:singleLine="true"
+            android:textSize="16sp" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <TextView
+            style="@style/CommonTextWrapcontent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="State"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textSize="@dimen/_12sdp"/>
+
+        <EditText
+            android:id="@+id/edstate"
+            style="@style/Edittext"
+
+            android:layout_below="@id/tvEmail"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:inputType="textEmailAddress"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:hint="Add"
+            android:singleLine="true"
+            android:textSize="16sp" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <TextView
+            style="@style/CommonTextWrapcontent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="Postal Code"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"/>
+
+        <EditText
+            android:id="@+id/edpostalcode"
+            style="@style/Edittext"
+            android:layout_below="@id/tvEmail"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:inputType="number"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:hint="Add"
+            android:singleLine="true"
+            android:maxLength="6"
+            android:textSize="16sp" />
+</LinearLayout>
+        <Button
+            android:id="@+id/btnadd"
+            android:layout_below="@id/llDetail"
+            style="@style/Button"
+            android:layout_margin="@dimen/_20sdp"
+            android:text="Add"
+            />
+
+    </LinearLayout>
+    </RelativeLayout>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.fragment.HomeFragment">
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp"
+        android:src="@drawable/banner"
+        android:layout_marginTop="-15dp"
+        android:layout_below="@+id/hedder"
+        android:scaleType="fitXY">
+    </ImageView>
+
+    <RelativeLayout
+    android:id="@+id/hedder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivBar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_70sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/small_header"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        >
+        <ImageView
+            android:id="@+id/iVNoti"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:src="@drawable/notifications"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+
+<ImageView
+    android:layout_width="@dimen/_9sdp"
+    android:layout_height="@dimen/_9sdp"
+    android:layout_marginTop="@dimen/_3sdp"
+    android:src="@drawable/locationlarge">
+
+</ImageView>
+        <TextView
+           style="@style/CommonTextWrapcontent"
+            android:textColor="@color/white"
+            android:text="New York"
+          android:layout_marginLeft="@dimen/_5sdp"
+            android:drawablePadding="@dimen/_5sdp"
+            android:textSize="@dimen/_12sdp"
+            android:layout_centerInParent="true"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+         android:layout_marginRight="@dimen/_10sdp"
+           android:layout_alignParentRight="true"
+            android:padding="@dimen/_8sdp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/cart"/>
+    </RelativeLayout>
+</RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:orientation="vertical">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_40sdp"
+    android:layout_marginRight="@dimen/_25sdp"
+    android:layout_marginLeft="@dimen/_25sdp"
+    android:background="@drawable/border_shape"
+        >
+
+    <ImageView
+        android:id="@+id/search"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/search">
+
+    </ImageView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/search"
+        android:hint="Search shops"
+        android:paddingRight="@dimen/_5sdp"
+        android:textSize="@dimen/_11sdp"
+        android:background="@color/transparent">
+    </EditText>
+
+</RelativeLayout>
+    </LinearLayout>
+
+<RelativeLayout
+    android:id="@+id/rr_shop"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/banner"
+    android:padding="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    >
+    <TextView
+        android:id="@+id/tvbname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nearby Shops"
+        android:textStyle="bold"
+        android:textSize="@dimen/_13sdp"
+        android:textColor="@color/black">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_viewallshop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:text="@string/view_all"
+        android:textSize="@dimen/_11sdp"
+        android:textColor="@color/black">
+
+    </TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rec_nearby"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_below="@+id/tvbname">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>
+<RelativeLayout
+    android:id="@+id/rr_cate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/rr_shop"
+    android:padding="@dimen/_10sdp"
+    >
+    <TextView
+        android:id="@+id/tvbnam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_13sdp"
+        android:text="Groceries"
+        android:textStyle="bold"
+        android:textColor="@color/black">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_viewallgroceri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:text="@string/view_all"
+        android:textSize="@dimen/_11sdp"
+        android:textColor="@color/black">
+
+    </TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rec_groceries"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_below="@+id/tvbnam">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_margin="@dimen/_8sdp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/image3"
+        >
+    </ImageView>
+    <TextView
+        android:id="@+id/tv_shopname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The Future Grocery"
+        android:paddingLeft="@dimen/_5sdp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/image"
+        android:layout_marginTop="@dimen/_2sdp">
+
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_shopname"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="248 Aveneue, NY    4 km"
+            android:textSize="@dimen/_9sdp"
+            android:drawablePadding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_2sdp">
+
+        </TextView>
+<ImageView
+    android:layout_width="@dimen/_8sdp"
+    android:layout_height="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginLeft="@dimen/_3sdp"
+    android:src="@drawable/location">
+
+</ImageView>
+    </LinearLayout>
+</RelativeLayout>

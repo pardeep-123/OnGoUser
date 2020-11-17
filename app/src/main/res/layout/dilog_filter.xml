@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp"
+    android:background="@drawable/shap_filtere">
+<TextView
+    android:id="@+id/tvfilter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Filter"
+    android:textSize="@dimen/_14sdp"
+    android:textStyle="bold"
+    android:layout_centerHorizontal="true"
+    android:textColor="@color/black">
+
+</TextView>
+
+    <ImageView
+        android:id="@+id/cross"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:src="@drawable/cross" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_below="@+id/tvfilter"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:text="Flour">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/ivnot21"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:src="@drawable/rado_button">
+
+            </ImageView>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:text="Lentiles">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/ivnot2"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:src="@drawable/radio_button">
+
+            </ImageView>
+        </RelativeLayout>
+        <Button
+            android:id="@+id/btnapply"
+            android:layout_below="@id/llBarcode"
+            style="@style/Button"
+            android:layout_margin="@dimen/_20sdp"
+            android:text="Apply"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

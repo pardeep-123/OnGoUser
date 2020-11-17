@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shape_row"
+    android:id="@+id/rl_list"
+    app:cardCornerRadius="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_10sdp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:src="@drawable/image_6"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:orientation="vertical">
+            <TextView
+                style="@style/CommonTextWrapcontent"
+                android:textColor="@color/black"
+                android:text="DSLR"
+                android:textStyle="bold"
+                android:textSize="@dimen/_14sdp"
+                android:layout_centerInParent="true"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/CommonTextWrapcontent"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="Puma  400 km"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_centerInParent="true"/>
+<ImageView
+    android:layout_width="@dimen/_8sdp"
+    android:layout_height="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_7sdp"
+    android:layout_marginLeft="@dimen/_3sdp"
+    android:src="@drawable/location">
+
+</ImageView>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    style="@style/CommonTextWrapcontent"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="$ 9.99"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_14sdp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/like">
+
+                    </ImageView>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

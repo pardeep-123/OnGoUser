@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image3"
+        >
+    </ImageView>
+    <TextView
+        android:id="@+id/tv_grocname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Way Groceries"
+        android:layout_below="@+id/image"
+        android:textSize="@dimen/_11sdp"
+        android:paddingLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_2sdp">
+
+    </TextView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_grocname"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/location"
+            android:drawablePadding="@dimen/_5sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:textSize="@dimen/_11sdp"
+            android:text="8 km">
+
+        </TextView>
+
+    </LinearLayout>
+</RelativeLayout>
