@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.ongouser.OrderDetailAdapter;
+import com.ongouser.Home.OrderDetailAdapter;
 import com.ongouser.R;
 
 public class OrderDetailActivity extends AppCompatActivity {

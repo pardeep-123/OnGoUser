@@ -31,7 +31,7 @@ Button btnUpdate;
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              Intent i=new Intent(ChangePasswordActivity.this,LoginActivity.class);
+              Intent i=new Intent(ChangePasswordActivity.this, LoginActivity.class);
               startActivity(i);
               finishAffinity();
             }

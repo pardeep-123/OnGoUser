@@ -69,10 +69,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/code_bk"/>
-                <TextView
+                <EditText
+                    android:id="@+id/editTextone"
                     style="@style/CommonTextWrapcontent"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:text="1"
+                    android:maxLines="1"
+                    android:hint="-"
+                    android:textColorHint="@color/white"
+                    android:inputType="numberPassword"
+                    android:digits="0123456789"
+                    android:background="@android:color/transparent"
                     android:textColor="@color/white"
                     android:layout_centerInParent="true"
                     android:textSize="@dimen/_12sdp"/>
@@ -85,10 +91,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/code_bk"/>
-                <TextView
+                <EditText
+                    android:id="@+id/editTexttwo"
                     style="@style/CommonTextWrapcontent"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:text="1"
+                    android:maxLines="1"
+                    android:hint="-"
+                    android:textColorHint="@color/white"
+                    android:inputType="numberPassword"
+                    android:digits="0123456789"
+                    android:background="@android:color/transparent"
                     android:textColor="@color/white"
                     android:layout_centerInParent="true"
                     android:textSize="@dimen/_12sdp"/>
@@ -101,10 +113,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/code_bk"/>
-                <TextView
+                <EditText
+                    android:id="@+id/editTextthree"
                     style="@style/CommonTextWrapcontent"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:text="1"
+                    android:maxLines="1"
+                    android:hint="-"
+                    android:textColorHint="@color/white"
+                    android:inputType="numberPassword"
+                    android:digits="0123456789"
+                    android:background="@android:color/transparent"
                     android:textColor="@color/white"
                     android:layout_centerInParent="true"
                     android:textSize="@dimen/_12sdp"/>
@@ -117,10 +135,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/code_bk"/>
-                <TextView
+                <EditText
+                    android:id="@+id/editTextfour"
                     style="@style/CommonTextWrapcontent"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:text="1"
+                    android:maxLines="1"
+                    android:hint="-"
+                    android:textColorHint="@color/white"
+                    android:inputType="numberPassword"
+                    android:digits="0123456789"
+                    android:background="@android:color/transparent"
                     android:textColor="@color/white"
                     android:layout_centerInParent="true"
                     android:textSize="@dimen/_12sdp"/>
@@ -128,9 +152,11 @@
 
         </LinearLayout>
         <TextView
+            android:id="@+id/tv_resend_otp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/resend"
+            android:fontFamily="@font/regular"
             android:textSize="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_gravity="center">

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.ongouser.AddCardActivity;
+import com.ongouser.Home.AddCardActivity;
 import com.ongouser.Home.HomeActivity;
 import com.ongouser.R;
 

@@ -16,4 +16,6 @@
     <color name="text_lightgray_color">#615E5E</color>
     <color name="colorLightGreen">#8ECAAD</color>
     <color name="colorGreen">#49c191</color>
+    <color name="main_bg_colour">#49c191</color>
+
 </resources>

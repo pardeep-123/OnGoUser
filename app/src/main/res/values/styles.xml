@@ -20,6 +20,13 @@
         <item name="android:background">@drawable/shape</item>
 
     </style>
+
+    <style name="MyAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/slide_from_left</item>
+        <item name="android:windowExitAnimation">@anim/stay_still</item>
+
+    </style>
+
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">#f0cf4b</item>
         <item name="colorControlActivated">#f0cf4b</item>

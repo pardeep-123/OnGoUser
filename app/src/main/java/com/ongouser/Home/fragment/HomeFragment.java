@@ -19,7 +19,7 @@ import com.ongouser.Adapter.Homegroceriesdapter;
 import com.ongouser.Adapter.Homeshopadapter;
 import com.ongouser.Home.activity.CartActivity;
 import com.ongouser.Home.activity.ViewAllactivity;
-import com.ongouser.NotificationActivity;
+import com.ongouser.Home.NotificationActivity;
 import com.ongouser.R;
 
 public class HomeFragment extends Fragment  {

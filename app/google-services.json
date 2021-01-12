@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "268425823968",
+    "project_id": "ongo-user",
+    "storage_bucket": "ongo-user.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268425823968:android:3c2ac0be4b97236e1f3285",
+        "android_client_info": {
+          "package_name": "com.ongouser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268425823968-kmtt6vi37l2g6koeo1h5vma3psv15u5r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ongouser",
+            "certificate_hash": "6aac5b61a30ca474d43ca514476f0f9edb97281f"
+          }
+        },
+        {
+          "client_id": "268425823968-7706hfshvl1g3lej1psd1e35u9c49dcc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8pdCNW375TcaR1jityYBp4dfJN99-zBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268425823968-7706hfshvl1g3lej1psd1e35u9c49dcc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

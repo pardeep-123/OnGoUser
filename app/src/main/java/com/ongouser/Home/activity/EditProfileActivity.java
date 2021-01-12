@@ -1,16 +1,13 @@
 package com.ongouser.Home.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.ongouser.Halper.image;
+import com.ongouser.Helper.image;
 import com.ongouser.R;
 
 public class EditProfileActivity extends image {
@@ -53,5 +50,10 @@ ImageView ivBack,ivAdd,ivImg;
     @Override
     public void selectedImage(Bitmap var1, String var2) {
         ivImg.setImageBitmap(var1);
+    }
+
+    @Override
+    protected int getContentId() {
+        return 0;
     }
 }

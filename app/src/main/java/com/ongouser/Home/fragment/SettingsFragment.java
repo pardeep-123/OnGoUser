@@ -16,10 +16,10 @@ import android.widget.RelativeLayout;
 import com.ongouser.Home.activity.ChangePasswordActivity;
 import com.ongouser.Home.activity.FeedbackActivity;
 import com.ongouser.Home.activity.OrderDetailActivity;
-import com.ongouser.Login.LoginActivity;
 import com.ongouser.Home.activity.Profileactivity;
+import com.ongouser.Login.LoginActivity;
+import com.ongouser.Login.TermsConditionsActivity;
 import com.ongouser.R;
-import com.ongouser.TermsActivity;
 
 public class SettingsFragment extends Fragment {
     Context mContext;
@@ -75,7 +75,7 @@ Dialog dialog;
         rlTerms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TermsActivity.class);
+                Intent intent = new Intent(getActivity(), TermsConditionsActivity.class);
                 startActivity(intent);
             }
         });

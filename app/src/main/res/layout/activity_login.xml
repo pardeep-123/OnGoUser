@@ -60,7 +60,7 @@
             android:textSize="@dimen/_12sdp"/>
 
         <EditText
-            android:id="@+id/edPass"
+            android:id="@+id/et_loginpassword"
             android:layout_below="@id/tvPass"
             style="@style/Edittext"
             android:layout_marginTop="@dimen/_5sdp"
@@ -110,6 +110,7 @@
                 />
         </LinearLayout>
         <ImageView
+            android:id="@+id/iv_google"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:scaleType="fitXY"
@@ -118,6 +119,7 @@
 
         </ImageView>
         <ImageView
+            android:id="@+id/iv_fb"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:scaleType="fitXY"

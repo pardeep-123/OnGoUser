@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login.CreateAccountActivity">
+    tools:context=".Login.SignupActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -133,7 +133,10 @@
 
 
         <EditText
+            android:id="@+id/et_name"
             style="@style/Edittext"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
             android:layout_below="@id/tvEmail"
             android:layout_marginTop="@dimen/_5sdp"
             android:inputType="textCapSentences"
@@ -145,7 +148,7 @@
             android:layout_below="@id/ivBar"
             style="@style/CommonTextWrapcontent"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="Username"
+            android:text="@string/email"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"/>
@@ -156,7 +159,10 @@
             android:layout_below="@id/tvEmail"
             android:layout_marginTop="@dimen/_5sdp"
             android:inputType="textEmailAddress"
-            android:hint="Enter username"
+            android:hint="@string/enter_email"
+            android:imeOptions="actionNext"
+            android:id="@+id/et_email"
+            android:maxLines="1"
             android:textSize="16sp" />
 
         <TextView
@@ -169,15 +175,51 @@
             android:textSize="@dimen/_12sdp"/>
 
 
-        <EditText
-            android:id="@+id/edEmail"
-            style="@style/Edittext"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape"
             android:layout_below="@id/tvEmail"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:inputType="number"
-            android:hint="Enter mobile "
-            android:maxLength="13"
-            android:textSize="16sp" />
+            android:minHeight="@dimen/_45sdp"
+            >
+
+            <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+                android:id="@+id/ccp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:ccp_showFlag="false"
+                android:layout_centerVertical="true"
+                android:focusable="false"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:ccp_keyboardAutoPopOnSearch="false"
+                app:ccp_textColor="@color/black"
+                app:ccp_textSize="16sp" />
+
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/regular"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:layout_centerVertical="true"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:layout_toRightOf="@+id/ccp"
+                android:digits="0123456789"
+                android:inputType="number"
+                android:hint="Enter mobile"
+                android:maxLength="10"
+
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+
         <TextView
             android:id="@+id/tvPass"
             style="@style/CommonTextWrapcontent"
@@ -191,6 +233,8 @@
             android:id="@+id/edPass"
             android:layout_below="@id/tvPass"
             style="@style/Edittext"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
             android:layout_marginTop="@dimen/_5sdp"
             android:hint="Enter password"
             android:textSize="16sp"
@@ -205,9 +249,11 @@
             android:textSize="@dimen/_12sdp"/>
 
         <EditText
-            android:layout_below="@id/tvPass"
+            android:id="@+id/et_cPass"
             style="@style/Edittext"
             android:layout_marginTop="@dimen/_5sdp"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
             android:hint="Enter confirm password"
             android:textSize="16sp"
             android:inputType="textPassword"
