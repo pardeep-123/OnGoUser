@@ -1,4 +1,4 @@
-package com.ongouser.Home;
+package com.ongouser.Home.activity;
 //com.ongouser
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ongouser.Home.activity.PaymentActivity;
 import com.ongouser.R;
 
 import java.util.Calendar;

@@ -23,40 +23,118 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home.activity.Productlisting"></activity>
-        <activity android:name=".Home.activity.OrdersummryActivity" />
-        <activity android:name=".Home.activity.address.DeliverytimeSlotActivity" />
-        <activity android:name=".Home.activity.address.Add_address" />
-        <activity android:name=".Home.activity.CartActivity" />
-        <activity android:name=".Home.activity.FeedbackActivity" />
-        <activity android:name=".Home.activity.Shop_category_products" />
-        <activity android:name=".Home.activity.Shop_productCategory" />
-        <activity android:name=".Home.activity.ViewAllactivity" />
-        <activity android:name=".Home.AddCardActivity" />
-        <activity android:name=".Home.activity.Product_detailActivity" />
-        <activity android:name=".Home.activity.OrderDetailActivity" />
-        <activity android:name=".Home.NotificationActivity" />
-        <activity android:name=".Home.activity.ProductActivity" />
-        <activity android:name=".Home.activity.EditProfileActivity" />
-        <activity android:name=".Home.activity.PaymentActivity" />
-        <activity android:name=".Home.activity.ChangePasswordActivity" />
+
+        <activity android:name=".Home.activity.Productlisting"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Home.activity.OrdersummryActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Home.activity.address.DeliverytimeSlotActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.address.Add_address"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.CartActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.FeedbackActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.Shop_category_products"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.Shop_productCategory"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.ViewAllactivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.AddCardActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.Product_detailActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.OrderDetailActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.NotificationActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.ProductActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.PaymentActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
         <activity android:name=".Home.HomeActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".Home.activity.address.DeliveryOptions2Activity" />
-        <activity android:name=".Home.activity.PickupOptionsActivity" />
-        <activity android:name=".Login.TermsActivity" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.address.DeliveryOptions2Activity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Home.activity.PickupOptionsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
+
         <activity android:name=".Login.TermsConditionsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <activity android:name=".Login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <activity android:name=".Login.VerficationCodeActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"/>
 
 
 
         <activity android:name=".Login.SignupActivity"
-            android:windowSoftInputMode="stateAlwaysHidden">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
 
-        </activity>
-        <activity android:name=".Home.activity.Profileactivity" />
-        <activity android:name=".Home.ForgotPasswordActivity" />
-        <activity android:name=".Login.SplashActivity">
+
+        <activity android:name=".Home.activity.ChangePasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+
+        <activity android:name=".Home.activity.MyProfileActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <activity android:name=".Home.activity.EditProfileActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".Login.ForgotPasswordActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Login.SplashActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

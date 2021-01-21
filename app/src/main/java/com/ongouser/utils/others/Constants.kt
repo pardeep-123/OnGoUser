@@ -31,15 +31,17 @@ class Constants {
         const val SignUp = BASE_URL + "signup"
         const val Login = BASE_URL + "login"
         const val SocialLogin = BASE_URL + "socail_login"
-        const val ForgotPassword = BASE_URL + "forgot_password"
-        const val GetProfile = BASE_URL + "get_profile"
-        const val UpdateProfile = BASE_URL + "edit_profile"
-        const val ChangePassword = BASE_URL + "change_password"
+        const val ForgotPassword = BASE_URL + "forgotPassword"
+        const val GetProfile = BASE_URL + "getProfile"
+        const val EditProfile = BASE_URL + "editProfile"
+        const val ChangePassword = BASE_URL + "changePassword"
         const val VerifyOtp = BASE_URL + "verifyOtp"
         const val ResendOtp = BASE_URL + "resendOtp"
         const val AboutUs = BASE_URL + "aboutUs"
         const val PrivacyPolicy = BASE_URL + "privacyPolicy"
-        const val Home = BASE_URL + "home"              // Home traits List
+
+        const val HomeListing = BASE_URL + "homeListing"              // Home
+        const val CategoryListing = BASE_URL + "categoryListing"
         const val GetCardsList = BASE_URL + "get_cards_list"
 
         const val NotificationOnOff = BASE_URL + "notification_on_off"

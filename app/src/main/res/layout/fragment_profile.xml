@@ -3,14 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home.activity.Profileactivity">
+    tools:context=".Home.activity.MyProfileActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+
 
 
             <RelativeLayout
@@ -18,12 +16,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_40sdp"
-                android:scaleType="fitXY"
-                android:src="@drawable/profile_img"/>
 
                 <ImageView
                     android:id="@+id/ivBar"
@@ -31,6 +23,14 @@
                     android:layout_height="@dimen/_70sdp"
                     android:scaleType="fitXY"
                     android:src="@drawable/small_header"/>
+                <ImageView
+                    android:id="@+id/iv_user_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_280sdp"
+                    android:layout_below="@+id/ivBar"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/no_image_placeholder"/>
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -95,13 +95,13 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_name"
                             android:layout_width="0dp"
                             android:layout_weight="70"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
                             android:gravity="end"
                             android:fontFamily="@font/regular"
-                                android:text="Juliet James"
                             android:textSize="@dimen/_12sdp" />
 
                     </LinearLayout>
@@ -123,13 +123,13 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_email"
                             android:layout_width="0dp"
                             android:layout_weight="70"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
                             android:gravity="end"
                             android:inputType="textEmailAddress"
-                            android:text="Juliet@gmail.com"
                             android:fontFamily="@font/regular"
                             android:textSize="@dimen/_12sdp" />
 
@@ -153,6 +153,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_phone"
                             android:layout_width="0dp"
                             android:layout_weight="70"
                             android:layout_height="wrap_content"
@@ -160,7 +161,6 @@
                             android:gravity="end"
                             android:inputType="number"
                             android:fontFamily="@font/regular"
-                            android:text="+ 12356798353"
                             android:textSize="@dimen/_12sdp" />
 
                     </LinearLayout>
@@ -175,7 +175,7 @@
                     />
 
             </RelativeLayout>
-        </RelativeLayout>
+
     </ScrollView>
 
 </RelativeLayout>

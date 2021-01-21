@@ -133,14 +133,6 @@
     <string name="enter_email">Enter email</string>
 
 
-
-
-
-
-
-
-
-
     <string name="no_internet">Please check your internet connection.</string>
     <string name="error_rating">Please rate this trait before submit.</string>
     <string name="error_image">Please select image</string>
@@ -209,6 +201,5 @@
     <string name="enter_confirm_password">Enter confirm password</string>
     <string name="enter_password">Enter Password</string>
     <string name="otp_invalid_message">Please enter a valid OTP</string>
-
 
 </resources>

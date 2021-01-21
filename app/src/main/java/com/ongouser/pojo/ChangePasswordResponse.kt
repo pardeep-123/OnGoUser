@@ -1,4 +1,4 @@
-package com.trutraits.pojo
+package com.ongouser.pojo
 
 import com.google.gson.annotations.Expose
 
@@ -61,43 +61,79 @@ class ChangePasswordResponse
     class Body {
         @SerializedName("id")
         @Expose
-        var id: String? = null
+        var id: Int? = null
 
-        @SerializedName("name")
+        @SerializedName("role")
         @Expose
-        var name: String? = null
+        var role: Int? = null
+
+        @SerializedName("verified")
+        @Expose
+        var verified: Int? = null
+
+        @SerializedName("status")
+        @Expose
+        var status: Int? = null
+
+        @SerializedName("username")
+        @Expose
+        var username: String? = null
 
         @SerializedName("email")
         @Expose
         var email: String? = null
 
-        @SerializedName("age")
+        @SerializedName("countryCode")
         @Expose
-        var age: String? = null
+        var countryCode: String? = null
+
+        @SerializedName("phone")
+        @Expose
+        var phone: String? = null
+
+        @SerializedName("forgotPasswordHash")
+        @Expose
+        var forgotPasswordHash: String? = null
+
+        @SerializedName("facebookId")
+        @Expose
+        var facebookId: String? = null
+
+        @SerializedName("googleId")
+        @Expose
+        var googleId: String? = null
+
+        @SerializedName("otp")
+        @Expose
+        var otp: Int? = null
+
+        @SerializedName("created")
+        @Expose
+        var created: Int? = null
+
+        @SerializedName("updated")
+        @Expose
+        var updated: Int? = null
+
+        @SerializedName("createdAt")
+        @Expose
+        var createdAt: String? = null
+
+        @SerializedName("updatedAt")
+        @Expose
+        var updatedAt: String? = null
+
+        @SerializedName("name")
+        @Expose
+        var name: String? = null
 
         @SerializedName("image")
         @Expose
         var image: String? = null
 
-        @SerializedName("image_name")
+        @SerializedName("userId")
         @Expose
-        var imageName: String? = null
-
-        @SerializedName("country")
-        @Expose
-        var country: String? = null
-
-        @SerializedName("authorization_key")
-        @Expose
-        var authorizationKey: String? = null
-
-        @SerializedName("notifications_status")
-        @Expose
-        var notificationsStatus: String? = null
-
-        @SerializedName("bio")
-        @Expose
-        var bio: String? = null
+        var userId: Int? = null
 
     }
 }

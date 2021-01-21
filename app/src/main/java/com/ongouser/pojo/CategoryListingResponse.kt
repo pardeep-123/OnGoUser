@@ -7,15 +7,15 @@ import com.google.gson.annotations.SerializedName
 
 
 
-class ForgotPasswordResponse
+class CategoryListingResponse
 {
-    @SerializedName("code")
-    @Expose
-    private var code: String? = null
-
     @SerializedName("success")
     @Expose
     private var success: Boolean? = null
+
+    @SerializedName("code")
+    @Expose
+    private var code: Int? = null
 
     @SerializedName("message")
     @Expose
@@ -23,15 +23,7 @@ class ForgotPasswordResponse
 
     @SerializedName("body")
     @Expose
-    private var body: Body? = null
-
-    fun getCode(): String? {
-        return code
-    }
-
-    fun setCode(code: String?) {
-        this.code = code
-    }
+    private var body: ArrayList<Body>? = null
 
     fun getSuccess(): Boolean? {
         return success
@@ -39,6 +31,14 @@ class ForgotPasswordResponse
 
     fun setSuccess(success: Boolean?) {
         this.success = success
+    }
+
+    fun getCode(): Int? {
+        return code
+    }
+
+    fun setCode(code: Int?) {
+        this.code = code
     }
 
     fun getMessage(): String? {
@@ -49,15 +49,22 @@ class ForgotPasswordResponse
         this.message = message
     }
 
-    fun getBody(): Body? {
+    fun getBody(): ArrayList<Body>? {
         return body
     }
 
-    fun setBody(body: Body?) {
+    fun setBody(body: ArrayList<Body>?) {
         this.body = body
     }
-    
+
     class Body {
-       
+        @SerializedName("id")
+        @Expose
+        var id: Int? = null
+
+        @SerializedName("name")
+        @Expose
+        var name: String? = null
+
     }
 }

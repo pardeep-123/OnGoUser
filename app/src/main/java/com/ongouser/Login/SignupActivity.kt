@@ -8,7 +8,6 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
-import com.ongouser.Helper.image
 import com.ongouser.R
 import com.ongouser.base.BaseActivity
 import com.ongouser.manager.restApi.RestObservable
@@ -20,7 +19,6 @@ import com.ongouser.utils.others.SharedPrefUtil
 import com.ongouser.viewmodel.AuthViewModel
 import com.rilixtech.widget.countrycodepicker.Country
 import com.rilixtech.widget.countrycodepicker.CountryCodePicker
-import com.trutraits.pojo.AuthenticationResponse
 import com.yanzhenjie.album.Album
 import com.yanzhenjie.album.AlbumFile
 import com.yanzhenjie.album.api.widget.Widget

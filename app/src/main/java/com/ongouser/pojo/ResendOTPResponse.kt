@@ -1,4 +1,4 @@
-package com.trutraits.pojo
+package com.ongouser.pojo
 
 import com.google.gson.annotations.Expose
 

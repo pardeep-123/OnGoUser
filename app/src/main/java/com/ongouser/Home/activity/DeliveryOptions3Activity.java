@@ -1,4 +1,4 @@
-package com.ongouser.Home;
+package com.ongouser.Home.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.ongouser.Home.DeliveryOptions3Adapter;
 import com.ongouser.Login.LoginActivity;
 import com.ongouser.R;
 

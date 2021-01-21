@@ -1,8 +1,11 @@
 package com.ongouser.Login
 
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
 
 import android.view.View
+import androidx.core.text.HtmlCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.ongouser.R
@@ -12,15 +15,15 @@ import com.ongouser.manager.restApi.Status
 import com.ongouser.pojo.TermsConditionsResponse
 import com.ongouser.utils.others.CommonMethods
 import com.ongouser.utils.others.Constants
-import com.ongouser.viewmodel.SettingsViewModel
+import com.ongouser.viewmodel.MyAccountViewModel
 import kotlinx.android.synthetic.main.activity_terms.*
 
 
 class TermsConditionsActivity : BaseActivity(), View.OnClickListener, Observer<RestObservable> {
 
     private lateinit var mContext: TermsConditionsActivity
-    private val viewModel: SettingsViewModel
-            by lazy { ViewModelProviders.of(this).get(SettingsViewModel::class.java) }
+    private val viewModel: MyAccountViewModel
+            by lazy { ViewModelProviders.of(this).get(MyAccountViewModel::class.java) }
 
     override fun getContentId(): Int {
         return R.layout.activity_terms
@@ -58,9 +61,13 @@ class TermsConditionsActivity : BaseActivity(), View.OnClickListener, Observer<R
                 if (it.data is TermsConditionsResponse) {
                     val termsConditionsResponse: TermsConditionsResponse = it.data
                     if (termsConditionsResponse.getCode()!!.equals(Constants.success_code)) {
-                        tv_terms.setText(termsConditionsResponse.getBody()!!.content)
 
-                    }else {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            tv_terms.setText(Html.fromHtml(termsConditionsResponse.getBody().content, HtmlCompat.FROM_HTML_MODE_LEGACY ));
+                        } else {
+                            tv_terms.setText(Html.fromHtml(termsConditionsResponse.getBody().content));
+                        }
+                       }else {
                         CommonMethods.AlertErrorMessage(mContext, termsConditionsResponse.getMessage())
                     }
 

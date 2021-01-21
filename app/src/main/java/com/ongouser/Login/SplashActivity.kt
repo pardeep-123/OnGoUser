@@ -145,7 +145,7 @@ class SplashActivity : BaseActivity() {
                 startActivity(intent)
                 finishAffinity()
 
-            } else if (SharedPrefUtil.getInstance().isLogin==true) {
+            } else if (SharedPrefUtil.getInstance().isLogin == true) {
                 val intent = Intent(mContext, HomeActivity::class.java)
                 startActivity(intent)
                 finishAffinity()
@@ -184,9 +184,6 @@ class SplashActivity : BaseActivity() {
                 // Log.d(TAG, msg)
                 // Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
             })
-
-
-
 
     }
 

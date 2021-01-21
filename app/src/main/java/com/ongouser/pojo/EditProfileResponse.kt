@@ -1,4 +1,4 @@
-package com.trutraits.pojo
+package com.ongouser.pojo
 
 import com.google.gson.annotations.Expose
 
@@ -9,13 +9,13 @@ import com.google.gson.annotations.SerializedName
 
 class EditProfileResponse
 {
-    @SerializedName("code")
-    @Expose
-    private var code: Int? = null
-
     @SerializedName("success")
     @Expose
     private var success: Boolean? = null
+
+    @SerializedName("code")
+    @Expose
+    private var code: Int? = null
 
     @SerializedName("message")
     @Expose
@@ -25,20 +25,20 @@ class EditProfileResponse
     @Expose
     private var body: Body? = null
 
-    fun getCode(): Int? {
-        return code
-    }
-
-    fun setCode(code: Int?) {
-        this.code = code
-    }
-
     fun getSuccess(): Boolean? {
         return success
     }
 
     fun setSuccess(success: Boolean?) {
         this.success = success
+    }
+
+    fun getCode(): Int? {
+        return code
+    }
+
+    fun setCode(code: Int?) {
+        this.code = code
     }
 
     fun getMessage(): String? {
@@ -60,59 +60,83 @@ class EditProfileResponse
     class Body {
         @SerializedName("id")
         @Expose
-        var id: String? = null
+        var id: Int? = null
 
-        @SerializedName("name")
+        @SerializedName("role")
         @Expose
-        var name: String? = null
+        var role: Int? = null
+
+        @SerializedName("verified")
+        @Expose
+        var verified: Int? = null
+
+        @SerializedName("status")
+        @Expose
+        var status: Int? = null
+
+        @SerializedName("username")
+        @Expose
+        var username: String? = null
 
         @SerializedName("email")
         @Expose
         var email: String? = null
 
-        @SerializedName("age")
+        @SerializedName("countryCode")
         @Expose
-        var age: String? = null
-
-        @SerializedName("image")
-        @Expose
-        var image: String? = null
-
-        @SerializedName("image_name")
-        @Expose
-        var imageName: String? = null
-
-        @SerializedName("country")
-        @Expose
-        var country: String? = null
-
-        @SerializedName("authorization_key")
-        @Expose
-        var authorizationKey: String? = null
-
-        @SerializedName("notifications_status")
-        @Expose
-        var notificationsStatus: String? = null
-
-        @SerializedName("bio")
-        @Expose
-        var bio: String? = null
+        var countryCode: String? = null
 
         @SerializedName("phone")
         @Expose
         var phone: String? = null
 
-        @SerializedName("device_token")
+        @SerializedName("forgotPasswordHash")
         @Expose
-        var deviceToken: String? = null
+        var forgotPasswordHash: String? = null
 
-        @SerializedName("device_type")
+        @SerializedName("facebookId")
         @Expose
-        var deviceType: String? = null
+        var facebookId: String? = null
 
-        @SerializedName("country_code")
+        @SerializedName("googleId")
         @Expose
-        var countryCode: String? = null
+        var googleId: String? = null
+
+        @SerializedName("otp")
+        @Expose
+        var otp: Int? = null
+
+        @SerializedName("created")
+        @Expose
+        var created: Int? = null
+
+        @SerializedName("updated")
+        @Expose
+        var updated: Int? = null
+
+        @SerializedName("createdAt")
+        @Expose
+        var createdAt: String? = null
+
+        @SerializedName("updatedAt")
+        @Expose
+        var updatedAt: String? = null
+
+        @SerializedName("name")
+        @Expose
+        var name: String? = null
+
+        @SerializedName("image")
+        @Expose
+        var image: String? = null
+
+        @SerializedName("userId")
+        @Expose
+        var userId: Int? = null
+
+        @SerializedName("token")
+        @Expose
+        var token: String? = null
 
     }
 

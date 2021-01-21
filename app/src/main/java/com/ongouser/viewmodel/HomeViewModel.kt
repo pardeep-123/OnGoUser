@@ -4,6 +4,7 @@ import android.app.Activity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ongouser.manager.restApi.RestObservable
+import com.ongouser.pojo.EditProfileResponse
 
 import com.ongouser.utils.others.MyApplication
 import com.ongouser.utils.others.ValidationsClass
@@ -19,21 +20,9 @@ class HomeViewModel :ViewModel() {
     val restApiInterface = MyApplication.getnstance().provideAuthservice()
     var mResponse: MutableLiveData<RestObservable> = MutableLiveData()
 
-/*
-    fun getHomeTraits(activity: Activity, showLoader:Boolean) {
-        restApiInterface.getHomeTraits()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
-            .subscribe(
-                { mResponse.value = RestObservable.success(it) },
-                { mResponse.value = RestObservable.error(activity,it) }
-            )
-    }
-*/
 
-    fun getProfile(activity: Activity, showLoader:Boolean, map: HashMap<String, String>) {
-        restApiInterface.getProfile(map)
+    fun getHomeListing(activity: Activity, showLoader:Boolean, map: HashMap<String, String>) {
+        restApiInterface.homeListing(map)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
@@ -43,35 +32,28 @@ class HomeViewModel :ViewModel() {
             )
     }
 
-
-
-/*
-    fun editProfile(
-        activity: Activity, showLoader: Boolean,
-        map: HashMap<String, RequestBody>,
-        mImage: String,
-        mValidationClass: ValidationsClass
-    ) {
-        lateinit var profileImageFileBody: MultipartBody.Part
-        var updateProfile: Observable<EditProfileResponse>? = null
-        if (!mValidationClass.checkStringNull(mImage)) {
-            val file = File(mImage)
-            profileImageFileBody = mValidationClass.prepareFilePart("image", file)
-            updateProfile =  restApiInterface.editProfile(map,profileImageFileBody)
-        }else
-        {
-            updateProfile =  restApiInterface.updateProfileWithoutImage(map)
-        }
-        updateProfile!!.subscribeOn(Schedulers.io())
+    fun getCategoryListing(activity: Activity, showLoader:Boolean, map: HashMap<String, String>) {
+        restApiInterface.categoryListing(map)
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { mResponse.value = RestObservable.loading(activity, showLoader) }
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
             .subscribe(
                 { mResponse.value = RestObservable.success(it) },
-                { mResponse.value = RestObservable.error(activity, it) }
+                { mResponse.value = RestObservable.error(activity,it) }
             )
     }
-*/
 
+
+    fun getProfile(activity: Activity, showLoader:Boolean) {
+        restApiInterface.getProfile()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity,it) }
+            )
+    }
 
 
 /*
@@ -87,16 +69,6 @@ class HomeViewModel :ViewModel() {
     }
 */
 
-    fun logoutApi(activity: Activity, showLoader:Boolean) {
-        restApiInterface.getLogout()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
-            .subscribe(
-                { mResponse.value = RestObservable.success(it) },
-                { mResponse.value = RestObservable.error(activity,it) }
-            )
-    }
 
 
 }

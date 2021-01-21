@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ongouser.Home.DeliveryOptions3Activity;
+import com.ongouser.Home.activity.DeliveryOptions3Activity;
 import com.ongouser.R;
 
 public class DeliveryOptions2Activity extends AppCompatActivity {

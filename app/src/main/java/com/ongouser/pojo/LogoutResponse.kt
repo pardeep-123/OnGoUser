@@ -1,4 +1,4 @@
-package com.trutraits.pojo
+package com.ongouser.pojo
 
 import com.google.gson.annotations.Expose
 
@@ -9,13 +9,13 @@ import com.google.gson.annotations.SerializedName
 
 class LogoutResponse
 {
-    @SerializedName("code")
-    @Expose
-    private var code: Int? = null
-
     @SerializedName("success")
     @Expose
     private var success: Boolean? = null
+
+    @SerializedName("code")
+    @Expose
+    private var code: Int? = null
 
     @SerializedName("message")
     @Expose
@@ -25,20 +25,20 @@ class LogoutResponse
     @Expose
     private var body: Body? = null
 
-    fun getCode(): Int? {
-        return code
-    }
-
-    fun setCode(code: Int?) {
-        this.code = code
-    }
-
     fun getSuccess(): Boolean? {
         return success
     }
 
     fun setSuccess(success: Boolean?) {
         this.success = success
+    }
+
+    fun getCode(): Int? {
+        return code
+    }
+
+    fun setCode(code: Int?) {
+        this.code = code
     }
 
     fun getMessage(): String? {
@@ -57,7 +57,7 @@ class LogoutResponse
         this.body = body
     }
 
-    public class Body {
+     class Body {
 
 
     }

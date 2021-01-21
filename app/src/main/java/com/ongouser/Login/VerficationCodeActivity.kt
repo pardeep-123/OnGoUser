@@ -16,6 +16,7 @@ import com.ongouser.manager.restApi.Status
 import com.ongouser.pojo.TermsConditionsResponse
 import com.ongouser.utils.others.CommonMethods
 import com.ongouser.utils.others.Constants
+import com.ongouser.utils.others.SharedPrefUtil
 import com.ongouser.viewmodel.AuthViewModel
 import com.trutraits.pojo.ResendOTPResponse
 import com.trutraits.pojo.VerifyOTPResponse
@@ -89,7 +90,7 @@ class VerficationCodeActivity : BaseActivity(), TextWatcher, View.OnClickListene
     }
 
     override fun afterTextChanged(editable: Editable) {
-/*
+
         if (editable.length == 1) {
             //  tv_Remaining_time.setVisibility(View.GONE);
             if (editTextone.length() == 1) {
@@ -113,16 +114,15 @@ class VerficationCodeActivity : BaseActivity(), TextWatcher, View.OnClickListene
                 editTextone.requestFocus()
             }
         } else {
-            completeOTP = "1111"
-*/
-/*
-            completeOTP= editTextone.text.toString().trim()+ editTexttwo.text.toString().trim()+
-                    editTextthree.text.toString().trim()+editTextfour.text.toString().trim()
-*//*
+       //     completeOTP = "1111"
 
+
+          /*  completeOTP= editTextone.text.toString().trim()+ editTexttwo.text.toString().trim()+
+                    editTextthree.text.toString().trim()+editTextfour.text.toString().trim()
+*/
 
         }
-*/
+
     }
 
 
@@ -135,8 +135,8 @@ class VerficationCodeActivity : BaseActivity(), TextWatcher, View.OnClickListene
                 resendOTPApi()
             }
             R.id.btnSubmit -> {
-                if (!editTextone.text.toString().trim().isEmpty() && !editTextone.text.toString().trim().isEmpty()
-                        && !editTextone.text.toString().trim().isEmpty() && !editTextone.text.toString().trim().isEmpty()) {
+                if (!editTextone.text.toString().trim().isEmpty() && !editTexttwo.text.toString().trim().isEmpty()
+                        && !editTextthree.text.toString().trim().isEmpty() && !editTextfour.text.toString().trim().isEmpty()) {
                     completeOTP = "1111"
                     verifyOTPApi()
                 } else {
@@ -158,6 +158,7 @@ class VerficationCodeActivity : BaseActivity(), TextWatcher, View.OnClickListene
                         val intent = Intent(this, HomeActivity::class.java)
                         startActivity(intent)
                         finishAffinity()
+                        SharedPrefUtil.getInstance().isLogin = true
 
                     } else {
                         CommonMethods.AlertErrorMessage(mContext, verifyOTPResponse.getMessage())
@@ -169,8 +170,6 @@ class VerficationCodeActivity : BaseActivity(), TextWatcher, View.OnClickListene
                     val resendOTPResponse: ResendOTPResponse = it.data
                     if (resendOTPResponse.getCode()!!.equals(Constants.success_code)) {
                          showSuccessToast(mContext, resendOTPResponse.getMessage()!!)
-                        val intent = Intent(this, HomeActivity::class.java)
-                        startActivity(intent)
 
                     } else {
                         CommonMethods.AlertErrorMessage(mContext, resendOTPResponse.getMessage())

@@ -2,8 +2,9 @@ package com.ongouser.manager.restApi
 
 import com.google.gson.JsonObject
 import com.ongouser.pojo.*
-import com.trutraits.pojo.*
+
 import com.ongouser.utils.others.Constants
+
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -22,55 +23,61 @@ interface RestApiInterface {
     @FormUrlEncoded
     @PUT(Constants.Login)
     fun login(
-    @FieldMap map: HashMap<String, String>
+            @FieldMap map: HashMap<String, String>
     ): Observable<LoginResponse>
 
     @FormUrlEncoded
     @PUT(Constants.Logout)
-    fun getLogout():
+    fun getLogout(
+            @FieldMap map: HashMap<String, String>):
             Observable<LogoutResponse>
 
     @FormUrlEncoded
     @POST(Constants.SocialLogin)
     fun socialLogin(
-    @FieldMap map: HashMap<String, String>
+            @FieldMap map: HashMap<String, String>
     ): Observable<SocialLoginResponse>
 
     @FormUrlEncoded
-    @POST(Constants.ForgotPassword)
+    @PUT(Constants.ForgotPassword)
     fun forgotPassword(
-        @FieldMap map: HashMap<String, String>
+            @FieldMap map: HashMap<String, String>
     ): Observable<ForgotPasswordResponse>
 
 
     @FormUrlEncoded
-    @POST(Constants.ChangePassword)
+    @PUT(Constants.ChangePassword)
     fun changePassword(
-        @FieldMap map: HashMap<String, String>
+            @FieldMap map: HashMap<String, String>
     ): Observable<ChangePasswordResponse>
 
     @FormUrlEncoded
     @PUT(Constants.VerifyOtp)
     fun verifyOtp(
-        @FieldMap map: HashMap<String, String>
+            @FieldMap map: HashMap<String, String>
     ): Observable<VerifyOTPResponse>
 
     @FormUrlEncoded
     @PUT(Constants.ResendOtp)
     fun resendOtp(
-        @FieldMap map: HashMap<String, String>
+            @FieldMap map: HashMap<String, String>
     ): Observable<ResendOTPResponse>
 
-    @FormUrlEncoded
-    @POST(Constants.GetProfile)
-    fun getProfile(
-        @FieldMap map: HashMap<String, String>
-    ): Observable<GetProfileResponse>
+
+    @GET(Constants.GetProfile)
+    fun getProfile():
+            Observable<GetProfileResponse>
 
     @Multipart
-    @POST(Constants.UpdateProfile)
+    @PUT(Constants.EditProfile)
     fun editProfile(
-        @PartMap map: HashMap<String, RequestBody>, @Part image: MultipartBody.Part
+            @PartMap map: HashMap<String, RequestBody>, @Part image: MultipartBody.Part
+    ): Observable<EditProfileResponse>
+
+    @Multipart
+    @PUT(Constants.EditProfile)
+    fun updateProfileWithoutImage(
+            @PartMap map: HashMap<String, RequestBody>
     ): Observable<EditProfileResponse>
 
     @GET(Constants.TermsCondition)
@@ -84,6 +91,16 @@ interface RestApiInterface {
     @GET(Constants.AboutUs)
     fun aboutUs():
             Observable<AboutUsResponse>
+
+    @FormUrlEncoded
+    @POST(Constants.HomeListing)
+    fun homeListing(@FieldMap map: HashMap<String, String>):
+            Observable<HomeListResponse>
+
+    @FormUrlEncoded
+    @POST(Constants.CategoryListing)
+    fun categoryListing(@FieldMap map: HashMap<String, String>):
+            Observable<CategoryListingResponse>
 
 
 /*
@@ -107,8 +124,6 @@ interface RestApiInterface {
 */
 
 
-
-
 /*
     @GET(Constants.GetCardsList)
     fun getCardList():
@@ -130,10 +145,6 @@ interface RestApiInterface {
     fun getHomeTraits():
             Observable<HomeListResponse>
 
-    @FormUrlEncoded
-    @POST(Constants.Home)
-    fun getHomeTraits(@FieldMap map: HashMap<String, String>):
-            Observable<HomeListResponse>
 
     @GET(Constants.GetFAQList)
     fun getFAQList():
@@ -157,7 +168,6 @@ interface RestApiInterface {
         @FieldMap map: HashMap<String, String>):
             Observable<GetAllConnectionsListResponse>
 */
-
 
 
     /*

@@ -16,8 +16,8 @@ import com.ongouser.Home.fragment.CategoriesFragment;
 import com.ongouser.Home.fragment.Create_listfrag;
 import com.ongouser.Home.fragment.Favorites_frag;
 import com.ongouser.Home.fragment.HomeFragment;
-import com.ongouser.R;
 import com.ongouser.Home.fragment.SettingsFragment;
+import com.ongouser.R;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
     Context mContaxt;

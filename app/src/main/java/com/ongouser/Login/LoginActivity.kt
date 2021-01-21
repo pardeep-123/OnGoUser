@@ -17,7 +17,7 @@ import com.facebook.FacebookException
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.InstanceIdResult
-import com.ongouser.Home.ForgotPasswordActivity
+
 import com.ongouser.Home.HomeActivity
 
 import com.ongouser.R
@@ -69,6 +69,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
         tvCreateAccount.setOnClickListener(mContext)
         btnSignin.setOnClickListener(mContext)
 
+/*
         iv_fb.setOnClickListener {
             if (MyApplication.instance!!.checkIfHasNetwork()) {
                 isFb = "fb"
@@ -77,7 +78,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
                 showAlerterRed(getString(R.string.no_internet))
             }
         }
+*/
 
+/*
         iv_google.setOnClickListener {
             if (MyApplication.instance!!.checkIfHasNetwork()) {
                 isFb = "google"
@@ -86,6 +89,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
                 showAlerterRed(getString(R.string.no_internet))
             }
         }
+*/
 
         googleHelper = GoogleHelper(mContext, object : GoogleHelper.GoogleHelperCallback {
             override fun onSuccessGoogle(account: GoogleSignInAccount) {
@@ -123,9 +127,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
                         } else {
                             socialLoginApi()
                         }
-
-
-
 
                         //   viewModel!!.socialLoginApi(socialId,socialEmail,socialType,mContext)
 
@@ -258,41 +259,43 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
                     val registerResponse: LoginResponse = it.data
                     if (registerResponse.getCode() == Constants.success_code) {
 
-/*
-                        if (registerResponse.getBody()!!.isEmailConfirmed ==1){
-                            MyApplication.getnstance()
+                        MyApplication.getnstance()
                                 .setString(
-                                    Constants.AuthKey,
-                                    registerResponse.getBody()!!.authorizationKey!!
+                                        Constants.AuthKey,
+                                        registerResponse.getBody()!!.token!!
                                 )
-                            MyApplication.instance!!.setString(
+                        MyApplication.instance!!.setString(
                                 Constants.UserData,
                                 modelToString(registerResponse.getBody()!!)
-                            )
+                        )
+
+                        SharedPrefUtil.getInstance()
+                                .saveAuthToken(registerResponse.getBody()!!.token)
+                        SharedPrefUtil.getInstance()
+                                .saveImage(registerResponse.getBody()!!.image)
+                        SharedPrefUtil.getInstance().saveUserId(registerResponse.getBody()!!.id.toString())
+                        SharedPrefUtil.getInstance().saveEmail(registerResponse.getBody()!!.email)
+                        SharedPrefUtil.getInstance().saveName(registerResponse.getBody()!!.name)
+                        SharedPrefUtil.getInstance()
+                                .saveDeviceToken(registerResponse.getBody()!!.deviceToken)
+
+                        if (registerResponse.getBody()!!.verified ==0){
+                            val intent = Intent(mContext, VerficationCodeActivity::class.java)
+                            startActivity(intent)
+                        }else{
 
                             SharedPrefUtil.getInstance().isLogin = true
-                            SharedPrefUtil.getInstance()
-                                .saveAuthToken(registerResponse.getBody()!!.authorizationKey)
-                            SharedPrefUtil.getInstance()
-                                .saveImage(registerResponse.getBody()!!.imageName)
-                            SharedPrefUtil.getInstance().saveUserId(registerResponse.getBody()!!.id)
-                            SharedPrefUtil.getInstance().saveEmail(registerResponse.getBody()!!.email)
-                            SharedPrefUtil.getInstance().saveName(registerResponse.getBody()!!.name)
-                            SharedPrefUtil.getInstance()
-                                .savePushNotificationStatus(registerResponse.getBody()!!.notificationsStatus)
 
-                            val intent = Intent(mContext, MainActivity::class.java)
+                            val intent = Intent(mContext, HomeActivity::class.java)
                             startActivity(intent)
                             finishAffinity()
-
-                        }else{
-                         emailVerificationDialogMethod()
                         }
-*/
+
                       }
 
                 }
 
+/*
                 if (it.data is SocialLoginResponse) {
                     val socialLoginResponse: SocialLoginResponse = it.data
                     if (socialLoginResponse.getCode()!!.equals(Constants.success_code)) {
@@ -339,6 +342,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
                         CommonMethods.AlertErrorMessage(mContext, socialLoginResponse.getMessage())
                     }
                 }
+*/
             }
             it.status == Status.ERROR -> {
                 if (it.data != null) {
