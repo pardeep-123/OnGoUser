@@ -21,7 +21,7 @@ import com.ongouser.utils.others.Constants
 import com.ongouser.utils.others.MyApplication
 import com.ongouser.utils.others.SharedPrefUtil
 import com.ongouser.viewmodel.MyAccountViewModel
-import com.trutraits.pojo.LogoutResponse
+import com.ongouser.pojo.LogoutResponse
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.alert_logout.*
 

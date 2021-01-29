@@ -12,7 +12,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
     <ImageView
         android:id="@+id/ivBar"
         android:layout_width="wrap_content"
@@ -274,13 +273,14 @@
             android:id="@+id/ivOn"
             android:layout_width="@dimen/_12sdp"
             android:layout_height="@dimen/_12sdp"
-            android:src="@drawable/check_box_3"/>
+            android:visibility="gone"
+            android:src="@drawable/check_box_4"/>
         <ImageView
             android:id="@+id/ivOff"
             android:layout_width="@dimen/_12sdp"
             android:layout_height="@dimen/_12sdp"
-            android:src="@drawable/check_box_4"
-            android:visibility="gone"/>
+            android:src="@drawable/check_box_3"
+            />
     </LinearLayout>
     <TextView
         android:id="@+id/tvTerms"

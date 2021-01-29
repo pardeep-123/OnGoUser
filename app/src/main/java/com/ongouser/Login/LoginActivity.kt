@@ -31,11 +31,10 @@ import com.ongouser.utils.helperclasses.FacebookHelper.*
 import com.ongouser.utils.helperclasses.GoogleHelper
 import com.ongouser.utils.others.CommonMethods
 import com.ongouser.utils.others.Constants
-import com.ongouser.utils.others.Constants.Companion.SecurityKeyValue
 import com.ongouser.utils.others.MyApplication
 import com.ongouser.utils.others.SharedPrefUtil
 import com.ongouser.viewmodel.AuthViewModel
-import com.trutraits.pojo.LoginResponse
+import com.ongouser.pojo.LoginResponse
 import kotlinx.android.synthetic.main.activity_login.*
 
 

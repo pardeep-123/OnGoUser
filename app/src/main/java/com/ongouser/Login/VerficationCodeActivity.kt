@@ -13,17 +13,15 @@ import com.ongouser.R
 import com.ongouser.base.BaseActivity
 import com.ongouser.manager.restApi.RestObservable
 import com.ongouser.manager.restApi.Status
-import com.ongouser.pojo.TermsConditionsResponse
+
 import com.ongouser.utils.others.CommonMethods
 import com.ongouser.utils.others.Constants
 import com.ongouser.utils.others.SharedPrefUtil
 import com.ongouser.viewmodel.AuthViewModel
-import com.trutraits.pojo.ResendOTPResponse
-import com.trutraits.pojo.VerifyOTPResponse
-import kotlinx.android.synthetic.main.activity_create_account.*
+import com.ongouser.pojo.ResendOTPResponse
+import com.ongouser.pojo.VerifyOTPResponse
 import kotlinx.android.synthetic.main.activity_verfication_code.*
 import kotlinx.android.synthetic.main.activity_verfication_code.ivBack
-import okhttp3.RequestBody
 import java.util.HashMap
 
 

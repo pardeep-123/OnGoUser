@@ -14,7 +14,7 @@ class Constants {
         val UserData = "userData"
         val IsBusinessProfileAdded = "isBusinessAdded"
 
-        const val TYPE_USER = 0
+        const val TYPE_USER = "1"
         const val TYPE_FRIEND = 2
 
         const val Name = "name"

@@ -131,6 +131,7 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
             R.id.btnVerification -> {
                 if (isValid()) {
                     val bodyimage = mValidationClass.prepareFilePart("image", File(mImagePath))
+                    val partRole = mValidationClass.createPartFromString(Constants.TYPE_USER)
                     val partEmail = mValidationClass.createPartFromString(et_email.text.toString().trim())
                     val partName = mValidationClass.createPartFromString(et_name.text.toString().trim())
                     val partCountryCode = mValidationClass.createPartFromString(countryCode)
@@ -144,6 +145,7 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
 
                     val map = HashMap<String, RequestBody>()
                     map.put("name", partName)
+                    map.put("role", partRole)
                     map.put("email", partEmail)
                     map.put("countryCode", partCountryCode)
                     map.put("phone", partPhoneNumber)
@@ -175,6 +177,9 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
             R.id.rlAdd -> {
                 mAlbumFiles = ArrayList()
                 selectAlbum()
+            }
+            R.id.ivBack -> {
+                onLeftIconClick()
             }
 
             R.id.ivOn -> {

@@ -34,7 +34,7 @@ import com.ongouser.utils.others.CommonMethods
 import com.ongouser.utils.others.Constants
 import com.ongouser.utils.others.MyApplication
 import com.ongouser.viewmodel.HomeViewModel
-import com.trutraits.pojo.GetProfileResponse
+import com.ongouser.pojo.GetProfileResponse
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 
