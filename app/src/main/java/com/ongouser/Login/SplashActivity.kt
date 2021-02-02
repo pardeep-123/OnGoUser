@@ -39,7 +39,6 @@ class SplashActivity : BaseActivity() {
     internal var editor: SharedPreferences.Editor? = null
     internal var isFirstTime = ""
 
-
     override fun getContentId(): Int {
         return R.layout.activity_main
     }
@@ -156,6 +155,7 @@ class SplashActivity : BaseActivity() {
 
             }
            Log.e("isLogin", SharedPrefUtil.getInstance().isLogin.toString())
+
         }
 
         handler.postDelayed(r, 2000)
