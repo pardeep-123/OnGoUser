@@ -32,8 +32,8 @@ public class Shop_productCategory extends AppCompatActivity {
         list.add("Grocery");
         list.add("Baking Needs");
         list.add("Bathroom");
-        list.add("Drinks & Bevrages");
-        list.add("Fruits & Vegitables");
+        list.add("Drinks & Beverages");
+        list.add("Fruits & Vegetables");
         list.add("Health & Beauty");
         list.add("Household Cleaning");
         list.add("Kitchen");

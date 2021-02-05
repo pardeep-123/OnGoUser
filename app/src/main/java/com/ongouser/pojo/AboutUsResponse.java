@@ -52,7 +52,6 @@ public class AboutUsResponse {
         this.body = body;
     }
 
-
     public class Body {
 
         @SerializedName("id")

@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.ongouser.Adapter.categoryapter;
 import com.ongouser.Adapter.created_productlist;
 import com.ongouser.R;
 

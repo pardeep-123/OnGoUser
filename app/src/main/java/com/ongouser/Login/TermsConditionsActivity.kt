@@ -42,6 +42,9 @@ class TermsConditionsActivity : BaseActivity(), View.OnClickListener, Observer<R
     }
 
     private fun termsConditionsApi() {
+        if (!mValidationClass.isNetworkConnected)
+            showAlerterRed(resources.getString(R.string.no_internet))
+        else
         viewModel.getTermsConditionsAPI(mContext, true)
         viewModel.mResponse.observe(this, mContext)
     }

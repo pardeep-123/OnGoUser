@@ -1,94 +1,78 @@
 package com.ongouser.pojo
 
 import com.google.gson.annotations.Expose
-
 import com.google.gson.annotations.SerializedName
 
 
-
-
-class HomeListResponse
+class HomeListingResponse
 {
     @SerializedName("success")
     @Expose
-    private var success: Boolean? = null
+    var success: Boolean? = null
 
     @SerializedName("code")
     @Expose
-    private var code: Int? = null
+    var code: Int? = null
 
     @SerializedName("message")
     @Expose
-    private var message: String? = null
+    var message: String? = null
 
     @SerializedName("body")
     @Expose
-    private var body: Body? = null
+    var body: Body? = null
 
-    fun getSuccess(): Boolean? {
-        return success
+
+    class Body {
+        @SerializedName("vendors")
+        @Expose
+        var vendors: ArrayList<Vendor>? = null
+
+        @SerializedName("products")
+        @Expose
+        var products: ArrayList<Product>? = null
+
+        @SerializedName("banners")
+        @Expose
+        var banners: ArrayList<Banner>? = null
+
     }
 
-    fun setSuccess(success: Boolean?) {
-        this.success = success
+    class Banner {
+        @SerializedName("id")
+        @Expose
+        var id: Int? = null
+
+        @SerializedName("status")
+        @Expose
+        var status: Int? = null
+
+        @SerializedName("image")
+        @Expose
+        var image: String? = null
+
+        @SerializedName("created")
+        @Expose
+        var created: Int? = null
+
+        @SerializedName("updated")
+        @Expose
+        var updated: Int? = null
+
+        @SerializedName("createdAt")
+        @Expose
+        var createdAt: String? = null
+
+        @SerializedName("updatedAt")
+        @Expose
+        var updatedAt: String? = null
+
     }
-
-    fun getCode(): Int? {
-        return code
-    }
-
-    fun setCode(code: Int?) {
-        this.code = code
-    }
-
-    fun getMessage(): String? {
-        return message
-    }
-
-    fun setMessage(message: String?) {
-        this.message = message
-    }
-
-    fun getBody(): Body? {
-        return body
-    }
-
-    fun setBody(body: Body?) {
-        this.body = body
-    }
-
-     class Body {
-         @SerializedName("vendors")
-         @Expose
-         private var vendors: List<Vendor>? = null
-
-         @SerializedName("products")
-         @Expose
-         private var products: List<Product>? = null
-
-         fun getVendors(): List<Vendor>? {
-             return vendors
-         }
-
-         fun setVendors(vendors: List<Vendor>?) {
-             this.vendors = vendors
-         }
-
-         fun getProducts(): List<Product>? {
-             return products
-         }
-
-         fun setProducts(products: List<Product>?) {
-             this.products = products
-         }
-
-
-     }
 
     class Product {
         @SerializedName("distance")
         @Expose
-        var distance: Double? = null
+        var distance: Float? = null
 
         @SerializedName("id")
         @Expose
@@ -215,7 +199,7 @@ class HomeListResponse
 
         @SerializedName("distance")
         @Expose
-        var distance: Double? = null
+        var distance: Float? = null
 
         @SerializedName("approvalStatus")
         @Expose
@@ -361,6 +345,26 @@ class HomeListResponse
         @Expose
         var bankAddress: String? = null
 
+        @SerializedName("isShopAdded")
+        @Expose
+        var isShopAdded: Int? = null
+
+        @SerializedName("isHomeDeliveryAdded")
+        @Expose
+        var isHomeDeliveryAdded: Int? = null
+
+        @SerializedName("isDeliveryOptionsAdded")
+        @Expose
+        var isDeliveryOptionsAdded: Int? = null
+
+        @SerializedName("isDeliveryDaysAdded")
+        @Expose
+        var isDeliveryDaysAdded: Int? = null
+
+        @SerializedName("isDeliveryChargesAdded")
+        @Expose
+        var isDeliveryChargesAdded: Int? = null
+
         @SerializedName("created")
         @Expose
         var created: Int? = null
@@ -386,6 +390,5 @@ class HomeListResponse
         var vendorDetailId: Int? = null
 
     }
-
 
 }

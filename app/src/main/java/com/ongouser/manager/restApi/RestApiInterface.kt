@@ -95,12 +95,17 @@ interface RestApiInterface {
     @FormUrlEncoded
     @POST(Constants.HomeListing)
     fun homeListing(@FieldMap map: HashMap<String, String>):
-            Observable<HomeListResponse>
+            Observable<HomeListingResponse>
 
     @FormUrlEncoded
     @POST(Constants.CategoryListing)
     fun categoryListing(@FieldMap map: HashMap<String, String>):
             Observable<CategoryListingResponse>
+
+    @FormUrlEncoded
+    @POST(Constants.NearbyVendors)
+    fun nearbyVendorsList(@FieldMap map: HashMap<String, String>):
+            Observable<NearbyVendorResponse>
 
 
 /*

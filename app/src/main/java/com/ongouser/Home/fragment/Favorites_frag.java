@@ -14,9 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.ongouser.Adapter.FavouritesAdapter;
-import com.ongouser.Adapter.categoryapter;
 import com.ongouser.Home.activity.CartActivity;
-import com.ongouser.Home.activity.Product_detailActivity;
 import com.ongouser.R;
 
 import java.util.ArrayList;

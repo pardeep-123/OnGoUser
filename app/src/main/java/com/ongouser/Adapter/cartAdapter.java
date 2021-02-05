@@ -16,13 +16,11 @@ import com.ongouser.R;
 public class cartAdapter extends RecyclerView.Adapter<cartAdapter.RecyclerViewHolder> {
     Context context;
     LayoutInflater inflater;
-   RelativeLayout rl_list;
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
         public RecyclerViewHolder(View view) {
             super(view);
-
         }
     }
 
@@ -37,16 +35,18 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.RecyclerViewHo
         cartAdapter.RecyclerViewHolder viewHolder = new cartAdapter.RecyclerViewHolder(v);
         return viewHolder;
     }
+
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(context, Product_detailActivity.class);
+                Intent i = new Intent(context, Product_detailActivity.class);
                 context.startActivity(i);
             }
         });
     }
+
     @Override
     public int getItemCount() {
         return 3;

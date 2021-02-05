@@ -42,6 +42,7 @@ class Constants {
 
         const val HomeListing = BASE_URL + "homeListing"              // Home
         const val CategoryListing = BASE_URL + "categoryListing"
+        const val NearbyVendors = BASE_URL + "nearbyVendors"
         const val GetCardsList = BASE_URL + "get_cards_list"
 
         const val NotificationOnOff = BASE_URL + "notification_on_off"

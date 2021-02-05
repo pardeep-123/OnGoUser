@@ -2,7 +2,6 @@ package com.ongouser.Home.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.ongouser.Adapter.HomeshopadViewallapter;
-import com.ongouser.Adapter.Homeshopadapter;
 import com.ongouser.R;
 
 public class ViewAllactivity extends AppCompatActivity {

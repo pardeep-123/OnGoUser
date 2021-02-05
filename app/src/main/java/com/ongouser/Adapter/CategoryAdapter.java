@@ -10,15 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.ongouser.Home.activity.Shop_category_products;
 import com.ongouser.Home.activity.ViewAllactivity;
 import com.ongouser.R;
 import com.ongouser.pojo.CategoryListingResponse;
 
 import java.util.ArrayList;
 
-public class categoryapter extends RecyclerView.Adapter<categoryapter.RecyclerViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.RecyclerViewHolder> {
     Context context;
     LayoutInflater inflater;
 
@@ -34,21 +32,21 @@ public class categoryapter extends RecyclerView.Adapter<categoryapter.RecyclerVi
 
     ArrayList<CategoryListingResponse.Body> list;
 
-    public categoryapter(Context context, ArrayList<CategoryListingResponse.Body> list) {
+    public CategoryAdapter(Context context, ArrayList<CategoryListingResponse.Body> list) {
         this.context = context;
         this.list = list;
         inflater = LayoutInflater.from(context);
     }
 
     @Override
-    public categoryapter.RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CategoryAdapter.RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = inflater.inflate(R.layout.res_shopcategory, parent, false);
-        categoryapter.RecyclerViewHolder viewHolder = new categoryapter.RecyclerViewHolder(v);
+        CategoryAdapter.RecyclerViewHolder viewHolder = new CategoryAdapter.RecyclerViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final categoryapter.RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CategoryAdapter.RecyclerViewHolder holder, int position) {
         holder.tvName.setText(list.get(position).getName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

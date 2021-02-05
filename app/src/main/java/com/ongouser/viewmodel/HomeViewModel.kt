@@ -43,6 +43,17 @@ class HomeViewModel :ViewModel() {
             )
     }
 
+    fun nearbyVendorsList(activity: Activity, showLoader:Boolean, map: HashMap<String, String>) {
+        restApiInterface.nearbyVendorsList(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity,it) }
+            )
+    }
+
 
     fun getProfile(activity: Activity, showLoader:Boolean) {
         restApiInterface.getProfile()

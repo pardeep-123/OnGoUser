@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/iv_shop_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/image3"
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Way Groceries"
-        android:layout_below="@+id/image"
+        android:layout_below="@+id/iv_shop_img"
         android:textSize="@dimen/_11sdp"
         android:paddingLeft="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_2sdp">

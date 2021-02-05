@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ongouser.Adapter.categoryapter
+import com.ongouser.Adapter.CategoryAdapter
 import com.ongouser.Home.HomeActivity
 import com.ongouser.R
 import com.ongouser.base.BaseFragment
@@ -30,7 +30,7 @@ class CategoriesFragment : BaseFragment(), View.OnClickListener, Observer<RestOb
 
     lateinit var back: ImageView
     lateinit var v: View
-    lateinit var rec_category: RecyclerView
+    lateinit var rvCategory: RecyclerView
 
     companion object {
 
@@ -46,7 +46,7 @@ class CategoriesFragment : BaseFragment(), View.OnClickListener, Observer<RestOb
     ): View? {
         v = inflater.inflate(R.layout.fragment_categories, container, false)
 
-        rec_category = v.findViewById<RecyclerView>(R.id.rec_category)
+        rvCategory = v.findViewById<RecyclerView>(R.id.rec_category)
         back = v.findViewById(R.id.back)
 
         back.setOnClickListener(this)
@@ -83,9 +83,9 @@ class CategoriesFragment : BaseFragment(), View.OnClickListener, Observer<RestOb
     }
 
     fun setCategoryAdapter(categoryList: ArrayList<CategoryListingResponse.Body>?) {
-        val shop = categoryapter(activity, categoryList)
-        rec_category.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-        rec_category.adapter = shop
+        val shop = CategoryAdapter(activity, categoryList)
+        rvCategory.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+        rvCategory.adapter = shop
 
     }
 

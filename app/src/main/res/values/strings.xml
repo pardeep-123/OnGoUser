@@ -201,5 +201,6 @@
     <string name="enter_confirm_password">Enter confirm password</string>
     <string name="enter_password">Enter Password</string>
     <string name="otp_invalid_message">Please enter a valid OTP</string>
+    <string name="no_store_found">No store found</string>
 
 </resources>
