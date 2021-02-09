@@ -54,9 +54,86 @@ class HomeViewModel :ViewModel() {
             )
     }
 
+    fun addCardAPI(activity: Activity, showLoader:Boolean, map: HashMap<String, String>) {
+        restApiInterface.addCard(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity,it) }
+            )
+    }
+
+    fun addUserAddressAPI(activity: Activity, showLoader:Boolean, map: HashMap<String, String>) {
+        restApiInterface.addUserAddress(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity,it) }
+            )
+    }
+
+    fun updateUserAddressAPI(activity: Activity, showLoader:Boolean, map: HashMap<String, String>) {
+        restApiInterface.updateUserAddress(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity,it) }
+            )
+    }
+
+    fun deleteUserAddressAPI(activity: Activity, showLoader:Boolean, map: HashMap<String, String>) {
+        restApiInterface.deleteUserAddress(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity,it) }
+            )
+    }
+
+    fun deleteCardAPI(activity: Activity, showLoader:Boolean, map: HashMap<String, String>) {
+        restApiInterface.deleteCard(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity,it) }
+            )
+    }
+
 
     fun getProfile(activity: Activity, showLoader:Boolean) {
         restApiInterface.getProfile()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity,it) }
+            )
+    }
+
+    fun allCardsAPI(activity: Activity, showLoader:Boolean) {
+        restApiInterface.allCards()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity,it) }
+            )
+    }
+
+    fun getUserAddressListing(activity: Activity, showLoader:Boolean) {
+        restApiInterface.getUserAddressListing()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { mResponse.value = RestObservable.loading(activity,showLoader) }

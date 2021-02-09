@@ -8,7 +8,7 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.ongouser.Home.HomeActivity
+import com.ongouser.home.HomeActivity
 import com.ongouser.R
 import com.ongouser.base.BaseActivity
 import com.ongouser.manager.restApi.RestObservable

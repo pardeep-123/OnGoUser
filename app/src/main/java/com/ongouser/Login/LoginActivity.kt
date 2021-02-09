@@ -2,15 +2,10 @@ package com.ongouser.Login
 
 import android.app.Dialog
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.facebook.FacebookException
@@ -18,14 +13,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.InstanceIdResult
 
-import com.ongouser.Home.HomeActivity
+import com.ongouser.home.HomeActivity
 
 import com.ongouser.R
 import com.ongouser.base.BaseActivity
 import com.ongouser.manager.restApi.RestObservable
 import com.ongouser.manager.restApi.Status
 
-import com.ongouser.pojo.SocialLoginResponse
 import com.ongouser.utils.helperclasses.FacebookHelper
 import com.ongouser.utils.helperclasses.FacebookHelper.*
 import com.ongouser.utils.helperclasses.GoogleHelper

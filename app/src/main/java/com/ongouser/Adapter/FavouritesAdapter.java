@@ -1,7 +1,6 @@
 package com.ongouser.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.Home.activity.Product_detailActivity;
 import com.ongouser.R;
 
 public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.RecyclerViewHolder> {

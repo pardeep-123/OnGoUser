@@ -44,12 +44,42 @@ interface RestApiInterface {
             @FieldMap map: HashMap<String, String>
     ): Observable<ForgotPasswordResponse>
 
+    @FormUrlEncoded
+    @DELETE(Constants.DeleteUserAddress)
+    fun deleteUserAddress(
+            @FieldMap map: HashMap<String, String>
+    ): Observable<ForgotPasswordResponse>
+
+    @FormUrlEncoded
+    @DELETE(Constants.DeleteCard)
+    fun deleteCard(
+            @FieldMap map: HashMap<String, String>
+    ): Observable<ForgotPasswordResponse>
+
 
     @FormUrlEncoded
     @PUT(Constants.ChangePassword)
     fun changePassword(
             @FieldMap map: HashMap<String, String>
     ): Observable<ChangePasswordResponse>
+
+    @FormUrlEncoded
+    @POST(Constants.AddCard)
+    fun addCard(
+            @FieldMap map: HashMap<String, String>
+    ): Observable<AddCardResponse>
+
+    @FormUrlEncoded
+    @POST(Constants.AddUserAddress)
+    fun addUserAddress(
+            @FieldMap map: HashMap<String, String>
+    ): Observable<AddAddressResponse>
+
+    @FormUrlEncoded
+    @PUT(Constants.UpdateUserAddress)
+    fun updateUserAddress(
+            @FieldMap map: HashMap<String, String>
+    ): Observable<UpdateAddressResponse>
 
     @FormUrlEncoded
     @PUT(Constants.VerifyOtp)
@@ -64,9 +94,17 @@ interface RestApiInterface {
     ): Observable<ResendOTPResponse>
 
 
+    @GET(Constants.UserAddressListing)
+    fun getUserAddressListing():
+            Observable<GetAddressListResponse>
+
     @GET(Constants.GetProfile)
     fun getProfile():
             Observable<GetProfileResponse>
+
+    @GET(Constants.AllCards)
+    fun allCards():
+            Observable<GetAddedCardListResponse>
 
     @Multipart
     @PUT(Constants.EditProfile)

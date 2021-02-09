@@ -10,8 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.Home.activity.ProductActivity;
-import com.ongouser.Home.activity.Productlisting;
+import com.ongouser.home.activity.Productlisting;
 import com.ongouser.R;
 
 import java.util.ArrayList;

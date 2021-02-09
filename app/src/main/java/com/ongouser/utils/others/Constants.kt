@@ -35,15 +35,22 @@ class Constants {
         const val GetProfile = BASE_URL + "getProfile"
         const val EditProfile = BASE_URL + "editProfile"
         const val ChangePassword = BASE_URL + "changePassword"
+        const val AddCard = BASE_URL + "addCard"
+        const val AddUserAddress = BASE_URL + "addUserAddress"
         const val VerifyOtp = BASE_URL + "verifyOtp"
         const val ResendOtp = BASE_URL + "resendOtp"
         const val AboutUs = BASE_URL + "aboutUs"
         const val PrivacyPolicy = BASE_URL + "privacyPolicy"
+        const val DeleteUserAddress = BASE_URL + "deleteUserAddress"
+        const val DeleteCard = BASE_URL + "deleteCard"
+        const val AllCards = BASE_URL + "allCards"
 
         const val HomeListing = BASE_URL + "homeListing"              // Home
         const val CategoryListing = BASE_URL + "categoryListing"
         const val NearbyVendors = BASE_URL + "nearbyVendors"
         const val GetCardsList = BASE_URL + "get_cards_list"
+        const val UserAddressListing = BASE_URL + "userAddressListing"
+        const val UpdateUserAddress = BASE_URL + "updateUserAddress"
 
         const val NotificationOnOff = BASE_URL + "notification_on_off"
         const val NotificationsList = BASE_URL + "notifications_list"

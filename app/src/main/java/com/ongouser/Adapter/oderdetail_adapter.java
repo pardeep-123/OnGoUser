@@ -10,10 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.Home.activity.ProductActivity;
+import com.ongouser.home.activity.ProductActivity;
 import com.ongouser.R;
-
-import java.util.ArrayList;
 
 public class oderdetail_adapter extends RecyclerView.Adapter<oderdetail_adapter.RecyclerViewHolder> {
     Context context;

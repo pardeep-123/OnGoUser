@@ -20,7 +20,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.iid.FirebaseInstanceId
-import com.ongouser.Home.HomeActivity
+import com.ongouser.home.HomeActivity
 import com.ongouser.R
 import com.ongouser.base.BaseActivity
 import com.ongouser.utils.others.SharedPrefUtil

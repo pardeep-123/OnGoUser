@@ -24,75 +24,75 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Home.activity.Productlisting"
+        <activity android:name=".home.activity.Productlisting"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".Home.activity.OrdersummryActivity"
+        <activity android:name=".home.activity.OrdersummryActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".Home.activity.address.DeliverytimeSlotActivity"
+        <activity android:name=".home.activity.address.DeliverytimeSlotActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.address.Add_address"
+        <activity android:name=".home.activity.address.AddAddressActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.CartActivity"
+        <activity android:name=".home.activity.CartActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.FeedbackActivity"
+        <activity android:name=".home.activity.FeedbackActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.Shop_category_products"
+        <activity android:name=".home.activity.Shop_category_products"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.Shop_productCategory"
+        <activity android:name=".home.activity.Shop_productCategory"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.ViewAllactivity"
+        <activity android:name=".home.activity.ViewAllactivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.AddCardActivity"
+        <activity android:name=".home.activity.AddCardDetailActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.Product_detailActivity"
+        <activity android:name=".home.activity.Product_detailActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.OrderDetailActivity"
+        <activity android:name=".home.activity.OrderDetailActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.NotificationActivity"
+        <activity android:name=".home.NotificationActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.ProductActivity"
+        <activity android:name=".home.activity.ProductActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.PaymentActivity"
+        <activity android:name=".home.HomeActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.HomeActivity"
+        <activity android:name=".home.activity.PaymentActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.address.DeliveryOptions2Activity"
+        <activity android:name=".home.activity.address.AddressListActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Home.activity.PickupOptionsActivity"
+        <activity android:name=".home.activity.PickupOptionsActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
@@ -116,16 +116,16 @@
             android:windowSoftInputMode="stateAlwaysHidden"/>
 
 
-        <activity android:name=".Home.activity.ChangePasswordActivity"
+        <activity android:name=".home.activity.ChangePasswordActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"/>
 
 
-        <activity android:name=".Home.activity.MyProfileActivity"
+        <activity android:name=".home.activity.MyProfileActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"/>
 
-        <activity android:name=".Home.activity.EditProfileActivity"
+        <activity android:name=".home.activity.EditProfileActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".Login.ForgotPasswordActivity"

@@ -57,7 +57,7 @@ dependencies {
     // progressview
 
     implementation 'com.google.firebase:firebase-analytics'
-
+    implementation 'com.stripe:stripe-android:12.8.1'
 
     implementation 'com.github.joielechong:countrycodepicker:2.4.1'
 

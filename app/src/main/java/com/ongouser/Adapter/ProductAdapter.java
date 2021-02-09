@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.Home.activity.Product_detailActivity;
+import com.ongouser.home.activity.Product_detailActivity;
 import com.ongouser.R;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.RecyclerViewHolder> {

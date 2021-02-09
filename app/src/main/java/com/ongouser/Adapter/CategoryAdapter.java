@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.Home.activity.ViewAllactivity;
+import com.ongouser.home.activity.ViewAllactivity;
 import com.ongouser.R;
 import com.ongouser.pojo.CategoryListingResponse;
 

@@ -1,7 +1,6 @@
 package com.ongouser.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.Home.activity.Product_detailActivity;
 import com.ongouser.R;
 
 import java.util.ArrayList;

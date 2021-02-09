@@ -153,6 +153,10 @@
     <string name="error_reason_toreport">Please mention the reason to report this user</string>
     <string name="error_user_id">User id not found</string>
     <string name="error_request_id">Request id not found</string>
+    <string name="address_missing">Please enter the address</string>
+    <string name="city_missing">Please enter city</string>
+    <string name="state_missing">Please enter state</string>
+    <string name="postal_code_missing">Please enter postal code</string>
     <string name="error_new_password">Please enter new password</string>
     <string name="error_cpassword">Please enter confirm password</string>
     <string name="error_password_length">Password length atleast 6 digit.</string>
@@ -201,6 +205,18 @@
     <string name="enter_confirm_password">Enter confirm password</string>
     <string name="enter_password">Enter Password</string>
     <string name="otp_invalid_message">Please enter a valid OTP</string>
+    <string name="name_missing_message">Please enter name</string>
     <string name="no_store_found">No store found</string>
+    <string name="name">Name</string>
+    <string name="enter_name">Enter name</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="city">City</string>
+    <string name="address">Address</string>
+    <string name="mobile">Mobile</string>
+
+    <string name="add_card">Add Card</string>
+    <string name="add_address">Add Address</string>
+    <string name="no_card_list_available">No card list available</string>
+
 
 </resources>
