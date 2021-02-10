@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.home.activity.Shop_category_products;
+import com.ongouser.home.activity.product.ShopCategoryProductsActivity;
 import com.ongouser.R;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ ArrayList<String>list;
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(context, Shop_category_products.class);
+                Intent i=new Intent(context, ShopCategoryProductsActivity.class);
                 context.startActivity(i);
             }
         });

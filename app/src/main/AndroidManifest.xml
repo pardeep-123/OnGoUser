@@ -24,7 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".home.activity.Productlisting"
+        <activity android:name=".home.activity.product.Productlisting"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait"/>
 
@@ -40,7 +40,7 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".home.activity.CartActivity"
+        <activity android:name=".home.activity.cart.CartActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
@@ -48,23 +48,23 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".home.activity.Shop_category_products"
+        <activity android:name=".home.activity.product.ShopCategoryProductsActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".home.activity.Shop_productCategory"
+        <activity android:name=".home.activity.product.ShopProductCategoryActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".home.activity.ViewAllactivity"
+        <activity android:name=".home.activity.ViewAllActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".home.activity.AddCardDetailActivity"
+        <activity android:name=".home.activity.payment.AddCardDetailActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".home.activity.Product_detailActivity"
+        <activity android:name=".home.activity.product.ProductDetailActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
@@ -76,7 +76,8 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".home.activity.ProductActivity"
+
+        <activity android:name=".home.activity.product.ProductActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
@@ -84,7 +85,7 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".home.activity.PaymentActivity"
+        <activity android:name=".home.activity.payment.PaymentActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 

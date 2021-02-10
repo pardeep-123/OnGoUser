@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ongouser.R
-import com.ongouser.home.activity.AddCardDetailActivity
 import com.ongouser.home.activity.address.AddAddressActivity
 import com.ongouser.home.activity.address.AddressListActivity
 import com.ongouser.pojo.GetAddressListResponse
@@ -53,10 +52,10 @@ class AddressListingAdapter(var mContext: Context?, internal var addressList: Ar
             tvEdit.setOnClickListener()
             {
                 var intent = Intent(mContext, AddAddressActivity::class.java)
-                intent.putExtra("id", addressList.id)
+                intent.putExtra("id", addressList.id.toString())
                 intent.putExtra("name", addressList.name)
                 intent.putExtra("address", addressList.address)
-                intent.putExtra("countryCode", addressList.countryCode)
+                intent.putExtra("countryCode", addressList.countryCode.toString())
                 intent.putExtra("phone", addressList.phone)
                 intent.putExtra("latitude", addressList.latitude)
                 intent.putExtra("longitude", addressList.longitude)

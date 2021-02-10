@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.activity.Product_detailActivity">
+    tools:context=".home.activity.product.ProductDetailActivity">
     <ImageView
         android:id="@+id/ivProfile"
         android:layout_width="match_parent"

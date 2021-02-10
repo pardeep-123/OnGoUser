@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.ongouser.Adapter.NotificationAdapter;
 import com.ongouser.R;
 
 public class NotificationActivity extends AppCompatActivity {

@@ -1,15 +1,17 @@
 package com.ongouser.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ongouser.home.activity.PaymentActivity
+import com.ongouser.home.activity.payment.PaymentActivity
 import com.ongouser.pojo.GetAddedCardListResponse
 import com.ongouser.R
+import com.ongouser.home.activity.payment.AddCardDetailActivity
 import java.util.ArrayList
 
 
@@ -41,6 +43,7 @@ class SavedCardsAdapter(
         fun bindItems(savedCardList: GetAddedCardListResponse.Body, position: Int) {
             val tvCardNumber = itemView.findViewById(R.id.tv_card_number) as TextView
             val tvCardName = itemView.findViewById(R.id.tv_name) as TextView
+            val tvEditCard = itemView.findViewById(R.id.tv_edit_card) as TextView
             val tvCardExpiryDate = itemView.findViewById(R.id.card_expiry_date) as TextView
             val ivDeleteCard = itemView.findViewById(R.id.iv_delete_card) as ImageView
             val ivSelectCard = itemView.findViewById(R.id.iv_select_card) as ImageView
@@ -54,6 +57,19 @@ class SavedCardsAdapter(
 
             ivDeleteCard.setOnClickListener {
                 paymentActivity.deleteAPIMethod(position, savedCardList.id.toString())
+            }
+
+            tvEditCard.setOnClickListener {
+                var intent =  Intent(mContext, AddCardDetailActivity::class.java)
+                intent.putExtra("id", savedCardList.id)
+                intent.putExtra("cardNumber", savedCardList.cardNumber)
+                intent.putExtra("name", savedCardList.name)
+                intent.putExtra("month", savedCardList.month)
+                intent.putExtra("year", savedCardList.year)
+                intent.putExtra("cardType", savedCardList.cardType)
+
+
+                mContext!!.startActivity(intent)
             }
 
             tvSelectCard.setOnClickListener {
@@ -70,7 +86,6 @@ class SavedCardsAdapter(
                     notifyDataSetChanged()
                 }
             }
-
 
         }
 

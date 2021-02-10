@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.home.activity.ViewAllactivity;
+import com.ongouser.home.activity.ViewAllActivity;
 import com.ongouser.R;
 import com.ongouser.pojo.CategoryListingResponse;
 
@@ -52,7 +52,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Recycl
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(context, ViewAllactivity.class);
+                Intent i = new Intent(context, ViewAllActivity.class);
                 context.startActivity(i);
             }
         });

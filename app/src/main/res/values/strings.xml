@@ -217,6 +217,7 @@
     <string name="add_card">Add Card</string>
     <string name="add_address">Add Address</string>
     <string name="no_card_list_available">No card list available</string>
+    <string name="next">Next</string>
 
 
 </resources>

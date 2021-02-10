@@ -10,6 +10,7 @@ import com.ongouser.manager.restApi.RestObservable
 import com.ongouser.manager.restApi.Status
 import com.ongouser.pojo.AddAddressResponse
 import com.ongouser.pojo.AddCardResponse
+import com.ongouser.pojo.UpdateAddressResponse
 import com.ongouser.utils.others.Constants
 import com.ongouser.utils.others.SharedPrefUtil
 import com.ongouser.viewmodel.HomeViewModel
@@ -74,7 +75,7 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
             showAlerterRed(resources.getString(R.string.address_missing))
        else if (mValidationClass.checkStringNull(edaddresss.text.toString().trim()))
             showAlerterRed(resources.getString(R.string.error_phone_number))
-        else if (edaddresss.text.toString().trim().length !=10)
+        else if (et_phone.text.toString().trim().length !=10)
             showAlerterRed(resources.getString(R.string.error_invalid_phone_number))
         /*else if (mValidationClass.checkStringNull(edcity.text.toString().trim()))
             showAlerterRed(resources.getString(R.string.city_missing))
@@ -149,6 +150,16 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
                         finish()
                     } else {
                         showAlerterRed(addAddressResponse.getMessage() as String)
+
+                    }
+                }
+                if (it.data is UpdateAddressResponse) {
+                    val updateAddressResponse: UpdateAddressResponse = it.data
+                    if (updateAddressResponse!!.getCode() == Constants.success_code) {
+                        showSuccessToast(mContext, updateAddressResponse.getMessage()!!)
+                        finish()
+                    } else {
+                        showAlerterRed(updateAddressResponse.getMessage() as String)
 
                     }
                 }

@@ -4,22 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="@dimen/_50sdp"
-    android:layout_marginTop="@dimen/_5sdp"
-    android:background="@drawable/alert_dialog_shape"
+    android:padding="@dimen/_15sdp"
+    android:background="@drawable/card_background_box"
     android:orientation="vertical"
   >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Address 1"
+
             android:layout_toLeftOf="@+id/iv_delete"
             android:fontFamily="@font/regular"
             android:drawablePadding="@dimen/_5sdp"
@@ -54,7 +53,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_name"
-            android:text="701, Block B-sidh markit pafharc chownk "
             android:layout_marginTop="@dimen/_5sdp"
             android:textColor="@color/black">
 
@@ -65,7 +63,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_address"
-            android:text="+91-8085454541"
             android:layout_marginTop="@dimen/_5sdp"
             android:textColor="@color/black" />
 

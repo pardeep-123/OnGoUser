@@ -18,8 +18,8 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.ongouser.Adapter.HomeShopAdapter
 import com.ongouser.Adapter.Homegroceriesdapter
 import com.ongouser.home.NotificationActivity
-import com.ongouser.home.activity.CartActivity
-import com.ongouser.home.activity.ViewAllactivity
+import com.ongouser.home.activity.cart.CartActivity
+import com.ongouser.home.activity.ViewAllActivity
 import com.ongouser.R
 import com.ongouser.manager.restApi.RestObservable
 import com.ongouser.manager.restApi.Status
@@ -129,7 +129,7 @@ class HomeFragment : CheckLocationFragment(), View.OnClickListener, Observer<Res
                 startActivity(i)
             }
             R.id.tv_viewallgroceri -> {
-                val i = Intent(activity, ViewAllactivity::class.java)
+                val i = Intent(activity, ViewAllActivity::class.java)
                 startActivity(i)
             }
             R.id.cart -> {

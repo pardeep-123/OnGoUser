@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.home.activity.Shop_productCategory;
+import com.ongouser.home.activity.product.ShopProductCategoryActivity;
 import com.ongouser.R;
 
 public class HomeshopadViewallapter extends RecyclerView.Adapter<HomeshopadViewallapter.RecyclerViewHolder> {
@@ -40,7 +40,7 @@ public class HomeshopadViewallapter extends RecyclerView.Adapter<HomeshopadViewa
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(context, Shop_productCategory.class);
+                Intent i=new Intent(context, ShopProductCategoryActivity.class);
                 context.startActivity(i);
             }
         });

@@ -1,4 +1,4 @@
-package com.ongouser.home.activity
+package com.ongouser.home.activity.payment
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -32,6 +32,7 @@ class AddCardDetailActivity : BaseActivity(), View.OnClickListener, Observer<Res
     var current_year: Int = 0
     var future_year = 40
     var cardType = ""
+    var cardId = ""
     lateinit var yearArray: Array<String?>
     var expDate = ""
     internal var items = arrayOf<CharSequence>(
@@ -66,6 +67,10 @@ class AddCardDetailActivity : BaseActivity(), View.OnClickListener, Observer<Res
         //   Relativ_checkbox22.setOnClickListener(mContext)
         ivBack.setOnClickListener(mContext)
 
+
+        if (intent.extras !=null){
+            cardId= intent.getStringExtra("id")!!
+        }
 
         tv_expiry_month.setOnClickListener(mContext)
         tv_expiry_year.setOnClickListener(mContext)

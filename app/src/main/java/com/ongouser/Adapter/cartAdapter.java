@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.home.activity.Product_detailActivity;
+import com.ongouser.home.activity.product.ProductDetailActivity;
 import com.ongouser.R;
 
 public class cartAdapter extends RecyclerView.Adapter<cartAdapter.RecyclerViewHolder> {
@@ -40,7 +40,7 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.RecyclerViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(context, Product_detailActivity.class);
+                Intent i = new Intent(context, ProductDetailActivity.class);
                 context.startActivity(i);
             }
         });

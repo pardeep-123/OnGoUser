@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ongouser.home.activity.Product_detailActivity;
+import com.ongouser.home.activity.product.ProductDetailActivity;
 import com.ongouser.R;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.RecyclerViewHolder> {
@@ -43,7 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Recycler
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(context, Product_detailActivity.class);
+                Intent i=new Intent(context, ProductDetailActivity.class);
                 context.startActivity(i);
             }
         });

@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.ongouser.Adapter.DeliverytimeslotAdapter;
-import com.ongouser.home.activity.CartActivity;
 import com.ongouser.R;
+import com.ongouser.home.activity.cart.CartActivity;
 
 import java.util.ArrayList;
 
