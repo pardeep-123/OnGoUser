@@ -3,6 +3,15 @@ package com.ongouser.utils.others
 class Constants {
     companion object
     {
+        var isPickedup = "ispickedup"
+        var AddressId = "Addressid"
+        var TimeslotDAy = "timeslots"
+        var TotalAmount = "totalamount"
+        var TotalFee = "totalfee"
+        var TotalTax = "totaltax"
+        var TimeslotsTime = "timeslotsdates"
+        var VendorId = "VendorId"
+
         const val BASE_URL = "http://54.252.10.181:8300/api/"
         val success_code = 200
         val errorCode = 403
@@ -36,6 +45,11 @@ class Constants {
         const val EditProfile = BASE_URL + "editProfile"
         const val ChangePassword = BASE_URL + "changePassword"
         const val AddCard = BASE_URL + "addCard"
+        const val updateCard = BASE_URL + "updateCard"
+        const val ADDTOCART = BASE_URL + "add_to_cart"
+        const val emptycart = BASE_URL + "empty_cart"
+        const val GETCARTLIST = BASE_URL + "cart_listing"
+        const val GetFavoriteProducts = BASE_URL + "fav_product_list"
         const val AddUserAddress = BASE_URL + "addUserAddress"
         const val VerifyOtp = BASE_URL + "verifyOtp"
         const val ResendOtp = BASE_URL + "resendOtp"
@@ -43,14 +57,23 @@ class Constants {
         const val PrivacyPolicy = BASE_URL + "privacyPolicy"
         const val DeleteUserAddress = BASE_URL + "deleteUserAddress"
         const val DeleteCard = BASE_URL + "deleteCard"
+        const val DeleteCartItem = BASE_URL + "delete_item_cart"
+        const val Updatecartitem = BASE_URL + "update_cart_item"
         const val AllCards = BASE_URL + "allCards"
-
         const val HomeListing = BASE_URL + "homeListing"              // Home
-        const val CategoryListing = BASE_URL + "categoryListing"
+        const val CategoryListing = BASE_URL + "shop_categories"
+        const val getdeliverytimeslots = BASE_URL + "get_delivery_options"
+        const val Addtofavorite = BASE_URL + "productFav"
         const val NearbyVendors = BASE_URL + "nearbyVendors"
-        const val GetCardsList = BASE_URL + "get_cards_list"
+        const val Getshopbycatid = BASE_URL + "get_shop_by_category_id"
+        const val Getproductbyshopid = BASE_URL + "get_product_by_shop_id"
+        const val GetMyorders = BASE_URL + "my_order"
+        const val Getorderdetail = BASE_URL + "orderDetail"
         const val UserAddressListing = BASE_URL + "userAddressListing"
         const val UpdateUserAddress = BASE_URL + "updateUserAddress"
+        const val PlaceOrderApi = BASE_URL + "addOrder"
+        const val add_review = BASE_URL + "add_review"
+        const val GetNotificationListing = BASE_URL + "notification_listing"
 
         const val NotificationOnOff = BASE_URL + "notification_on_off"
         const val NotificationsList = BASE_URL + "notifications_list"

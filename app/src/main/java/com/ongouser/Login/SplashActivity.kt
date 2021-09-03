@@ -145,6 +145,7 @@ class SplashActivity : BaseActivity() {
                 finishAffinity()
 
             } else if (SharedPrefUtil.getInstance().isLogin == true) {
+
                 val intent = Intent(mContext, HomeActivity::class.java)
                 startActivity(intent)
                 finishAffinity()
@@ -163,7 +164,7 @@ class SplashActivity : BaseActivity() {
         printKeyHash(mContext)
 
 
-
+        Log.e("auth token", SharedPrefUtil.getInstance().authToken)
         FirebaseInstanceId.getInstance().instanceId
             .addOnCompleteListener(OnCompleteListener { task ->
                 if (!task.isSuccessful) {

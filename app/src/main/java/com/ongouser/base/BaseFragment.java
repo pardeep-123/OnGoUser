@@ -29,7 +29,6 @@ public abstract class BaseFragment extends Fragment {
     private CustomProgressBar mCustomProgress;
 
 
-
     protected void hideKeyboard(View view) {
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/iv_shop_img"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_140sdp"
         android:scaleType="fitXY"
         android:src="@drawable/image3"
         >
@@ -30,6 +30,7 @@
         android:layout_below="@+id/tv_shopname"
         android:orientation="horizontal">
         <TextView
+            android:id="@+id/tvshopaddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="248 Aveneue, NY    4 km"

@@ -9,12 +9,16 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ongouser.Adapter.AddressListingAdapter
+import com.ongouser.Adapter.AddressShopListingAdapter
 
 import com.ongouser.R
 import com.ongouser.base.BaseActivity
 import com.ongouser.manager.restApi.RestObservable
 import com.ongouser.manager.restApi.Status
+import com.ongouser.pojo.CommonModel
 import com.ongouser.pojo.GetAddressListResponse
+import com.ongouser.pojo.ShopAddressBody
+import com.ongouser.pojo.ShopAdressModel
 
 import com.ongouser.utils.others.Constants
 import com.ongouser.viewmodel.HomeViewModel
@@ -28,28 +32,85 @@ class AddressListActivity : BaseActivity(), View.OnClickListener, Observer<RestO
             by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
     private lateinit var rvAddress: RecyclerView
     private var addressList: ArrayList<GetAddressListResponse.AddressListBody> = ArrayList()
+    private var shopaddressList: ArrayList<ShopAddressBody> = ArrayList()
     var pos= 0
-    lateinit var mContext: AddressListActivity
+       var totalamount= ""
+       var ispickedup = ""
+       var vendorid = ""
 
-    override fun getContentId(): Int {
+       var totalFee = ""
+       var totalTax = ""
+
+    lateinit var mContext: AddressListActivity
+       lateinit var addressListingAdapter :AddressListingAdapter
+       lateinit var shopListingAdapter: AddressShopListingAdapter
+       override fun getContentId(): Int {
         return R.layout.activity_address_listing
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = this
+        totalamount = intent.getStringExtra(Constants.TotalAmount)!!
+        ispickedup = intent.getStringExtra(Constants.isPickedup)!!
+        vendorid = intent.getStringExtra(Constants.VendorId)!!
+        totalFee = intent.getStringExtra(Constants.TotalFee)!!
+        totalTax = intent.getStringExtra(Constants.TotalTax)!!
         rvAddress = findViewById(R.id.rv_address)
         btnnext.setOnClickListener(mContext)
         tv_add_address.setOnClickListener(mContext)
 
+        ivBack.setOnClickListener {
+            onBackPressed()
+        }
+
     }
+
+       override fun onBackPressed() {
+           super.onBackPressed()
+       }
 
 
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btnnext -> {
-                val intent = Intent(mContext, DeliverytimeSlotActivity::class.java)
-                startActivity(intent)
+
+                if (ispickedup.equals("0"))
+                {
+                    if (addressListingAdapter.getselectedpos()==-1)
+                        showErrorToast(this,"Please select address")
+                    else{
+                        val intent = Intent(mContext, DeliverytimeSlotActivity::class.java)
+                        intent.putExtra(Constants.TotalAmount,totalamount)
+                        intent.putExtra(Constants.isPickedup,ispickedup)
+                        intent.putExtra(Constants.VendorId,vendorid)
+
+                        intent.putExtra(Constants.TotalFee,totalFee)
+                        intent.putExtra(Constants.TotalTax,totalTax)
+
+                        intent.putExtra(Constants.AddressId,addressList[addressListingAdapter.getselectedpos()].id.toString())
+                        startActivity(intent)
+                    }
+                }
+                else
+                {
+                    if (shopListingAdapter.getselectedpos()==-1)
+                        showErrorToast(this,"Please select address")
+                    else{
+                        val intent = Intent(mContext, DeliverytimeSlotActivity::class.java)
+                        intent.putExtra(Constants.TotalAmount,totalamount)
+                        intent.putExtra(Constants.isPickedup,ispickedup)
+                        intent.putExtra(Constants.VendorId,vendorid)
+
+                        intent.putExtra(Constants.TotalFee,totalFee)
+                        intent.putExtra(Constants.TotalTax,totalTax)
+
+                        intent.putExtra(Constants.AddressId,"0")
+                        startActivity(intent)
+                    }
+                }
+
+
             }
             R.id.tv_add_address -> {
                 val intent = Intent(mContext, AddAddressActivity::class.java)
@@ -69,14 +130,29 @@ class AddressListActivity : BaseActivity(), View.OnClickListener, Observer<RestO
 
     private fun getAddressListingApi() {
         if (isValid()) {
-            viewModel.getUserAddressListing(this, true)
-            viewModel.mResponse.observe(this, this)
+
+            if (ispickedup.equals("0"))
+            {
+                addresstitle.setText("Delivery Address")
+                viewModel.getUserAddressListing(this, true)
+                viewModel.mResponse.observe(this, this)
+            }
+            else{
+                addresstitle.setText("Shop Address")
+                tv_add_address.visibility = View.GONE
+                val map = HashMap<String,String>()
+                map["isSelfPickup"]=ispickedup
+                map["vendor_id"]=vendorid
+                viewModel.getUserAddressListing(this, true,map)
+                viewModel.mResponse.observe(this, this)
+            }
+
         }
     }
 
 
        fun setAddressListAdapter(addressList: ArrayList<GetAddressListResponse.AddressListBody>) {
-           val addressListingAdapter = AddressListingAdapter(mContext, addressList, mContext)
+            addressListingAdapter = AddressListingAdapter(mContext, addressList, mContext)
            rvAddress.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
            rvAddress.adapter = addressListingAdapter
 
@@ -91,17 +167,43 @@ class AddressListActivity : BaseActivity(), View.OnClickListener, Observer<RestO
                     if (getAddressListResponse.getCode() == Constants.success_code) {
                      addressList.clear()
                      addressList.addAll(getAddressListResponse!!.getBody()!!)
-
+                        setAddressListAdapter(getAddressListResponse.getBody()!!)
                         if (getAddressListResponse.getBody()!!.size == 0) {
                             no_address_card.visibility = View.VISIBLE
                             rv_address.visibility = View.GONE
                         } else {
                             no_address_card.visibility = View.GONE
                             rv_address.visibility = View.VISIBLE
-                            setAddressListAdapter(getAddressListResponse.getBody()!!)
+
                         }
                     }
 
+                }
+                if (it.data is ShopAdressModel) {
+                    val shopAdressModel: ShopAdressModel = it.data
+                    if (shopAdressModel.code == Constants.success_code) {
+                        shopaddressList.clear()
+                        shopaddressList.addAll(shopAdressModel.body!!)
+                        rvAddress.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
+                     shopListingAdapter =   AddressShopListingAdapter(mContext, shopAdressModel, mContext)
+                        rvAddress.adapter  = shopListingAdapter
+
+
+                        if (shopAdressModel.body!!.isEmpty()) {
+                            no_address_card.visibility = View.VISIBLE
+                            rv_address.visibility = View.GONE
+                        } else {
+                            no_address_card.visibility = View.GONE
+                            rv_address.visibility = View.VISIBLE
+
+                        }
+                    }
+
+                }
+                if (it.data is CommonModel) {
+
+                    val data:CommonModel =it.data
+                    showSuccessToast(this,data.message!!)
                 }
 
             }
@@ -128,9 +230,8 @@ class AddressListActivity : BaseActivity(), View.OnClickListener, Observer<RestO
            if (!mValidationClass!!.isNetworkConnected()) {
                showAlerterRed(resources.getString(R.string.no_internet))
            } else {
-               val map = HashMap<String, String>()
-               map.put("id", id!!)
-              viewModel.deleteUserAddressAPI(mContext, true, map)
+
+              viewModel.deleteUserAddressAPI(mContext, true, id!!)
            }
 
        }

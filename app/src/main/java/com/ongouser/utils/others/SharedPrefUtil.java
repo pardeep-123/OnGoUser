@@ -22,6 +22,7 @@ public class SharedPrefUtil {
     public static final String COUNTRY_CODE_NAME = "CountryCodeName";
     public static final String LOGIN = "login";
     public static final String BADGE = "badge";
+    public static final String VENDORID = "vendorid";
     public static final String NOTIFY = "notify";
     public static final String NOTIFY_ICON = "notifyIcon";
     public static final String LATITUDE = "latitude";
@@ -197,6 +198,7 @@ public class SharedPrefUtil {
         mSharedPreferences = mContext.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE);
         return mSharedPreferences.getString(DEVICE_TOKEN, "");
     }
+
 
     //
     public void saveRole(String role) {
@@ -420,9 +422,19 @@ public class SharedPrefUtil {
         mEditor.apply();
     }
 
+    public void saveVendorid(int vendorid) {
+        mEditor = mSharedPreferences.edit();
+        mEditor.putInt(VENDORID, vendorid);
+        mEditor.apply();
+    }
+
     public int getBadge() {
         mSharedPreferences = mContext.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE);
         return mSharedPreferences.getInt(BADGE, 0);
+    }
+    public int getvednorId() {
+        mSharedPreferences = mContext.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE);
+        return mSharedPreferences.getInt(VENDORID, 0);
     }
 
     public void saveNotify(int notify) {

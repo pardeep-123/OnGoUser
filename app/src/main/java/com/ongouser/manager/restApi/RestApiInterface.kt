@@ -10,6 +10,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
 import java.util.*
+import kotlin.collections.HashMap
 
 
 interface RestApiInterface {
@@ -21,7 +22,7 @@ interface RestApiInterface {
     ): Observable<SignupResponsess>
 
     @FormUrlEncoded
-    @PUT(Constants.Login)
+    @POST(Constants.Login)
     fun login(
             @FieldMap map: HashMap<String, String>
     ): Observable<LoginResponse>
@@ -44,17 +45,31 @@ interface RestApiInterface {
             @FieldMap map: HashMap<String, String>
     ): Observable<ForgotPasswordResponse>
 
-    @FormUrlEncoded
+
     @DELETE(Constants.DeleteUserAddress)
     fun deleteUserAddress(
-            @FieldMap map: HashMap<String, String>
-    ): Observable<ForgotPasswordResponse>
+            @Query("id") id:String
+    ): Observable<CommonModel>
 
-    @FormUrlEncoded
+
     @DELETE(Constants.DeleteCard)
     fun deleteCard(
-            @FieldMap map: HashMap<String, String>
-    ): Observable<ForgotPasswordResponse>
+            @Query("id") id:String
+    ): Observable<DeleteCardResponse>
+
+    @DELETE(Constants.DeleteCartItem)
+    fun deletecartitem(
+            @Query("id") id:String
+    ): Observable<DeleteItemCartResponse>
+
+    @FormUrlEncoded
+    @PUT(Constants.Updatecartitem)
+    fun updatecartitem(
+            @Field("id") id:String,
+            @Field("qty") qty:String
+    ): Observable<CommonModel>
+
+
 
 
     @FormUrlEncoded
@@ -64,10 +79,37 @@ interface RestApiInterface {
     ): Observable<ChangePasswordResponse>
 
     @FormUrlEncoded
+    @POST(Constants.ADDTOCART)
+    fun addtocart(
+            @FieldMap map: HashMap<String, String>
+    ): Observable<AddToCartModel>
+
+    @DELETE(Constants.emptycart)
+    fun emptycart(
+    ): Observable<CommonModel>
+
+    @GET(Constants.GETCARTLIST)
+    fun getcartlisting(
+    ): Observable<GetCartItemsModel>
+
+    @FormUrlEncoded
+    @POST(Constants.GetFavoriteProducts)
+    fun getfavoriteproducts(
+            @Field("dd") dd:String
+    ): Observable<GetMyFavoriteListing>
+
+    @FormUrlEncoded
     @POST(Constants.AddCard)
     fun addCard(
             @FieldMap map: HashMap<String, String>
     ): Observable<AddCardResponse>
+
+    @FormUrlEncoded
+    @PUT(Constants.updateCard)
+    fun updateCard(
+            @FieldMap map: HashMap<String, String>
+    ): Observable<AddCardResponse>
+
 
     @FormUrlEncoded
     @POST(Constants.AddUserAddress)
@@ -80,6 +122,12 @@ interface RestApiInterface {
     fun updateUserAddress(
             @FieldMap map: HashMap<String, String>
     ): Observable<UpdateAddressResponse>
+
+    @FormUrlEncoded
+    @POST(Constants.PlaceOrderApi)
+    fun placeorder(
+            @FieldMap map: HashMap<String, String>
+    ): Observable<CommonModel>
 
     @FormUrlEncoded
     @PUT(Constants.VerifyOtp)
@@ -97,6 +145,11 @@ interface RestApiInterface {
     @GET(Constants.UserAddressListing)
     fun getUserAddressListing():
             Observable<GetAddressListResponse>
+
+    @GET(Constants.UserAddressListing)
+    fun getUserAddressListing(
+            @QueryMap map: HashMap<String,String>
+    ): Observable<ShopAdressModel>
 
     @GET(Constants.GetProfile)
     fun getProfile():
@@ -135,16 +188,57 @@ interface RestApiInterface {
     fun homeListing(@FieldMap map: HashMap<String, String>):
             Observable<HomeListingResponse>
 
-    @FormUrlEncoded
-    @POST(Constants.CategoryListing)
-    fun categoryListing(@FieldMap map: HashMap<String, String>):
+    @GET(Constants.GetNotificationListing)
+    fun getnotificationlisting():
+            Observable<GetNotificationModel>
+
+    @GET(Constants.CategoryListing)
+    fun categoryListing(@QueryMap map: HashMap<String, String>):
             Observable<CategoryListingResponse>
+
+    @GET(Constants.getdeliverytimeslots)
+    fun gettimeslots(
+            @Query("vendor_id") vendorid:String):
+            Observable<DeliverySlotModel>
+
+    @FormUrlEncoded
+    @POST(Constants.Getshopbycatid)
+    fun getshopbycatid(
+            @FieldMap map: HashMap<String, String>):
+            Observable<GetShopsModel>
+
+    @FormUrlEncoded
+    @POST(Constants.Getproductbyshopid)
+    fun getproductbyshopid(
+            @FieldMap map: HashMap<String, String>):
+            Observable<GetProductModel>
+
+    @FormUrlEncoded
+    @POST(Constants.GetMyorders)
+    fun getorders(
+            @FieldMap map: HashMap<String, String>):
+            Observable<MyOrderModel>
+
+
+    @GET(Constants.Getorderdetail)
+    fun getorderdetail(
+            @QueryMap map: HashMap<String, String>):
+            Observable<OrderDetailModel>
 
     @FormUrlEncoded
     @POST(Constants.NearbyVendors)
     fun nearbyVendorsList(@FieldMap map: HashMap<String, String>):
             Observable<NearbyVendorResponse>
 
+    @FormUrlEncoded
+    @POST(Constants.Addtofavorite)
+    fun addtofavorite(@FieldMap map: HashMap<String, String>):
+            Observable<AddToFavoriteModel>
+
+    @FormUrlEncoded
+    @POST(Constants.add_review)
+    fun add_review(@FieldMap map: HashMap<String, String>):
+            Observable<AddReviewResponse>
 
 /*
     @FormUrlEncoded

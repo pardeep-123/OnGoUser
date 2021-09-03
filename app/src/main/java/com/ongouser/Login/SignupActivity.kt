@@ -38,7 +38,6 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
     var socialId = ""
     var temp = 2
 
-
     lateinit var mContext: SignupActivity
     var countryCode = "91"
     //  var countryCodeName = "US"
@@ -90,11 +89,11 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
 
         ccp.setOnCountryChangeListener(object : CountryCodePicker.OnCountryChangeListener {
             override fun onCountrySelected(selectedCountry: Country?) {
-                ccp.getSelectedCountryCode()
+                ccp.selectedCountryCode
                 ccp.showFlag(false)
                 ccp.enableHint(true)
                 ccp.setKeyboardAutoPopOnSearch(false)
-                countryCode = ccp.getSelectedCountryCode()
+                countryCode = ccp.selectedCountryCode
 
             }
         })
@@ -137,7 +136,7 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
                     val partCountryCode = mValidationClass.createPartFromString(countryCode)
                     val partPassword = mValidationClass.createPartFromString(edPass.text.toString().trim())
                     val partPhoneNumber = mValidationClass.createPartFromString(et_phone.text.toString().trim())
-                    /*     val is_accept = mValidationClass.createPartFromString(isClick)
+                    /*  val is_accept = mValidationClass.createPartFromString(isClick)
                     */
                     val partToken =
                             mValidationClass.createPartFromString("13131a32d123sa1")

@@ -1,394 +1,342 @@
 package com.ongouser.pojo
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
+data class HomeListingResponse(
 
-class HomeListingResponse
-{
-    @SerializedName("success")
-    @Expose
-    var success: Boolean? = null
+	@field:SerializedName("code")
+	val code: Int? = null,
 
-    @SerializedName("code")
-    @Expose
-    var code: Int? = null
+	@field:SerializedName("success")
+	val success: Boolean? = null,
 
-    @SerializedName("message")
-    @Expose
-    var message: String? = null
+	@field:SerializedName("message")
+	val message: String? = null,
 
-    @SerializedName("body")
-    @Expose
-    var body: Body? = null
+	@field:SerializedName("body")
+	val body: Body? = null
+)
 
+data class Body(
 
-    class Body {
-        @SerializedName("vendors")
-        @Expose
-        var vendors: ArrayList<Vendor>? = null
+	@field:SerializedName("categories")
+	val categories: ArrayList<CategoriesItem>? = null,
 
-        @SerializedName("products")
-        @Expose
-        var products: ArrayList<Product>? = null
+	@field:SerializedName("vendors")
+	val vendors: ArrayList<VendorsItem>? = null,
 
-        @SerializedName("banners")
-        @Expose
-        var banners: ArrayList<Banner>? = null
+	@field:SerializedName("banners")
+	val banners: ArrayList<BannersItem?>? = null,
 
-    }
+	@field:SerializedName("products")
+	val products: ArrayList<ProductsItem?>? = null
+)
 
-    class Banner {
-        @SerializedName("id")
-        @Expose
-        var id: Int? = null
+data class BannersItem(
 
-        @SerializedName("status")
-        @Expose
-        var status: Int? = null
+	@field:SerializedName("image")
+	val image: String? = null,
 
-        @SerializedName("image")
-        @Expose
-        var image: String? = null
+	@field:SerializedName("createdAt")
+	val createdAt: String? = null,
 
-        @SerializedName("created")
-        @Expose
-        var created: Int? = null
+	@field:SerializedName("created")
+	val created: Int? = null,
 
-        @SerializedName("updated")
-        @Expose
-        var updated: Int? = null
+	@field:SerializedName("id")
+	val id: Int? = null,
 
-        @SerializedName("createdAt")
-        @Expose
-        var createdAt: String? = null
+	@field:SerializedName("updated")
+	val updated: Int? = null,
 
-        @SerializedName("updatedAt")
-        @Expose
-        var updatedAt: String? = null
+	@field:SerializedName("status")
+	val status: Int? = null,
 
-    }
+	@field:SerializedName("updatedAt")
+	val updatedAt: String? = null
+)
 
-    class Product {
-        @SerializedName("distance")
-        @Expose
-        var distance: Float? = null
+data class CategoriesItem(
 
-        @SerializedName("id")
-        @Expose
-        var id: Int? = null
+	@field:SerializedName("image")
+	val image: String? = null,
 
-        @SerializedName("isApproved")
-        @Expose
-        var isApproved: Int? = null
+	@field:SerializedName("createdAt")
+	val createdAt: String? = null,
 
-        @SerializedName("status")
-        @Expose
-        var status: Int? = null
+	@field:SerializedName("created")
+	val created: Int? = null,
 
-        @SerializedName("taxCategoryId")
-        @Expose
-        var taxCategoryId: Int? = null
+	@field:SerializedName("name")
+	val name: String? = null,
 
-        @SerializedName("vendorId")
-        @Expose
-        var vendorId: Int? = null
+	@field:SerializedName("id")
+	val id: Int? = null,
 
-        @SerializedName("categoryId")
-        @Expose
-        var categoryId: Int? = null
+	@field:SerializedName("updated")
+	val updated: Int? = null,
 
-        @SerializedName("subCategoryId")
-        @Expose
-        var subCategoryId: Int? = null
+	@field:SerializedName("status")
+	val status: Int? = null,
 
-        @SerializedName("name")
-        @Expose
-        var name: String? = null
+	@field:SerializedName("updatedAt")
+	val updatedAt: String? = null
+)
 
-        @SerializedName("description")
-        @Expose
-        var description: String? = null
+data class VendorsItem(
 
-        @SerializedName("image")
-        @Expose
-        var image: String? = null
+	@field:SerializedName("country")
+	val country: String? = null,
 
-        @SerializedName("barcode")
-        @Expose
-        var barcode: String? = null
+	@field:SerializedName("postalCode")
+	val postalCode: String? = null,
 
-        @SerializedName("barcodeImage")
-        @Expose
-        var barcodeImage: String? = null
+	@field:SerializedName("shopOpenTime")
+	val shopOpenTime: String? = null,
 
-        @SerializedName("sku")
-        @Expose
-        var sku: String? = null
+	@field:SerializedName("productPriceHighest")
+	val productPriceHighest: Int? = null,
 
-        @SerializedName("skuImage")
-        @Expose
-        var skuImage: String? = null
+	@field:SerializedName("isShopAdded")
+	val isShopAdded: Int? = null,
 
-        @SerializedName("brandName")
-        @Expose
-        var brandName: String? = null
+	@field:SerializedName("shopAddress")
+	val shopAddress: String? = null,
 
-        @SerializedName("mrp")
-        @Expose
-        var mrp: String? = null
+	@field:SerializedName("shopCloseTime")
+	val shopCloseTime: String? = null,
 
-        @SerializedName("minimumSellingPrice")
-        @Expose
-        var minimumSellingPrice: String? = null
+	@field:SerializedName("deliveryPolicy")
+	val deliveryPolicy: String? = null,
 
-        @SerializedName("percentageDiscount")
-        @Expose
-        var percentageDiscount: Int? = null
+	@field:SerializedName("createdAt")
+	val createdAt: String? = null,
 
-        @SerializedName("length")
-        @Expose
-        var length: String? = null
+	@field:SerializedName("buildingNumber")
+	val buildingNumber: String? = null,
 
-        @SerializedName("width")
-        @Expose
-        var width: String? = null
+	@field:SerializedName("state")
+	val state: String? = null,
 
-        @SerializedName("height")
-        @Expose
-        var height: String? = null
+	@field:SerializedName("longitude")
+	val longitude: String? = null,
 
-        @SerializedName("dimensionsUnit")
-        @Expose
-        var dimensionsUnit: Int? = null
+	@field:SerializedName("updatedAt")
+	val updatedAt: String? = null,
 
-        @SerializedName("weight")
-        @Expose
-        var weight: String? = null
+	@field:SerializedName("image")
+	val image: String? = null,
 
-        @SerializedName("weightUnit")
-        @Expose
-        var weightUnit: Int? = null
+	@field:SerializedName("streetNumber")
+	val streetNumber: String? = null,
 
-        @SerializedName("created")
-        @Expose
-        var created: Int? = null
+	@field:SerializedName("isDeliveryOptionsAdded")
+	val isDeliveryOptionsAdded: Int? = null,
 
-        @SerializedName("updated")
-        @Expose
-        var updated: Int? = null
+	@field:SerializedName("shopLogo")
+	val shopLogo: String? = null,
 
-        @SerializedName("createdAt")
-        @Expose
-        var createdAt: String? = null
+	@field:SerializedName("created")
+	val created: Int? = null,
 
-        @SerializedName("updatedAt")
-        @Expose
-        var updatedAt: String? = null
+	@field:SerializedName("sellerInformation")
+	val sellerInformation: String? = null,
 
-    }
+	@field:SerializedName("bankAddress")
+	val bankAddress: String? = null,
 
-    class Vendor {
-        @SerializedName("productPriceLowest")
-        @Expose
-        var productPriceLowest: Int? = null
-
-        @SerializedName("productPriceHighest")
-        @Expose
-        var productPriceHighest: Int? = null
-
-        @SerializedName("distance")
-        @Expose
-        var distance: Float? = null
-
-        @SerializedName("approvalStatus")
-        @Expose
-        var approvalStatus: Int? = null
-
-        @SerializedName("approvalStatusReason")
-        @Expose
-        var approvalStatusReason: String? = null
-
-        @SerializedName("name")
-        @Expose
-        var name: String? = null
-
-        @SerializedName("image")
-        @Expose
-        var image: String? = null
-
-        @SerializedName("phone")
-        @Expose
-        var phone: String? = null
-
-        @SerializedName("shopName")
-        @Expose
-        var shopName: String? = null
-
-        @SerializedName("shopLogo")
-        @Expose
-        var shopLogo: String? = null
-
-        @SerializedName("shopCategory")
-        @Expose
-        var shopCategory: String? = null
-
-        @SerializedName("abn")
-        @Expose
-        var abn: String? = null
-
-        @SerializedName("buildingNumber")
-        @Expose
-        var buildingNumber: String? = null
-
-        @SerializedName("streetNumber")
-        @Expose
-        var streetNumber: String? = null
-
-        @SerializedName("city")
-        @Expose
-        var city: String? = null
-
-        @SerializedName("state")
-        @Expose
-        var state: String? = null
-
-        @SerializedName("country")
-        @Expose
-        var country: String? = null
-
-        @SerializedName("postalCode")
-        @Expose
-        var postalCode: String? = null
-
-        @SerializedName("shopOpenTime")
-        @Expose
-        var shopOpenTime: String? = null
-
-        @SerializedName("shopCloseTime")
-        @Expose
-        var shopCloseTime: String? = null
-
-        @SerializedName("homeDelivery")
-        @Expose
-        var homeDelivery: Int? = null
-
-        @SerializedName("deliveriesPerDay")
-        @Expose
-        var deliveriesPerDay: Int? = null
-
-        @SerializedName("latitude")
-        @Expose
-        var latitude: String? = null
-
-        @SerializedName("longitude")
-        @Expose
-        var longitude: String? = null
-
-        @SerializedName("geoLocation")
-        @Expose
-        var geoLocation: String? = null
-
-        @SerializedName("shopAddress")
-        @Expose
-        var shopAddress: String? = null
+	@field:SerializedName("approvalStatusReason")
+	val approvalStatusReason: String? = null,
 
-        @SerializedName("shopDescription")
-        @Expose
-        var shopDescription: String? = null
+	@field:SerializedName("isDeliveryDaysAdded")
+	val isDeliveryDaysAdded: Int? = null,
 
-        @SerializedName("paymentPolicy")
-        @Expose
-        var paymentPolicy: String? = null
+	@field:SerializedName("phone")
+	val phone: String? = null,
 
-        @SerializedName("deliveryPolicy")
-        @Expose
-        var deliveryPolicy: String? = null
+	@field:SerializedName("name")
+	val name: String? = null,
 
-        @SerializedName("sellerInformation")
-        @Expose
-        var sellerInformation: String? = null
+	@field:SerializedName("deliveriesPerDay")
+	val deliveriesPerDay: Int? = null,
 
-        @SerializedName("taxInPercent")
-        @Expose
-        var taxInPercent: Int? = null
+	@field:SerializedName("vendorDetailId")
+	val vendorDetailId: Int? = null,
 
-        @SerializedName("taxValue")
-        @Expose
-        var taxValue: Int? = null
+	@field:SerializedName("updated")
+	val updated: Int? = null,
 
-        @SerializedName("bankName")
-        @Expose
-        var bankName: String? = null
+	@field:SerializedName("paymentPolicy")
+	val paymentPolicy: String? = null,
 
-        @SerializedName("bankBranch")
-        @Expose
-        var bankBranch: String? = null
+	@field:SerializedName("isDeliveryChargesAdded")
+	val isDeliveryChargesAdded: Int? = null,
 
-        @SerializedName("accountHolderName")
-        @Expose
-        var accountHolderName: String? = null
+	@field:SerializedName("isHomeDeliveryAdded")
+	val isHomeDeliveryAdded: Int? = null,
 
-        @SerializedName("accountNumber")
-        @Expose
-        var accountNumber: String? = null
+	@field:SerializedName("distance")
+	val distance: Double? = null,
 
-        @SerializedName("bsbNumber")
-        @Expose
-        var bsbNumber: String? = null
+	@field:SerializedName("city")
+	val city: String? = null,
 
-        @SerializedName("ifscSwiftCode")
-        @Expose
-        var ifscSwiftCode: String? = null
+	@field:SerializedName("latitude")
+	val latitude: String? = null,
 
-        @SerializedName("bankAddress")
-        @Expose
-        var bankAddress: String? = null
+	@field:SerializedName("shopName")
+	val shopName: String? = null,
 
-        @SerializedName("isShopAdded")
-        @Expose
-        var isShopAdded: Int? = null
+	@field:SerializedName("bankName")
+	val bankName: String? = null,
 
-        @SerializedName("isHomeDeliveryAdded")
-        @Expose
-        var isHomeDeliveryAdded: Int? = null
+	@field:SerializedName("accountHolderName")
+	val accountHolderName: String? = null,
 
-        @SerializedName("isDeliveryOptionsAdded")
-        @Expose
-        var isDeliveryOptionsAdded: Int? = null
+	@field:SerializedName("shopCategory")
+	val shopCategory: String? = null,
 
-        @SerializedName("isDeliveryDaysAdded")
-        @Expose
-        var isDeliveryDaysAdded: Int? = null
+	@field:SerializedName("approvalStatus")
+	val approvalStatus: Int? = null,
 
-        @SerializedName("isDeliveryChargesAdded")
-        @Expose
-        var isDeliveryChargesAdded: Int? = null
+	@field:SerializedName("bsbNumber")
+	val bsbNumber: String? = null,
 
-        @SerializedName("created")
-        @Expose
-        var created: Int? = null
+	@field:SerializedName("bankBranch")
+	val bankBranch: String? = null,
 
-        @SerializedName("updated")
-        @Expose
-        var updated: Int? = null
+	@field:SerializedName("abn")
+	val abn: String? = null,
 
-        @SerializedName("createdAt")
-        @Expose
-        var createdAt: String? = null
+	@field:SerializedName("taxInPercent")
+	val taxInPercent: Int? = null,
 
-        @SerializedName("updatedAt")
-        @Expose
-        var updatedAt: String? = null
+	@field:SerializedName("accountNumber")
+	val accountNumber: String? = null,
 
-        @SerializedName("userId")
-        @Expose
-        var userId: Int? = null
+	@field:SerializedName("userId")
+	val userId: Int? = null,
 
-        @SerializedName("vendorDetailId")
-        @Expose
-        var vendorDetailId: Int? = null
+	@field:SerializedName("ifscSwiftCode")
+	val ifscSwiftCode: String? = null,
 
-    }
+	@field:SerializedName("productPriceLowest")
+	val productPriceLowest: Int? = null,
 
-}
+	@field:SerializedName("geoLocation")
+	val geoLocation: String? = null,
+
+	@field:SerializedName("taxValue")
+	val taxValue: Int? = null,
+
+	@field:SerializedName("shopDescription")
+	val shopDescription: String? = null,
+
+	@field:SerializedName("homeDelivery")
+	val homeDelivery: Int? = null
+)
+
+data class ProductsItem(
+
+	@field:SerializedName("isAvailable")
+	val isAvailable: Int? = null,
+
+	@field:SerializedName("distance")
+	val distance: Double? = null,
+
+	@field:SerializedName("vendorId")
+	val vendorId: Int? = null,
+
+	@field:SerializedName("description")
+	val description: String? = null,
+
+	@field:SerializedName("barcodeImage")
+	val barcodeImage: String? = null,
+
+	@field:SerializedName("createdAt")
+	val createdAt: String? = null,
+
+	@field:SerializedName("dimensionsUnit")
+	val dimensionsUnit: Int? = null,
+
+	@field:SerializedName("id")
+	val id: Int? = null,
+
+	@field:SerializedName("minimumSellingPrice")
+	val minimumSellingPrice: String? = null,
+
+	@field:SerializedName("isApproved")
+	val isApproved: Int? = null,
+
+	@field:SerializedName("sku")
+	val sku: String? = null,
+
+	@field:SerializedName("barcode")
+	val barcode: String? = null,
+
+	@field:SerializedName("height")
+	val height: String? = null,
+
+	@field:SerializedName("updatedAt")
+	val updatedAt: String? = null,
+
+	@field:SerializedName("image")
+	val image: String? = null,
+
+	@field:SerializedName("brandName")
+	val brandName: String? = null,
+
+	@field:SerializedName("isBarcodeItem")
+	val isBarcodeItem: Int? = null,
+
+	@field:SerializedName("created")
+	val created: Int? = null,
+
+	@field:SerializedName("length")
+	val length: String? = null,
+
+	@field:SerializedName("weight")
+	val weight: String? = null,
+
+	@field:SerializedName("mrp")
+	val mrp: String? = null,
+
+	@field:SerializedName("subCategoryId")
+	val subCategoryId: Int? = null,
+
+	@field:SerializedName("vendorEmployeeId")
+	val vendorEmployeeId: Int? = null,
+
+	@field:SerializedName("gtinNumber")
+	val gtinNumber: String? = null,
+
+	@field:SerializedName("percentageDiscount")
+	val percentageDiscount: Int? = null,
+
+	@field:SerializedName("name")
+	val name: String? = null,
+
+	@field:SerializedName("width")
+	val width: String? = null,
+
+	@field:SerializedName("countryOfOrigin")
+	val countryOfOrigin: String? = null,
+
+	@field:SerializedName("updated")
+	val updated: Int? = null,
+
+	@field:SerializedName("categoryId")
+	val categoryId: Int? = null,
+
+	@field:SerializedName("skuImage")
+	val skuImage: String? = null,
+
+	@field:SerializedName("status")
+	val status: Int? = null,
+
+	@field:SerializedName("taxCategoryId")
+	val taxCategoryId: Int? = null,
+
+	@field:SerializedName("weightUnit")
+	val weightUnit: Int? = null
+)

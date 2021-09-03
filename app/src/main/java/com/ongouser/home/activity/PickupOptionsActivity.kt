@@ -1,19 +1,19 @@
 package com.ongouser.home.activity
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.ongouser.R
 import com.ongouser.base.BaseActivity
 import com.ongouser.home.activity.address.AddressListActivity
+import com.ongouser.utils.others.Constants
 
 class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
 
@@ -27,6 +27,11 @@ class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
     lateinit var tvpackage: TextView
     lateinit var tv_homedelivery: TextView
     lateinit var tvpick: TextView
+    var ispickup = ""
+    var totalamount = ""
+    var vendorid = ""
+    var totalFee = ""
+    var totalTax = ""
 
     override fun getContentId(): Int {
         return R.layout.activity_delivery_options1
@@ -35,6 +40,13 @@ class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        totalamount = intent.getStringExtra(Constants.TotalAmount)!!
+        vendorid = intent.getStringExtra(Constants.VendorId)!!
+
+        totalFee = intent.getStringExtra(Constants.TotalFee)!!
+        totalTax = intent.getStringExtra(Constants.TotalTax)!!
+
+        Log.e("totalamount",totalamount)
         mContext = this
         btnConfirm = findViewById(R.id.btnConfirm)
         cardpackage = findViewById(R.id.cardpackage)
@@ -55,6 +67,8 @@ class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.cardpick -> {
+              //  ispickup = "2"
+                ispickup = "1"
                 cardpackage.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.white))
                 cardpick.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark))
                 cardhome.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.white))
@@ -63,6 +77,7 @@ class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
                 tv_homedelivery.setTextColor(ContextCompat.getColor(mContext, R.color.black))
             }
             R.id.cardpackage -> {
+                ispickup = "1"
                 cardpick.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.white))
                 cardpackage.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark))
                 tvpackage.setTextColor(ContextCompat.getColor(mContext, R.color.white))
@@ -71,6 +86,7 @@ class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
                 cardhome.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.white))
             }
             R.id.cardhome -> {
+                ispickup = "0"
                 cardpick.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.white))
                 cardpackage.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.white))
                 cardhome.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark))
@@ -79,8 +95,19 @@ class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
                 tvpackage.setTextColor(ContextCompat.getColor(mContext, R.color.black))
             }
             R.id.btnConfirm -> {
-                val intent = Intent(this, AddressListActivity::class.java)
-                startActivity(intent)
+
+                if (ispickup.isEmpty())
+                    showAlerterRed("Please select a delivery option")
+                else{
+                    val intent = Intent(this, AddressListActivity::class.java)
+                    intent.putExtra(Constants.TotalAmount,totalamount)
+                    intent.putExtra(Constants.VendorId,vendorid)
+                    intent.putExtra(Constants.isPickedup,ispickup)
+                    intent.putExtra(Constants.TotalFee,totalFee)
+                    intent.putExtra(Constants.TotalTax,totalTax)
+                    startActivity(intent)
+                }
+
             }
               R.id.ivBack -> {
                onLeftIconClick()

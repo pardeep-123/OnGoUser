@@ -146,6 +146,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:hint="Enter name"
                     android:imeOptions="actionNext"
+                    android:maxLength="20"
                     android:inputType="textCapSentences"
                     android:maxLines="1"
                     android:textSize="16sp" />

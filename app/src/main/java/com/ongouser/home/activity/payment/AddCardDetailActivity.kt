@@ -1,5 +1,11 @@
 package com.ongouser.home.activity.payment
 
+/*tasks needs to be done from backend
+* delete car
+*
+*  */
+
+
 import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
@@ -58,6 +64,7 @@ class AddCardDetailActivity : BaseActivity(), View.OnClickListener, Observer<Res
         return R.layout.activity_add_card
     }
 
+    var isEdit=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,9 +75,8 @@ class AddCardDetailActivity : BaseActivity(), View.OnClickListener, Observer<Res
         ivBack.setOnClickListener(mContext)
 
 
-        if (intent.extras !=null){
-            cardId= intent.getStringExtra("id")!!
-        }
+
+
 
         tv_expiry_month.setOnClickListener(mContext)
         tv_expiry_year.setOnClickListener(mContext)
@@ -82,7 +88,29 @@ class AddCardDetailActivity : BaseActivity(), View.OnClickListener, Observer<Res
         for (i in 0 until future_year) {
             yearArray[i] = (current_year + i).toString()
         }
+        if (intent.extras !=null){
+            isEdit="1"
+            tv_title_add.text="Edit Card"
+            btnSave.text="Update"
+            cardId= intent.getStringExtra("id")!!
+            et_card_name.setText(intent.getStringExtra("name"))
 
+            etCardNumber!!.setText(intent.getStringExtra("cardNumber"))
+            tv_expiry_year!!.setText(intent.getStringExtra("year"))
+            if (intent.getStringExtra("month").toString().length==1){
+                tv_expiry_month!!.setText("0"+intent.getStringExtra("month"))
+
+            }else{
+                tv_expiry_month!!.setText(intent.getStringExtra("month"))
+
+            }
+            cardType=intent.getStringExtra("cardType")!!
+            if (cardType.equals("0")) {
+                etCardNumber!!.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_visa, 0, 0, 0)
+            } else if (cardType.equals("1")) {
+                etCardNumber!!.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_mastercard, 0, 0, 0)
+            }
+        }
         etCardNumber!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
@@ -183,10 +211,10 @@ class AddCardDetailActivity : BaseActivity(), View.OnClickListener, Observer<Res
             showAlerterRed(resources.getString(R.string.month_missing_message))
         else if (mValidationClass.checkStringNull(tv_expiry_year.text.toString().trim()))
             showAlerterRed(resources.getString(R.string.year_missing_message))
-        else if (mValidationClass.checkStringNull(et_cvv.text.toString().trim()))
+        /*else if (mValidationClass.checkStringNull(et_cvv.text.toString().trim()))
             showAlerterRed(resources.getString(R.string.error_cvv))
         else if (et_cvv.text.toString().length < 3)
-            showAlerterRed(resources.getString(R.string.error_cvv_length))
+            showAlerterRed(resources.getString(R.string.error_cvv_length))*/
         else
             check = true
         return check
@@ -229,15 +257,29 @@ class AddCardDetailActivity : BaseActivity(), View.OnClickListener, Observer<Res
                     }
                     else{
 
-                        val map = HashMap<String, String>()
-                        map.put("cardType", cardType)
-                        map.put("name", et_card_name.text.toString().trim())
-                        map.put("cardNumber", et_card_number.text.toString())
-                        map.put("month", tv_expiry_month.text.toString())
-                        map.put("year", tv_expiry_year.text.toString())
+                        if (isEdit.isEmpty()){
+                            val map = HashMap<String, String>()
+                            map.put("cardType", cardType)
+                            map.put("name", et_card_name.text.toString().trim())
+                            map.put("cardNumber", et_card_number.text.toString())
+                            map.put("month", tv_expiry_month.text.toString())
+                            map.put("year", tv_expiry_year.text.toString())
 
-                        viewModel.addCardAPI(this, true, map)
-                        viewModel.mResponse.observe(this, this)
+                            viewModel.addCardAPI(this, true, map)
+                            viewModel.mResponse.observe(this, this)
+                        }else{
+                            val map = HashMap<String, String>()
+                            map.put("id", cardId)
+                            map.put("cardType", cardType)
+                            map.put("name", et_card_name.text.toString().trim())
+                            map.put("cardNumber", et_card_number.text.toString())
+                            map.put("month", tv_expiry_month.text.toString())
+                            map.put("year", tv_expiry_year.text.toString())
+
+                            viewModel.updateCardAPI(this, true, map)
+                            viewModel.mResponse.observe(this, this)
+                        }
+
 
                     }
 

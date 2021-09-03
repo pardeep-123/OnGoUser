@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SubCategoriesActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/ivBar"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_70sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/small_header"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                >
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/back"/>
+                <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/CommonTextWrapcontent"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/llSearch"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/shape_row"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:src="@drawable/search"/>
+                <EditText
+                    android:id="@+id/tvName"
+                    style="@style/CommonTextMatchparent"
+                    android:hint="Search"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/ll_data"
+                android:layout_below="@id/llSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_sub_category"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/tv_no_sub_category"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_category_available"
+                    android:textSize="@dimen/_16sdp"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/medium"/>
+
+
+                <!-- <TextView
+                     style="@style/text"
+                     android:text="Flavoured milk"
+                     android:layout_gravity="start"
+                     android:gravity="center_vertical"
+                  />
+                 <TextView
+                     style="@style/text"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:text="Tea"
+                     android:layout_gravity="start"
+                     android:gravity="center_vertical"/>
+                 <TextView
+                     style="@style/text"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:text="Coffee"
+                     android:layout_gravity="start"
+                     android:gravity="center_vertical"/>
+                 <TextView
+                     android:id="@+id/tvDrinks"
+                     style="@style/text"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:text="Soft Drinks"
+                     android:layout_gravity="start"
+                     android:gravity="center_vertical"/>
+                 <TextView
+                     style="@style/text"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:text="Water"
+                     android:layout_gravity="start"
+                     android:gravity="center_vertical"/>
+                 <TextView
+                     style="@style/text"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:text="Sports &amp; Energy Drinks"
+                     android:layout_gravity="start"
+                     android:gravity="center_vertical"/>
+                 <TextView
+                     style="@style/text"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:text="Long Life Milk"
+                     android:layout_gravity="start"
+                     android:gravity="center_vertical"/>
+                 <TextView
+                     style="@style/text"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:text="Kitchen"
+                     android:layout_gravity="start"
+                     android:gravity="center_vertical"/>-->
+            </RelativeLayout>
+        </RelativeLayout>
+
+</RelativeLayout>

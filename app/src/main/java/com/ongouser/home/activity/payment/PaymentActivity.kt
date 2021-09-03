@@ -15,13 +15,13 @@ import com.ongouser.base.BaseActivity
 import com.ongouser.home.HomeActivity
 import com.ongouser.manager.restApi.RestObservable
 import com.ongouser.manager.restApi.Status
+import com.ongouser.pojo.CommonModel
+import com.ongouser.pojo.DeleteCardResponse
 import com.ongouser.pojo.GetAddedCardListResponse
-import com.ongouser.utils.others.CommonMethods
 import com.ongouser.utils.others.Constants
+import com.ongouser.utils.others.SharedPrefUtil
 import com.ongouser.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.activity_payment.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class PaymentActivity : BaseActivity(), View.OnClickListener, Observer<RestObservable> {
     lateinit var dialog: Dialog
@@ -38,10 +38,25 @@ class PaymentActivity : BaseActivity(), View.OnClickListener, Observer<RestObser
     override fun getContentId(): Int {
         return R.layout.activity_payment
     }
+    var totalamount = ""
+    var ispickedup = ""
+    var addressid = ""
+    var timeslot=  ""
+    var timeslotdates = ""
+    var vendorid = ""
+    var totalFee = ""
+    var totalTax = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = this
+        totalamount = intent.getStringExtra(Constants.TotalAmount)!!
+        ispickedup = intent.getStringExtra(Constants.isPickedup)!!
+        addressid = intent.getStringExtra(Constants.AddressId)!!
+        timeslot = intent.getStringExtra(Constants.TimeslotDAy)!!
+        timeslotdates = intent.getStringExtra(Constants.TimeslotsTime)!!
+        totalFee = intent.getStringExtra(Constants.TotalFee)!!
+        totalTax = intent.getStringExtra(Constants.TotalTax)!!
         btnPay.setOnClickListener(mContext)
         ivBack.setOnClickListener(mContext)
         tv_add_card.setOnClickListener(mContext)
@@ -56,19 +71,6 @@ class PaymentActivity : BaseActivity(), View.OnClickListener, Observer<RestObser
         }
     }
 
-    fun cardIdMethod(position: Int, cardid: String?) {
-        cardId = cardid!!
-        if (mValidationClass!!.isNetworkConnected()) {
-            if (cardId.equals("") || cardId == null) {
-                CommonMethods.AlertErrorMessage(mContext, "Please select/add card")
-            } else {
-
-            }
-        } else {
-            CommonMethods.failureMethod(mContext, getString(R.string.no_internet))
-        }
-
-    }
 
     override fun onResume() {
         super.onResume()
@@ -103,10 +105,33 @@ class PaymentActivity : BaseActivity(), View.OnClickListener, Observer<RestObser
 
 
     override fun onClick(p0: View?) {
-        var itemid = p0!!.id
+        val itemid = p0!!.id
         when (itemid) {
             R.id.btnPay -> {
-                //   paymentAPIMethod()
+                if (savedCardsAdapter.getselectedcardid().isEmpty())
+                {
+                    showErrorToast(this,"Please select card ")
+                }
+                else if (savedCardsAdapter.getselectedcvv().isEmpty())
+                {
+                    showErrorToast(this,"Please enter cvv number")
+                }
+                else
+                {
+
+                    val map = HashMap<String,String>()
+                    map["amount"] =totalamount
+                    map["isSelfpickup"] =ispickedup
+                    map["deliveryDate"] =timeslotdates
+                    map["deliverySlot"] =timeslot
+                    map["userAddressId"] =addressid
+                    map["gst_amount"] =totalTax
+                    map["admin_commission"] =totalFee
+                    map["cardId"] =savedCardsAdapter.getselectedcardid()
+                    map["cvv"] =savedCardsAdapter.getselectedcvv()
+                    viewModel.placeorderAPI(this, true,map)
+                    viewModel.mResponse.observe(this, this)
+                }
             }
             R.id.ivBack -> {
                 onLeftIconClick()
@@ -120,12 +145,11 @@ class PaymentActivity : BaseActivity(), View.OnClickListener, Observer<RestObser
 
     fun deleteAPIMethod(position: Int, id: String?) {
         pos = position
-        if (!mValidationClass!!.isNetworkConnected()) {
+        if (!mValidationClass.isNetworkConnected) {
             showAlerterRed(resources.getString(R.string.no_internet))
         } else {
-            val map = HashMap<String, String>()
-            map.put("id", id!!)
-            viewModel.deleteCardAPI(mContext, true, map)
+
+            viewModel.deleteCardAPI(mContext, true, id!!)
         }
 
     }
@@ -138,18 +162,47 @@ class PaymentActivity : BaseActivity(), View.OnClickListener, Observer<RestObser
                     val getAddedCardListResponse: GetAddedCardListResponse = it.data
                     if (getAddedCardListResponse.getCode() == Constants.success_code) {
                         savedCardList.clear()
-                        savedCardList.addAll(getAddedCardListResponse!!.getBody()!!)
+                        savedCardList.addAll(getAddedCardListResponse.getBody()!!)
 
-                        if (getAddedCardListResponse.getBody()!!.size == 0) {
+                        for (i in 0 until savedCardList.size){
+                            savedCardList[i].isSelected="false"
+                        }
+                        setSavedCardAdapter(savedCardList)
+                        if (savedCardList.size == 0) {
                             no_payment_card.visibility = View.VISIBLE
                             rv_payment_card.visibility = View.GONE
                         } else {
                             no_payment_card.visibility = View.GONE
                             rv_payment_card.visibility = View.VISIBLE
-                            setSavedCardAdapter(getAddedCardListResponse.getBody()!!)
+
                         }
                     }
 
+                }
+
+                if (it.data is DeleteCardResponse){
+                    showSuccessToast(this,it.data.message)
+                    savedCardList.removeAt(pos)
+                    savedCardsAdapter.notifyDataSetChanged()
+
+                    if (savedCardList.size == 0) {
+                        no_payment_card.visibility = View.VISIBLE
+                        rv_payment_card.visibility = View.GONE
+                    } else {
+                        no_payment_card.visibility = View.GONE
+                        rv_payment_card.visibility = View.VISIBLE
+
+                    }
+                }
+                if (it.data is CommonModel)
+                {
+
+                    val data:CommonModel = it.data
+                    showSuccessToast(this,data.message!!)
+                    SharedPrefUtil.getInstance().saveBadge(0)
+                    val intent = Intent(this,HomeActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
                 }
 
             }

@@ -132,7 +132,6 @@
 
     <string name="enter_email">Enter email</string>
 
-
     <string name="no_internet">Please check your internet connection.</string>
     <string name="error_rating">Please rate this trait before submit.</string>
     <string name="error_image">Please select image</string>
@@ -218,6 +217,11 @@
     <string name="add_address">Add Address</string>
     <string name="no_card_list_available">No card list available</string>
     <string name="next">Next</string>
+    <string name="no_category_available">No category available.</string>
+    <string name="noshopfound">No shops found for this category</string>
+    <string name="noproductfound">No product found</string>
+    <string name="no_address_list_found">No address list found</string>
+    <string name="api_key_map">AIzaSyBBR5sj-1jvpTJ3E09O_26RJbmfKCyE8pI</string>
 
 
 </resources>

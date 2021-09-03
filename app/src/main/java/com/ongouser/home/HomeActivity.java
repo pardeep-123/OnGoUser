@@ -4,7 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.SpannableString;
@@ -18,6 +22,9 @@ import com.ongouser.home.fragment.Favorites_frag;
 import com.ongouser.home.fragment.HomeFragment;
 import com.ongouser.home.fragment.SettingsFragment;
 import com.ongouser.R;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
     Context mContaxt;
@@ -54,7 +61,11 @@ try {
 }
    /* final FragmentManager fragmentManager = getSupportFragmentManager();
     loadFragment(new HomeFragment());*/
+
+
+
     }
+
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
             getSupportFragmentManager()
@@ -74,6 +85,7 @@ try {
         Fragment fragment = null;
         switch (item.getItemId()) {
             case R.id.home:
+
                 fragment = new HomeFragment();
                 break;
             case R.id.categories:
@@ -83,7 +95,7 @@ try {
             case R.id.heart:
                 fragment = new Favorites_frag();
                 break;
-  case R.id.settings:
+            case R.id.settings:
                 fragment = new Create_listfrag();
                 break;
 
@@ -101,7 +113,8 @@ try {
 
     @Override
     public void onBackPressed() {
-        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_container);
+        super.onBackPressed();
+       /* Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_container);
         if (currentFragment.getClass().equals(new HomeFragment().getClass())) {
             if (doubleBackToExitPressedOnce) {
                 finishAffinity();
@@ -120,7 +133,7 @@ try {
         else
         {
             super.onBackPressed();
-        }
+        }*/
     }
     private void removeItemsUnderline(BottomNavigationView bottomNavigationView) {
         for (int i = 0; i <  bottomNavigationView.getMenu().size(); i++) {

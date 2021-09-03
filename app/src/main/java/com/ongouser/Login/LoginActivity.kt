@@ -252,39 +252,46 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
                     val registerResponse: LoginResponse = it.data
                     if (registerResponse.getCode() == Constants.success_code) {
 
-                        MyApplication.getnstance()
+                        if (registerResponse.getBody()!!.role==1)
+                        {
+                            MyApplication.getnstance()
                                 .setString(
-                                        Constants.AuthKey,
-                                        registerResponse.getBody()!!.token!!
+                                    Constants.AuthKey,
+                                    registerResponse.getBody()!!.token!!
                                 )
-                        MyApplication.instance!!.setString(
+                            MyApplication.instance!!.setString(
                                 Constants.UserData,
                                 modelToString(registerResponse.getBody()!!)
-                        )
+                            )
 
-                        SharedPrefUtil.getInstance()
+                            SharedPrefUtil.getInstance()
                                 .saveAuthToken(registerResponse.getBody()!!.token)
-                        SharedPrefUtil.getInstance()
+                            SharedPrefUtil.getInstance()
                                 .saveImage(registerResponse.getBody()!!.image)
-                        SharedPrefUtil.getInstance().saveUserId(registerResponse.getBody()!!.id.toString())
-                        SharedPrefUtil.getInstance().saveEmail(registerResponse.getBody()!!.email)
-                        SharedPrefUtil.getInstance().saveName(registerResponse.getBody()!!.name)
-                        SharedPrefUtil.getInstance()
+                            SharedPrefUtil.getInstance().saveUserId(registerResponse.getBody()!!.id.toString())
+                            SharedPrefUtil.getInstance().saveEmail(registerResponse.getBody()!!.email)
+                            SharedPrefUtil.getInstance().saveName(registerResponse.getBody()!!.name)
+                            SharedPrefUtil.getInstance()
                                 .saveDeviceToken(registerResponse.getBody()!!.deviceToken)
 
-                        if (registerResponse.getBody()!!.verified ==0){
-                            val intent = Intent(mContext, VerficationCodeActivity::class.java)
-                            startActivity(intent)
-                        }else{
+                            if (registerResponse.getBody()!!.verified ==0){
+                                val intent = Intent(mContext, VerficationCodeActivity::class.java)
+                                startActivity(intent)
+                            }else{
 
-                            SharedPrefUtil.getInstance().isLogin = true
+                                SharedPrefUtil.getInstance().isLogin = true
 
-                            val intent = Intent(mContext, HomeActivity::class.java)
-                            startActivity(intent)
-                            finishAffinity()
+                                val intent = Intent(mContext, HomeActivity::class.java)
+                                startActivity(intent)
+                                finishAffinity()
+                            }
+
                         }
+                        }
+                    else{
+                        showAlerterRed("Wrong Credentials!!")
+                    }
 
-                      }
 
                 }
 

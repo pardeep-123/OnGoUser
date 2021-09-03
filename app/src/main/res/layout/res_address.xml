@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="@dimen/_50sdp"
-    android:padding="@dimen/_15sdp"
+    android:id="@+id/root_addressbackground"
+
     android:background="@drawable/card_background_box"
     android:orientation="vertical"
   >
 
     <RelativeLayout
+        android:padding="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -32,6 +34,17 @@
             android:layout_height="@dimen/_15sdp"
             android:fontFamily="@font/regular"
             android:layout_marginRight="@dimen/_5sdp"
+
+            android:layout_toLeftOf="@+id/tv_edit"
+            android:src="@drawable/delete1" />
+        <ImageView
+            android:id="@+id/iv_delete1"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:fontFamily="@font/regular"
+            android:layout_marginRight="@dimen/_5sdp"
+            app:tint="@color/white"
+            android:visibility="gone"
             android:layout_toLeftOf="@+id/tv_edit"
             android:src="@drawable/delete1" />
 

@@ -1,5 +1,6 @@
 package com.ongouser.home.activity
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 
@@ -9,6 +10,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.rilixtech.widget.countrycodepicker.Country
 import com.rilixtech.widget.countrycodepicker.CountryCodePicker
 import com.ongouser.R
@@ -28,6 +33,8 @@ import com.yanzhenjie.album.AlbumFile
 import com.yanzhenjie.album.api.widget.Widget
 
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.activity_edit_profile.ivBack
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 import okhttp3.RequestBody
 import java.util.HashMap
@@ -83,7 +90,24 @@ class EditProfileActivity : BaseActivity(), View.OnClickListener, Observer<RestO
             et_phone.setText(intent.getStringExtra("phone"))
             if (!intent.getStringExtra("image")!!.isEmpty()) {
                 defaultImage = intent.getStringExtra("image").toString()
-                Glide.with(mContext).load(defaultImage).error(R.mipmap.no_image_placeholder).into(iv_profile_pic)
+               // Glide.with(mContext).load(defaultImage).error(R.mipmap.no_image_placeholder).into(iv_profile_pic)
+
+
+                Glide.with(mContext)
+                        .load(defaultImage)
+                        .listener(object : RequestListener<Drawable?> {
+                            override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                                progressedit.setVisibility(View.GONE)
+                                return false
+                            }
+
+                            override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                                progressedit.setVisibility(View.GONE)
+                                return false
+                            }
+                        })
+                        .into(iv_profile_pic)
+
             }
 
         }
@@ -97,6 +121,9 @@ class EditProfileActivity : BaseActivity(), View.OnClickListener, Observer<RestO
                 countryCode =  ccp.getSelectedCountryCode()
              }
         })
+
+        rl_clicl.setOnClickListener {  }
+
 
     }
 

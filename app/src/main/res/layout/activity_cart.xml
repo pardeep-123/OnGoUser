@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home.fragment.HomeFragment">
+
     <RelativeLayout
         android:id="@+id/hedder"
         android:layout_width="match_parent"
@@ -14,151 +15,221 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
             android:scaleType="fitXY"
-            android:src="@drawable/small_header"/>
+            android:src="@drawable/small_header" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            >
+            android:layout_marginTop="@dimen/_5sdp">
+
             <ImageView
                 android:id="@+id/back"
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
-                android:padding="@dimen/_8sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:src="@drawable/back"/>
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/back" />
 
             <TextView
                 style="@style/CommonTextWrapcontent"
-                android:textColor="@color/white"
+                android:layout_centerInParent="true"
                 android:text="Cart"
-                android:textSize="@dimen/_14sdp"
-                android:layout_centerInParent="true"/>
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
         </RelativeLayout>
     </RelativeLayout>
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rec_product"
-
-        android:layout_below="@+id/hedder"
-        >
-
-    </androidx.recyclerview.widget.RecyclerView>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_below="@+id/rec_product"
-    android:padding="@dimen/_10sdp"
-    >
     <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Total"
-            android:layout_weight="70"
-            android:textColor="@color/black">
+        android:layout_below="@+id/hedder">
 
-        </TextView>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="$120"
-            android:layout_weight="30"
-            android:gravity="end"
-            android:textColor="@color/black">
 
-        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/hedder">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
     </LinearLayout>
+
     <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/rl_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Ongo Free"
-            android:layout_weight="70"
-            android:textColor="@color/black">
+        android:layout_below="@+id/ll"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp">
 
-        </TextView>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="$60"
-            android:layout_weight="30"
-            android:gravity="end"
-            android:textColor="@color/black">
 
-        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:text="Sub Total"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_subtotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:gravity="end"
+                android:text="$0"
+                android:textColor="@color/black">
+
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:text="Ongo Fee"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tax"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:gravity="end"
+                android:text="$0"
+                android:textColor="@color/black">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:text="GST &amp; Taxes"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/gst"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:gravity="end"
+                android:text="$0"
+                android:textColor="@color/black">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:text="Total"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/carttotalamount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:gravity="end"
+                android:text="$0"
+                android:textColor="@color/black">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text=""
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="end"
+                android:textColor="@color/black">
+            </TextView>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Sub Total"
-            android:layout_weight="70"
-            android:textColor="@color/black">
-
-        </TextView>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="$180"
-            android:layout_weight="30"
-            android:gravity="end"
-            android:textColor="@color/black">
-
-        </TextView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Time Slot"
-            android:layout_weight="50"
-            android:textColor="@color/black">
-
-        </TextView>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="12:00PM - 02:00PM"
-            android:layout_weight="50"
-            android:gravity="end"
-            android:textColor="@color/black">
-
-        </TextView>
-    </LinearLayout>
-</LinearLayout>
 
     <Button
+        android:visibility="gone"
         android:id="@+id/btnpayment"
         style="@style/Button"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/_20sdp"
         android:text="Payment" />
+
     <Button
         android:id="@+id/btncheckout"
         style="@style/Button"
+        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/_20sdp"
         android:text="Checkout" />
+
+    <TextView
+
+        android:id="@+id/tvnoproduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/_50sdp"
+        android:fontFamily="@font/regular"
+        android:padding="@dimen/_30sdp"
+        android:text="No items found in cart"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
 
 </RelativeLayout>

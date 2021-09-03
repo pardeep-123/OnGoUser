@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".home.activity.rating.AddReviewOrderActivity">
+
+
+    <ImageView
+        android:id="@+id/ivBar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_70sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/small_header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <ImageView
+            android:id="@+id/ivBacsk"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/regular"
+            android:text="Rating"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ivBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+
+                android:id="@+id/tv_order_numberss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:text="Order : #"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <LinearLayout
+                android:id="@+id/rl_Review"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_order_numberss"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:text="Rate Shop"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                    android:id="@+id/rb_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:srb_borderColor="@color/yellow"
+                    app:srb_fillColor="@color/yellow"
+                    app:srb_numberOfStars="5"
+                    app:srb_rating="1"
+                    app:srb_starSize="@dimen/_30sdp"
+                    app:srb_stepSize="0.5" />
+
+
+                <EditText
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/et_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@drawable/rating_shape"
+                    android:gravity="start"
+                    android:padding="12dp"
+                    android:hint="Add Review"
+                     android:text=""
+                    android:textColorHint="@color/white"
+                    android:textCursorDrawable="@drawable/cusor_point"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnUpdate"
+                style="@style/Button"
+                android:layout_below="@+id/rl_Review"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:text="Submit" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

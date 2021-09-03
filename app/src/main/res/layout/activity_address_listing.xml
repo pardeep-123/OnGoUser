@@ -32,6 +32,7 @@
                     android:src="@drawable/back" />
 
                 <TextView
+                    android:id="@+id/addresstitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -64,7 +65,7 @@
                     android:fontFamily="@font/medium"
                     android:layout_centerInParent="true"
                     android:visibility="gone"
-                    android:text="@string/no_card_list_available"
+                    android:text="@string/no_address_list_found"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
 
@@ -207,6 +208,7 @@
 
 
             <Button
+
                 android:id="@+id/btnnext"
                 style="@style/Button"
                 android:layout_alignParentBottom="true"

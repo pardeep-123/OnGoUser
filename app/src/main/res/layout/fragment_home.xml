@@ -3,212 +3,284 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".home.fragment.HomeFragment">
 
-    <ImageView
-        android:id="@+id/banner"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_160sdp"
-        android:layout_below="@+id/hedder"
-        android:layout_marginTop="-15dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/banner"></ImageView>
-
-    <RelativeLayout
-        android:id="@+id/hedder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/ivBar"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_70sdp"
-            android:scaleType="fitXY"
-            android:src="@drawable/small_header" />
-
+        android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp">
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_below="@+id/hedder"
+                android:id="@+id/rlvp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp">
 
-            <ImageView
-                android:id="@+id/iVNoti"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:padding="@dimen/_8sdp"
-                android:src="@drawable/notifications" />
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/bannervp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-15dp">
+                </androidx.viewpager.widget.ViewPager>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
+                <com.rd.PageIndicatorView
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/pageIndicatorView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:piv_animationType="scale"
+                    app:piv_dynamicCount="true"
+                    app:piv_interactiveAnimation="true"
+                    app:piv_selectedColor="@color/grey"
+                    app:piv_unselectedColor="@color/colorLightGreen"
+                    app:piv_viewPager="@id/bannervp"
+                    app:piv_padding="12dp"
+                    app:piv_radius="8dp" />
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/hedder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="@dimen/_9sdp"
-                    android:layout_height="@dimen/_9sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:src="@drawable/locationlarge">
+                    android:id="@+id/ivBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_70sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/small_header" />
 
-                </ImageView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp">
 
-                <TextView
-                    style="@style/CommonTextWrapcontent"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:drawablePadding="@dimen/_5sdp"
-                    android:text="New York"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp" />
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/iVNoti"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/notifications" />
 
-            <ImageView
-                android:id="@+id/cart"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_alignParentRight="true"
-                android:layout_centerInParent="true"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:padding="@dimen/_8sdp"
-                android:src="@drawable/cart" />
-        </RelativeLayout>
-    </RelativeLayout>
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_toRightOf="@+id/iVNoti"
+                        android:layout_toLeftOf="@+id/cart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_50sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginLeft="@dimen/_25sdp"
-            android:layout_marginRight="@dimen/_25sdp"
-            android:background="@drawable/border_shape">
+                        <ImageView
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="@dimen/_9sdp"
+                            android:layout_height="@dimen/_9sdp"
+                             android:src="@drawable/locationlarge">
 
-            <ImageView
-                android:id="@+id/search"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_alignParentStart="true"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/search">
+                        </ImageView>
 
-            </ImageView>
+                        <TextView
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                             android:id="@+id/tv_location"
+                            style="@style/CommonTextWrapcontent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="New York"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp" />
+                    </LinearLayout>
 
-            <EditText
+                    <ImageView
+                        android:id="@+id/cart"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/cart" />
+                    <RelativeLayout
+                        android:id="@+id/homebadgeLayout"
+                        android:layout_width="@dimen/_12sdp"
+                        android:layout_height="@dimen/_12sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/red">
+
+                        <TextView
+                            android:id="@+id/tv_cartbadges"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginEnd="0dp"
+                            android:layout_marginBottom="0dp"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_8sdp"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/search"
-                android:background="@color/transparent"
-                android:hint="Search shops"
-                android:paddingRight="@dimen/_5sdp"
-                android:textSize="@dimen/_11sdp"></EditText>
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/searchrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginLeft="@dimen/_25sdp"
+                    android:layout_marginRight="@dimen/_25sdp"
+                    android:background="@drawable/border_shape">
+
+                    <ImageView
+                        android:id="@+id/search"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/search">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@+id/search"
+                        android:background="@color/transparent"
+                        android:hint="Search Products"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp"></TextView>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rr_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlvp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/tvbname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nearby Shops"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tv_viewallshop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="@string/view_all"
+                    android:visibility="invisible"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp">
+
+                </TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_nearby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvbname"
+                    android:layout_marginTop="@dimen/_5sdp"></androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/tv_no_store"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvbname"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="gone"
+                    android:layout_margin="@dimen/_50sdp"
+                    android:fontFamily="@font/regular"
+                    android:text="@string/no_store_found"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rr_cate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rr_shop"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/tvbnam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categories"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_viewallgroceri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="@string/view_all"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp">
+
+                </TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_groceries"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_below="@+id/tvbnam"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </RelativeLayout>
 
         </RelativeLayout>
-    </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/rr_shop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/banner"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:padding="@dimen/_10sdp">
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/tvbname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nearby Shops"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13sdp"
-            android:textStyle="bold">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/tv_viewallshop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:text="@string/view_all"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_11sdp">
-
-        </TextView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rec_nearby"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvbname"
-            android:layout_marginTop="@dimen/_5sdp"></androidx.recyclerview.widget.RecyclerView>
-
-        <TextView
-            android:id="@+id/tv_no_store"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvbname"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
-            android:layout_margin="@dimen/_50sdp"
-            android:fontFamily="@font/regular"
-            android:text="@string/no_store_found"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rr_cate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rr_shop"
-        android:padding="@dimen/_10sdp">
-
-        <TextView
-            android:id="@+id/tvbnam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Groceries"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13sdp"
-            android:textStyle="bold">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/tv_viewallgroceri"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:text="@string/view_all"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_11sdp">
-
-        </TextView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rec_groceries"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvbnam"
-            android:layout_marginTop="@dimen/_5sdp">
-
-        </androidx.recyclerview.widget.RecyclerView>
-    </RelativeLayout>
 </RelativeLayout>

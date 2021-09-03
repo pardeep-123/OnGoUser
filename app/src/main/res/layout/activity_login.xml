@@ -89,7 +89,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
@@ -101,6 +101,8 @@
                 android:textColor="@color/black"
                 />
             <TextView
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
                 android:id="@+id/tvCreateAccount"
                 style="@style/CommonTextWrapcontent"
                 android:gravity="center"
@@ -114,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:scaleType="fitXY"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/google">
 
         </ImageView>

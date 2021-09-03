@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/_50sdp"
+    android:id="@+id/root_addressbackground"
+
+    android:background="@drawable/card_background_box"
+    android:orientation="vertical"
+  >
+
+    <RelativeLayout
+        android:padding="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dfd"
+            android:layout_toLeftOf="@+id/iv_delete"
+            android:fontFamily="@font/regular"
+            android:drawablePadding="@dimen/_5sdp"
+            android:textColor="@color/black"/>
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_address"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/black" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

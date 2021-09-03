@@ -17,5 +17,6 @@
     <color name="colorLightGreen">#8ECAAD</color>
     <color name="colorGreen">#49c191</color>
     <color name="main_bg_colour">#49c191</color>
+    <color name="statuslightcolor">#FF81D6B4</color>
 
 </resources>

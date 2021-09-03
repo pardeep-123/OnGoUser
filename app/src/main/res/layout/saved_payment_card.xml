@@ -34,33 +34,56 @@
         android:textColor="@color/black"
         android:textSize="@dimen/_12sdp" />
 
-    <ImageView
-        android:id="@+id/iv_delete_card"
+    <EditText
+        android:visibility="gone"
+        android:hint="CVV"
+        android:id="@+id/cvvedt"
+        android:imeOptions="actionDone"
+        android:maxLength="3"
+        android:inputType="numberPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/card_expiry_date"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp" />
+
+    <ImageView
+        android:id="@+id/iv_delete_card"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_below="@+id/tv_name"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="10dp"
         android:src="@drawable/delete1" />
 
-    <ImageView
-        android:id="@+id/iv_select_card"
-        android:layout_width="@dimen/_15sdp"
-        android:layout_height="@dimen/_15sdp"
+    <LinearLayout
         android:layout_alignParentRight="true"
-        android:visibility="gone"
-        android:layout_marginEnd="10dp"
-        android:src="@mipmap/green_tick" />
-    <TextView
-        android:id="@+id/tv_select_card"
+
+        android:id="@+id/ll"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/_15sdp"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="10dp"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_10sdp"
-        android:fontFamily="@font/regular"
-        android:text="@string/select" />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_select_card"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:visibility="gone"
+            android:layout_marginEnd="10dp"
+            android:src="@mipmap/green_tick" />
+        <TextView
+            android:id="@+id/tv_select_card"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/regular"
+            android:text="@string/select" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tv_edit_card"
         android:layout_width="wrap_content"
@@ -68,7 +91,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginEnd="10dp"
         android:textColor="@color/black"
-        android:layout_below="@+id/tv_select_card"
+        android:layout_below="@+id/ll"
         android:textSize="@dimen/_10sdp"
         android:fontFamily="@font/regular"
         android:text="@string/edit" />

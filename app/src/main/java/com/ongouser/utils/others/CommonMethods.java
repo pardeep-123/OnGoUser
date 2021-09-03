@@ -10,6 +10,8 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
@@ -35,6 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
@@ -50,6 +53,33 @@ public class CommonMethods {
 
 
     private static ProgressDialog mProgress;
+
+    public static String  getAddressFromLatLong(Context context,String latitude,String longitude){
+
+        String finalValue="";
+
+        try {
+            Geocoder geocoder;
+            List<Address> addresses;
+            geocoder = new Geocoder(context, Locale.getDefault());
+
+            addresses = geocoder.getFromLocation(Double.parseDouble(latitude),Double.parseDouble(longitude), 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+
+            String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+
+            finalValue=address;
+
+//            String city = addresses.get(0).getLocality();
+//            String state = addresses.get(0).getAdminArea();
+//            String country = addresses.get(0).getCountryName();
+//            String postalCode = addresses.get(0).getPostalCode();
+//            String knownName = addresses.get(0).getFeatureName();
+        } catch (Exception e) {
+            finalValue="";
+            //e.printStackTrace();
+        }
+        return finalValue;
+    }
 
 
     // check is the given email is in valid format.
@@ -1045,6 +1075,10 @@ public class CommonMethods {
     }
 */
 
+    public static String modifyDateLayout(String inputDate) throws ParseException{
+    Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(inputDate);
+    return new SimpleDateFormat("hh:mm:a").format(date);
+    }
 
 
 }

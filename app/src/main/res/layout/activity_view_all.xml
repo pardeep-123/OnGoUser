@@ -30,6 +30,7 @@
                 android:src="@drawable/back"/>
 
             <TextView
+                android:id="@+id/titleText"
                 style="@style/CommonTextWrapcontent"
                 android:textColor="@color/white"
                 android:text="Groceries"
@@ -44,6 +45,30 @@
                 android:padding="@dimen/_8sdp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/cart"/>
+            <RelativeLayout
+                android:id="@+id/badgeLayout"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+
+                android:layout_marginTop="@dimen/_2sdp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/red">
+
+                <TextView
+                    android:id="@+id/tv_cartbadges"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp"/>
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 
@@ -74,8 +99,9 @@
             </ImageView>
 
             <EditText
+                android:id="@+id/categorysearchedt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
@@ -110,5 +136,20 @@
         android:layout_margin="@dimen/_5sdp">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+
+        android:id="@+id/tvnoshop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvbname"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_margin="@dimen/_50sdp"
+        android:fontFamily="@font/regular"
+        android:text="@string/noshopfound"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
 
 </RelativeLayout>

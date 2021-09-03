@@ -29,6 +29,7 @@
                     android:src="@drawable/back" />
 
                 <TextView
+                    android:id="@+id/tv_title_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -58,6 +59,7 @@
 
 
                 <EditText
+                    android:imeOptions="actionDone"
                     android:id="@+id/et_card_name"
                     style="@style/Edittext"
                     android:layout_below="@id/tvEmail"
@@ -81,6 +83,10 @@
                     android:id="@+id/et_card_number"
                     style="@style/EditextFieldwhit"
                     android:maxLength="19"
+                    android:imeOptions="actionDone"
+
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_10sdp"
                     android:layout_below="@id/tvEmail"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:hint="@string/enter_card_number"
@@ -125,6 +131,8 @@
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:layout_marginEnd="@dimen/_5sdp"
                                 android:layout_weight="1"
+                                android:imeOptions="actionDone"
+
                                 android:background="@drawable/shape"
                                 android:gravity="center_vertical"
                                 android:hint="MM"
@@ -139,6 +147,8 @@
                                 android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:layout_weight="1"
+                                android:imeOptions="actionDone"
+
                                 android:background="@drawable/shape"
                                 android:gravity="center_vertical"
                                 android:hint="YYYY"
@@ -151,6 +161,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_5sdp"

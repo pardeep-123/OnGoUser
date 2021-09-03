@@ -32,7 +32,7 @@
             <TextView
                 style="@style/CommonTextWrapcontent"
                 android:textColor="@color/white"
-                android:text="Shoes"
+                android:text="Products"
                 android:textSize="@dimen/_14sdp"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
@@ -47,5 +47,18 @@
         >
 
     </androidx.recyclerview.widget.RecyclerView>
+    <TextView
+
+        android:id="@+id/tvnoproduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hedder"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_margin="@dimen/_50sdp"
+        android:fontFamily="@font/regular"
+        android:text="@string/noproductfound"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
 </RelativeLayout>

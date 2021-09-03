@@ -66,14 +66,14 @@ class ProductActivity : BaseActivity() ,View.OnClickListener {
         ok.setOnClickListener { dialogSuccessful.dismiss() }
         ivnot2 = dialogSuccessful.findViewById(R.id.ivnot2)
         ivnot21 = dialogSuccessful.findViewById(R.id.ivnot21)
-        ivnot2.setOnClickListener(View.OnClickListener {
+        ivnot2.setOnClickListener {
             ivnot2.setImageResource(R.drawable.radio_button)
             ivnot21.setImageResource(R.drawable.rado_button)
-        })
-        ivnot21.setOnClickListener(View.OnClickListener {
+        }
+        ivnot21.setOnClickListener {
             ivnot21.setImageResource(R.drawable.radio_button)
             ivnot2.setImageResource(R.drawable.rado_button)
-        })
+        }
         dialogSuccessful.show()
     }
 

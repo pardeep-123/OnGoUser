@@ -55,6 +55,8 @@ class GetAddedCardListResponse
     }
 
     class Body {
+
+        var cvvnumber:String = ""
         @SerializedName("id")
         @Expose
         var id: Int? = null
@@ -103,6 +105,7 @@ class GetAddedCardListResponse
         @Expose
         var updatedAt: String? = null
 
+        var isSelected: String?=""
     }
 
 }

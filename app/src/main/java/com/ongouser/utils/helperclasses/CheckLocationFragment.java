@@ -120,7 +120,6 @@ abstract public class CheckLocationFragment extends BaseFragment implements
         switch (requestCode) {
             case 14758: {
 
-
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // Toast.makeText(mContext, "Permission Granted", Toast.LENGTH_SHORT).show()
                     // main logic
