@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_change_password.*
 
 
 class ChangePasswordActivity : BaseActivity(), View.OnClickListener, Observer<RestObservable> {
-
+// all good
     private lateinit var mContext: ChangePasswordActivity
 
     private val viewModel: MyAccountViewModel
