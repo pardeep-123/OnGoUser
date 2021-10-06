@@ -29,6 +29,8 @@ import com.ongouser.utils.others.MyApplication
 import com.ongouser.utils.others.SharedPrefUtil
 import com.ongouser.viewmodel.AuthViewModel
 import com.ongouser.pojo.LoginResponse
+import com.ongouser.pojo.SocialLoginResponse
+import com.ongouser.pojo.SocialModel
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -59,10 +61,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
         facebookHelper = FacebookHelper(mContext, this)
 
         tvForgotpassword.setOnClickListener(mContext)
-        tvCreateAccount.setOnClickListener(mContext)
+        createlayout.setOnClickListener(mContext)
         btnSignin.setOnClickListener(mContext)
 
-/*
+
         iv_fb.setOnClickListener {
             if (MyApplication.instance!!.checkIfHasNetwork()) {
                 isFb = "fb"
@@ -71,9 +73,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
                 showAlerterRed(getString(R.string.no_internet))
             }
         }
-*/
 
-/*
+
+
         iv_google.setOnClickListener {
             if (MyApplication.instance!!.checkIfHasNetwork()) {
                 isFb = "google"
@@ -82,7 +84,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
                 showAlerterRed(getString(R.string.no_internet))
             }
         }
-*/
+
 
         googleHelper = GoogleHelper(mContext, object : GoogleHelper.GoogleHelperCallback {
             override fun onSuccessGoogle(account: GoogleSignInAccount) {
@@ -172,7 +174,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
                 val intent = Intent(mContext, ForgotPasswordActivity::class.java)
                 startActivity(intent)
             }
-            R.id.tvCreateAccount -> {
+            R.id.createlayout -> {
                 val intent = Intent(mContext, SignupActivity::class.java)
                 intent.putExtra("socialName", socialName)
                 intent.putExtra("socialEmail", socialEmail)
@@ -235,11 +237,16 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
             showAlerterRed(resources.getString(R.string.no_internet))
         else {
             val map = HashMap<String, String>()
-            map.put("social_id", socialId)
-            map.put("social_type", socialType)
+           // map.put("social_id", socialId)
+            map.put("socialId", socialId)
+            map.put("name", socialName)
+            map.put("email", socialEmail)
+          //  map.put("social_type", socialType)
+            map.put("socialType", socialType)
             map.put("device_token", SharedPrefUtil.getInstance().deviceToken)
             map.put("device_type", Constants.Device_Type)
 
+           // role
             viewModel.socialLoginApi(this, true, map)
             viewModel.mResponse.observe(this, this)
         }
@@ -294,55 +301,53 @@ class LoginActivity : BaseActivity(), View.OnClickListener, Observer<RestObserva
 
 
                 }
+                 else if (it.data is SocialModel) {
+                    val socialLoginResponse: SocialModel = it.data
+                    if (socialLoginResponse.code.equals(Constants.success_code)) {
 
-/*
-                if (it.data is SocialLoginResponse) {
-                    val socialLoginResponse: SocialLoginResponse = it.data
-                    if (socialLoginResponse.getCode()!!.equals(Constants.success_code)) {
-
-                        if (socialLoginResponse.getBody()!!.isExist == 0) {
-                            var intent = Intent(mContext, SignupActivity::class.java)
-                            intent.putExtra("socialName", socialName)
-                            intent.putExtra("socialEmail", socialEmail)
-                            intent.putExtra("socialType", socialType)
-                            intent.putExtra("socialId", socialId)
-                            startActivity(intent)
-                        } else {
+//                        if (socialLoginResponse.body!!.isExist == 0) {
+//                            val intent = Intent(mContext, SignupActivity::class.java)
+//                            intent.putExtra("socialName", socialName)
+//                            intent.putExtra("socialEmail", socialEmail)
+//                            intent.putExtra("socialType", socialType)
+//                            intent.putExtra("socialId", socialId)
+//                            startActivity(intent)
+//                        } else {
                             MyApplication.instance!!.setString(
                                 Constants.UserData,
-                                modelToString(socialLoginResponse.getBody()!!))
+                                modelToString(socialLoginResponse.body))
 
                             MyApplication.getnstance()
                                 .setString(
                                     Constants.AuthKey,
-                                    socialLoginResponse.getBody()!!.authorizationKey!!
+                                    socialLoginResponse.body.token
                                 )
-                            showSuccessToast(mContext, socialLoginResponse!!.getMessage()!!)
+                            showSuccessToast(mContext, socialLoginResponse.message)
 
                             SharedPrefUtil.getInstance().isLogin = true
                             SharedPrefUtil.getInstance()
-                                .saveImage(socialLoginResponse.getBody()!!.imageName)
+                                .saveImage(socialLoginResponse.body.image)
                             SharedPrefUtil.getInstance()
-                                .saveUserId(socialLoginResponse.getBody()!!.id)
+                                .saveUserId(socialLoginResponse.body.id.toString())
                             SharedPrefUtil.getInstance()
-                                .saveEmail(socialLoginResponse.getBody()!!.email)
+                                .saveEmail(socialLoginResponse.body.email)
                             SharedPrefUtil.getInstance()
-                                .saveName(socialLoginResponse.getBody()!!.name)
+                                .saveName(socialLoginResponse.body.name)
                             SharedPrefUtil.getInstance()
-                                .saveDeviceToken(socialLoginResponse.getBody()!!.deviceToken)
-                            SharedPrefUtil.getInstance()
-                                .savePushNotificationStatus(socialLoginResponse.getBody()!!.notificationsStatus)
+                                .saveDeviceToken(socialLoginResponse.body.token)
+//                            SharedPrefUtil.getInstance()
+//                                .savePushNotificationStatus(socialLoginResponse.getBody()!!.notificationsStatus)
 
                             val intent = Intent(mContext, HomeActivity::class.java)
                             startActivity(intent)
                             finishAffinity()
-                        }
+                     //   }
 
                     } else {
-                        CommonMethods.AlertErrorMessage(mContext, socialLoginResponse.getMessage())
+                        CommonMethods.AlertErrorMessage(mContext, socialLoginResponse.message)
                     }
                 }
-*/
+
             }
             it.status == Status.ERROR -> {
                 if (it.data != null) {

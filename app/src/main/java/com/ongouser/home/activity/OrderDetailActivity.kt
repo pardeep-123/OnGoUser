@@ -56,7 +56,6 @@ class OrderDetailActivity : BaseActivity() , View.OnClickListener, Observer<Rest
         back = findViewById(R.id.back)
 
 
-
         back.setOnClickListener(mContext)
         btnCurrent.setOnClickListener(mContext)
         btnPast.setOnClickListener(mContext)
@@ -160,7 +159,6 @@ class OrderDetailActivity : BaseActivity() , View.OnClickListener, Observer<Rest
                         )
                     }
                 }
-
 
             }
             it.status == Status.ERROR -> {

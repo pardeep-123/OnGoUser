@@ -34,12 +34,13 @@ class Constants {
         const val PhoneNumber = "phone_number"
         const val CountryCode = "country_code"
         const val TermsCondition = "termsAndConditions"
-        const val FOR_GOOGLE_TYPE = "0"
+        const val FOR_GOOGLE_TYPE = "2"
         const val FOR_FACEBOOK_TYPE = "1"
 
         const val SignUp = BASE_URL + "signup"
         const val Login = BASE_URL + "login"
-        const val SocialLogin = BASE_URL + "socail_login"
+       // const val SocialLogin = BASE_URL + "socail_login"
+        const val SocialLogin = BASE_URL + "socialLogin"
         const val ForgotPassword = BASE_URL + "forgotPassword"
         const val GetProfile = BASE_URL + "getProfile"
         const val EditProfile = BASE_URL + "editProfile"
@@ -78,7 +79,6 @@ class Constants {
         const val NotificationOnOff = BASE_URL + "notification_on_off"
         const val NotificationsList = BASE_URL + "notifications_list"
         const val RemoveNotification = BASE_URL + "remove_push"
-
 
         const val HomeUserSearch = BASE_URL + "home_user_search"
         const val Logout = BASE_URL + "logout"

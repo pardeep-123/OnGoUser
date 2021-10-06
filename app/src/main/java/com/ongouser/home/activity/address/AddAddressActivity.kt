@@ -26,7 +26,7 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
             by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
 
     var addressId = ""
-    var countryCode = "91"
+    var countryCode = ""
     var selectedLatitude = "30.23112300"
     var selectedLongitude = "76.36982340"
 
@@ -42,16 +42,13 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
         ivBack.setOnClickListener(mContext)
         btnadd.setOnClickListener(mContext)
 
-        ccp.setOnCountryChangeListener(object : CountryCodePicker.OnCountryChangeListener {
-            override fun onCountrySelected(selectedCountry: Country?) {
-                ccp.getSelectedCountryCode()
-                ccp.showFlag(false)
-                ccp.enableHint(true)
-                ccp.setKeyboardAutoPopOnSearch(false)
-                countryCode = ccp.selectedCountryCode
-
-            }
-        })
+        ccp.setOnCountryChangeListener {
+            ccp.selectedCountryCode
+            ccp.showFlag(false)
+            ccp.enableHint(true)
+            ccp.setKeyboardAutoPopOnSearch(false)
+            countryCode = ccp.selectedCountryCode
+        }
 
         if (intent.extras != null) {
             countryCode = intent.getStringExtra("countryCode")!!
@@ -61,6 +58,7 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
             et_name.setText(intent.getStringExtra("name")!!)
             edaddresss.setText(intent.getStringExtra("address")!!)
             et_phone.setText(intent.getStringExtra("phone")!!)
+            ccp.setCountryForPhoneCode(countryCode.toInt())
         }
     }
 
@@ -89,15 +87,15 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
     }
 
 
-    fun addAddressAPI() {
+    private fun addAddressAPI() {
         if (isValid()) {
             val map = HashMap<String, String>()
-            map.put("address", edaddresss.text.toString().trim()/*+edcity.text.toString()+edpostalcode.text.toString()*/)
-            map.put("name", et_name.text.toString())
-            map.put("countryCode", countryCode)
-            map.put("phone", et_phone.text.toString())
-            map.put("latitude", selectedLatitude)
-            map.put("longitude", selectedLongitude)
+            map["address"] = edaddresss.text.toString().trim()
+            map["name"] = et_name.text.toString()
+            map["countryCode"] = countryCode
+            map["phone"] = et_phone.text.toString()
+            map["latitude"] = selectedLatitude
+            map["longitude"] = selectedLongitude
 
             viewModel.addUserAddressAPI(this, true, map)
             viewModel.mResponse.observe(this, this)
@@ -105,16 +103,16 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
         }
     }
 
-    fun updateUserAddressAPI() {
+    private fun updateUserAddressAPI() {
         if (isValid()) {
             val map = HashMap<String, String>()
-            map.put("address", edaddresss.text.toString().trim()/*+edcity.text.toString()+edpostalcode.text.toString()*/)
-            map.put("name", et_name.text.toString())
-            map.put("countryCode", countryCode)
-            map.put("id", addressId)
-            map.put("phone", et_phone.text.toString())
-            map.put("latitude", selectedLatitude)
-            map.put("longitude", selectedLongitude)
+            map["address"] = edaddresss.text.toString().trim()
+            map["name"] = et_name.text.toString()
+            map["countryCode"] = countryCode
+            map["id"] = addressId
+            map["phone"] = et_phone.text.toString()
+            map["latitude"] = selectedLatitude
+            map["longitude"] = selectedLongitude
 
             viewModel.updateUserAddressAPI(this, true, map)
             viewModel.mResponse.observe(this, this)
@@ -123,8 +121,7 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
     }
 
     override fun onClick(view: View?) {
-        val itemid = view!!.id
-        when (itemid) {
+        when ( view!!.id) {
             R.id.ivBack -> {
                 onLeftIconClick()
             }
@@ -145,7 +142,7 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
             it!!.status == Status.SUCCESS -> {
                 if (it.data is AddAddressResponse) {
                     val addAddressResponse: AddAddressResponse = it.data
-                    if (addAddressResponse!!.getCode() == Constants.success_code) {
+                    if (addAddressResponse.getCode() == Constants.success_code) {
                         showSuccessToast(mContext, addAddressResponse.getMessage()!!)
                         finish()
                     } else {
@@ -155,7 +152,7 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
                 }
                 if (it.data is UpdateAddressResponse) {
                     val updateAddressResponse: UpdateAddressResponse = it.data
-                    if (updateAddressResponse!!.getCode() == Constants.success_code) {
+                    if (updateAddressResponse.getCode() == Constants.success_code) {
                         showSuccessToast(mContext, updateAddressResponse.getMessage()!!)
                         finish()
                     } else {

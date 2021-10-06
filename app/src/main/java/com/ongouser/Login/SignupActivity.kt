@@ -87,16 +87,13 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
 
 
 
-        ccp.setOnCountryChangeListener(object : CountryCodePicker.OnCountryChangeListener {
-            override fun onCountrySelected(selectedCountry: Country?) {
-                ccp.selectedCountryCode
-                ccp.showFlag(false)
-                ccp.enableHint(true)
-                ccp.setKeyboardAutoPopOnSearch(false)
-                countryCode = ccp.selectedCountryCode
-
-            }
-        })
+        ccp.setOnCountryChangeListener {
+            ccp.selectedCountryCode
+            ccp.showFlag(false)
+            ccp.enableHint(true)
+            ccp.setKeyboardAutoPopOnSearch(false)
+            countryCode = ccp.selectedCountryCode
+        }
 
     }
 
@@ -201,8 +198,8 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
         var check = false
         if (!mValidationClass.isNetworkConnected)
             showAlerterRed(resources.getString(R.string.no_internet))
-        else if (mValidationClass.checkStringNull(mImagePath))
-            showAlerterRed(resources.getString(R.string.error_image))
+//        else if (mValidationClass.checkStringNull(mImagePath))
+//            showAlerterRed(resources.getString(R.string.error_image))
         else if (mValidationClass.checkStringNull(et_name.text.toString().trim()))
             showAlerterRed(resources.getString(R.string.error_name))
         else if (mValidationClass.checkStringNull(et_email.text.toString().trim()))

@@ -18,7 +18,7 @@ interface RestApiInterface {
     @Multipart
     @POST(Constants.SignUp)
     fun signUp(
-            @PartMap map: HashMap<String, RequestBody>, @Part image: MultipartBody.Part
+            @PartMap map: HashMap<String, RequestBody>, @Part image: MultipartBody.Part?
     ): Observable<SignupResponsess>
 
     @FormUrlEncoded
@@ -37,7 +37,7 @@ interface RestApiInterface {
     @POST(Constants.SocialLogin)
     fun socialLogin(
             @FieldMap map: HashMap<String, String>
-    ): Observable<SocialLoginResponse>
+    ): Observable<SocialModel>
 
     @FormUrlEncoded
     @PUT(Constants.ForgotPassword)

@@ -1,5 +1,6 @@
 package com.ongouser.viewmodel
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,7 +20,7 @@ class AuthViewModel :ViewModel() {
     fun signUpApi(
             activity: Activity, showLoader: Boolean,
             map: HashMap<String, RequestBody>,
-            mImage: MultipartBody.Part
+            mImage: MultipartBody.Part?
     ) {
         restApiInterface.signUp(map,mImage)
                 .subscribeOn(Schedulers.io())
@@ -81,8 +82,9 @@ class AuthViewModel :ViewModel() {
                 )
     }
 
+    @SuppressLint("CheckResult")
     fun socialLoginApi(activity: Activity, showLoader:Boolean,
-                 map: HashMap<String, String>
+                       map: HashMap<String, String>
     ) {
         restApiInterface.socialLogin(map)
                 .subscribeOn(Schedulers.io())

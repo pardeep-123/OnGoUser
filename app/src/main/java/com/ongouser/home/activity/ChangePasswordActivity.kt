@@ -33,6 +33,7 @@ class ChangePasswordActivity : BaseActivity(), View.OnClickListener, Observer<Re
 
         ivBack.setOnClickListener(mContext)
         btnUpdate.setOnClickListener(mContext)
+        
     }
 
     private fun changePasswordApi() {

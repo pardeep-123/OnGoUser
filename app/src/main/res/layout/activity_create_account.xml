@@ -280,15 +280,15 @@
 
                         <ImageView
                             android:id="@+id/ivOn"
-                            android:layout_width="@dimen/_12sdp"
-                            android:layout_height="@dimen/_12sdp"
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
                             android:src="@drawable/check_box_4"
                             android:visibility="gone" />
 
                         <ImageView
                             android:id="@+id/ivOff"
-                            android:layout_width="@dimen/_12sdp"
-                            android:layout_height="@dimen/_12sdp"
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
                             android:src="@drawable/check_box_3" />
                     </LinearLayout>
 

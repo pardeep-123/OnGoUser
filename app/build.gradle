@@ -83,8 +83,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics:17.2.1'
     implementation 'com.google.firebase:firebase-core:17.4.4'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
-    implementation 'com.facebook.android:facebook-login:5.15.3'
-    implementation 'com.facebook.android:facebook-share:[5,6)'
+//    implementation 'com.facebook.android:facebook-login:5.15.3'
+//    implementation 'com.facebook.android:facebook-share:[5,6)'
+    // facebook
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
+
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
     implementation platform('com.google.firebase:firebase-bom:26.2.0')

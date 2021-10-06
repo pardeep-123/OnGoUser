@@ -57,7 +57,7 @@ class CategoriesFragment : BaseFragment(), View.OnClickListener, Observer<RestOb
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         v = inflater.inflate(R.layout.fragment_categories, container, false)
 
         rvCategory = v.findViewById<RecyclerView>(R.id.rec_category)
@@ -129,16 +129,16 @@ class CategoriesFragment : BaseFragment(), View.OnClickListener, Observer<RestOb
         }
     }
 
-    fun emptyCheck(){
+    private fun emptyCheck(){
         if (list.isEmpty()){
 
             tvnoproduct_category.visibility=View.VISIBLE
-            rvCategory!!.visibility=View.GONE
+            rvCategory.visibility=View.GONE
             rl_search_category!!.visibility=View.GONE
 
         }else{
             tvnoproduct_category.visibility=View.GONE
-            rvCategory!!.visibility=View.VISIBLE
+            rvCategory.visibility=View.VISIBLE
             rl_search_category!!.visibility=View.VISIBLE
 
         }
@@ -151,7 +151,7 @@ class CategoriesFragment : BaseFragment(), View.OnClickListener, Observer<RestOb
                 if (it.data is CategoryListingResponse) {
                     val categoryListingResponse: CategoryListingResponse = it.data
                     if (categoryListingResponse.getCode() == Constants.success_code) {
-                        showSuccessToast(categoryListingResponse!!.getMessage()!!)
+                        showSuccessToast(categoryListingResponse.getMessage()!!)
                         list=categoryListingResponse.getBody()!!
                          setCategoryAdapter(list)
 
@@ -167,7 +167,7 @@ class CategoriesFragment : BaseFragment(), View.OnClickListener, Observer<RestOb
                 if (it.data is SubCategoryListResponse) {
                     val subCategoryListResponse: SubCategoryListResponse = it.data
                     if (subCategoryListResponse.code == Constants.success_code) {
-                        showSuccessToast(subCategoryListResponse!!.getMessage()!!)
+                        showSuccessToast(subCategoryListResponse.message!!)
 
                         if (subCategoryListResponse.body.size == 0) {
                             val i = Intent(context, ViewAllActivity::class.java)

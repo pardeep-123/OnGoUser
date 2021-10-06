@@ -77,7 +77,7 @@ class AddressListingAdapter(var mContext: Context?, internal var addressListdata
 
             tvEdit.setOnClickListener()
             {
-                var intent = Intent(mContext, AddAddressActivity::class.java)
+                val intent = Intent(mContext, AddAddressActivity::class.java)
                 intent.putExtra("id", addressList.id.toString())
                 intent.putExtra("name", addressList.name)
                 intent.putExtra("address", addressList.address)

@@ -13,6 +13,7 @@ import com.ongouser.Adapter.AddressShopListingAdapter
 
 import com.ongouser.R
 import com.ongouser.base.BaseActivity
+import com.ongouser.home.activity.payment.PaymentActivity
 import com.ongouser.manager.restApi.RestObservable
 import com.ongouser.manager.restApi.Status
 import com.ongouser.pojo.CommonModel
@@ -97,7 +98,9 @@ class AddressListActivity : BaseActivity(), View.OnClickListener, Observer<RestO
                     if (shopListingAdapter.getselectedpos()==-1)
                         showErrorToast(this,"Please select address")
                     else{
-                        val intent = Intent(mContext, DeliverytimeSlotActivity::class.java)
+                        // skip delivery slot screen in case of package myself
+                      //  val intent = Intent(mContext, DeliverytimeSlotActivity::class.java)
+                        val intent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra(Constants.TotalAmount,totalamount)
                         intent.putExtra(Constants.isPickedup,ispickedup)
                         intent.putExtra(Constants.VendorId,vendorid)

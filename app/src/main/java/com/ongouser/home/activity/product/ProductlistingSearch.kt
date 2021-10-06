@@ -49,10 +49,10 @@ class ProductlistingSearch :   BaseActivity() , Observer<RestObservable> {
         mContext = this
         recyclerview = findViewById(R.id.rec_product)
 
-        ivBack.setOnClickListener(View.OnClickListener {
+        ivBack.setOnClickListener {
             onLeftIconClick()
-        })
-       searchbtn.setOnClickListener {
+        }
+        searchbtn.setOnClickListener {
            getproduct()
        }
         productsearchedt.onDone { getproduct() }
@@ -71,7 +71,6 @@ class ProductlistingSearch :   BaseActivity() , Observer<RestObservable> {
 
             override fun onTextChanged(s: CharSequence, start: Int,
                                        before: Int, count: Int) {
-
 
             }
         })
@@ -100,7 +99,7 @@ class ProductlistingSearch :   BaseActivity() , Observer<RestObservable> {
             showAlerterRed(resources.getString(R.string.no_internet))
         else {
             val map = HashMap<String, String>()
-            map.put("keyword", productsearchedt.text.toString().trim())
+            map["keyword"] = productsearchedt.text.toString().trim()
 
             viewModel.getproductbyshopid(this, true, map)
             viewModel.mResponse.observe(this, this)
@@ -110,7 +109,6 @@ class ProductlistingSearch :   BaseActivity() , Observer<RestObservable> {
         when {
             it!!.status == Status.SUCCESS -> {
                 if (it.data is GetProductModel) {
-
 
                     val getProductModel: GetProductModel = it.data
 

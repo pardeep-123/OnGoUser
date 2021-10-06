@@ -53,8 +53,12 @@ class PaymentActivity : BaseActivity(), View.OnClickListener, Observer<RestObser
         totalamount = intent.getStringExtra(Constants.TotalAmount)!!
         ispickedup = intent.getStringExtra(Constants.isPickedup)!!
         addressid = intent.getStringExtra(Constants.AddressId)!!
-        timeslot = intent.getStringExtra(Constants.TimeslotDAy)!!
-        timeslotdates = intent.getStringExtra(Constants.TimeslotsTime)!!
+        // time slot will be null in case of package myself
+        if (intent.getStringExtra(Constants.TimeslotDAy)!=null &&
+            intent.getStringExtra(Constants.TimeslotsTime)!=null) {
+            timeslot = intent.getStringExtra(Constants.TimeslotDAy)!!
+            timeslotdates = intent.getStringExtra(Constants.TimeslotsTime)!!
+        }
         totalFee = intent.getStringExtra(Constants.TotalFee)!!
         totalTax = intent.getStringExtra(Constants.TotalTax)!!
         btnPay.setOnClickListener(mContext)
