@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.ongouser.Adapter.CreatedProductAdapter
+import com.ongouser.Adapter.SpecificationAdapter
 import com.ongouser.R
 import com.ongouser.base.BaseActivity
 import com.ongouser.home.activity.address.AddressListActivity
@@ -79,6 +80,15 @@ class ProductDetailActivity : BaseActivity(), View.OnClickListener,Observer<Rest
             }else{
                 productlikebtn.visibility = View.VISIBLE
                 productdislikebtn.visibility = View.GONE
+            }
+            if (getProductModelBody?.productSpecifications!!.size>0) {
+                specification.visibility = View.VISIBLE
+                recyclerview.visibility = View.VISIBLE
+                val adapter = SpecificationAdapter(getProductModelBody?.productSpecifications!!)
+                recyclerview.adapter = adapter
+            }else{
+                specification.visibility = View.GONE
+                recyclerview.visibility = View.GONE
             }
         }
 

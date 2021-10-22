@@ -120,5 +120,14 @@ data class GetProductModelBody (
 	val taxCategoryId: Int? = null,
 
 	@field:SerializedName("weightUnit")
-	val weightUnit: Int? = null
+	val weightUnit: Int? = null,
+
+// arraylist for specifications
+	@field:SerializedName("productSpecifications")
+val productSpecifications: ArrayList<ProductSpecifications>? = null
 ):Serializable
+
+data class ProductSpecifications(
+	val name : String,
+	val value : String
+) :Serializable

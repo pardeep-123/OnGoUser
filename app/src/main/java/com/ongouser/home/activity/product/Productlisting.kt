@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_productlisting.*
 import kotlinx.android.synthetic.main.activity_view_all.*
 import java.util.HashMap
 
-class Productlisting :   BaseActivity() , Observer<RestObservable> {
+class Productlisting : BaseActivity() ,Observer<RestObservable> {
     private val viewModel: HomeViewModel
             by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
 

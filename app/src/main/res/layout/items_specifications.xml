@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_3sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/fv_productname"
+        style="@style/CommonTextWrapcontent"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:text="Puma  400 km"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/_13sdp"
+       />
+
+    <TextView
+        android:id="@+id/fv_productvalue"
+        style="@style/CommonTextWrapcontent"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:text="Puma  400 km"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fv_productname"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/_13sdp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -75,10 +75,15 @@
                     android:gravity="center"
                     android:text="2"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_8sdp"></TextView>
+                    android:textSize="@dimen/_8sdp"/>
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivProfile">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,7 +101,7 @@
                 android:layout_marginLeft="@dimen/_10sdp"
                 style="@style/CommonTextWrapcontent"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Netscafe Blend 43 Decaf\n250gm"
+                android:text="Netscafe Blend 43 Decaf\"
                 android:fontFamily="@font/bold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"/>
@@ -142,7 +147,7 @@
             android:id="@+id/detail_productdescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Food is any substance the organism's cells to provide energy, maintain life, or stimulate growth. Different species of animals have different feeding behaviours that satisfy the needs of their unique metabolisms, often evolved to fill a specific ecological niche within specific geographical contexts."
+            android:text="Food is any substance the organism's cells to provide energy, maintain."
             android:textSize="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:paddingLeft="@dimen/_10sdp"
@@ -169,14 +174,31 @@
             android:text="$30/kg">
 
         </TextView>
-
         <TextView
-            android:layout_below="@id/ivBar"
+            android:layout_below="@id/detail_price"
             android:layout_weight="60"
             android:layout_marginLeft="@dimen/_10sdp"
             style="@style/CommonTextWrapcontent"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="Quintity"
+            android:text="Specifications"
+            android:fontFamily="@font/bold"
+            android:textColor="@color/black"
+            android:id="@+id/specification"
+            android:visibility="gone"
+            android:textSize="@dimen/_14sdp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerview"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:padding="@dimen/_7sdp" />
+        <TextView
+            android:layout_weight="60"
+            android:layout_marginLeft="@dimen/_10sdp"
+            style="@style/CommonTextWrapcontent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Quantity"
             android:fontFamily="@font/bold"
             android:textColor="@color/black"
             android:textSize="@dimen/_14sdp"/>
@@ -189,11 +211,11 @@
     android:orientation="horizontal">
     <TextView
         android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_25sdp"
+        android:layout_height="@dimen/_27sdp"
         android:id="@+id/detail_quantity"
         android:text="2"
         android:textColor="@color/white"
-        android:textSize="@dimen/_13sdp"
+        android:textSize="@dimen/_12sdp"
         android:gravity="center"
         android:background="@drawable/add_shape">
 
@@ -235,4 +257,6 @@
             android:text="Add to cart"
             />
     </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
