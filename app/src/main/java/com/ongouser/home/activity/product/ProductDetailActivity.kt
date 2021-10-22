@@ -91,7 +91,7 @@ class ProductDetailActivity : BaseActivity(), View.OnClickListener,Observer<Rest
                 recyclerview.visibility = View.GONE
             }
         }
-
+// checking name
         back.setOnClickListener(mContext)
         cart.setOnClickListener(mContext)
         btnaddcart.setOnClickListener(mContext)
