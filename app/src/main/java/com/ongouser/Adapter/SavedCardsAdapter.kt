@@ -146,8 +146,6 @@ class SavedCardsAdapter(
 
         }
 
-
-
         init {
             itemView.setOnClickListener {
 

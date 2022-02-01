@@ -221,7 +221,8 @@
     <string name="noshopfound">No shops found for this category</string>
     <string name="noproductfound">No product found</string>
     <string name="no_address_list_found">No address list found</string>
-    <string name="api_key_map">AIzaSyBBR5sj-1jvpTJ3E09O_26RJbmfKCyE8pI</string>
+<!--    <string name="api_key_map">AIzaSyBBR5sj-1jvpTJ3E09O_26RJbmfKCyE8pI</string>-->
+    <string name="api_key_map">AIzaSyB5yqyJy-9EC1Heyt7s1jLBJjuGI9zJflA</string>
 
 
 </resources>

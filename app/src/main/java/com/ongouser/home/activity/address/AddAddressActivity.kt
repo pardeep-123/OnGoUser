@@ -26,7 +26,7 @@ class AddAddressActivity : BaseActivity(), View.OnClickListener, Observer<RestOb
             by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
 
     var addressId = ""
-    var countryCode = ""
+    var countryCode = "+91"
     var selectedLatitude = "30.23112300"
     var selectedLongitude = "76.36982340"
 
