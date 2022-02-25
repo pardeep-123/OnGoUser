@@ -32,7 +32,7 @@ class ProgressHUD : Dialog {
                 val txt = dialog.findViewById<View>(R.id.message) as TextView
                 txt.text = message
             }
-*/
+          */
             dialog.setCancelable(true)
             Objects.requireNonNull<Window>(dialog.getWindow())
                 .setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))

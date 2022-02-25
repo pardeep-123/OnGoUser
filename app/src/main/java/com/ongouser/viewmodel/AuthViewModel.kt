@@ -31,6 +31,23 @@ class AuthViewModel :ViewModel() {
                         { mResponse.value = RestObservable.error(activity, it) }
                 )
     }
+
+    fun withoutsignUpApi(
+        activity: Activity, showLoader: Boolean,
+        map: HashMap<String, RequestBody>
+
+    ) {
+        restApiInterface.withoutSignUp(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { mResponse.value = RestObservable.loading(activity, showLoader) }
+            .subscribe(
+                { mResponse.value = RestObservable.success(it) },
+                { mResponse.value = RestObservable.error(activity, it) }
+            )
+    }
+
+
     fun subCategoryListApi(activity: Activity, showLoader:Boolean,
                            map: java.util.HashMap<String, String>
     ) {

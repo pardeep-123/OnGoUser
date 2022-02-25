@@ -46,15 +46,18 @@ class HomeshopadViewallapter(var context: Context, var list: List<GetShopbody>) 
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        Glide.with(context)
-            .load("http://54.252.10.181:8300" + list[position]!!.user!!.vendorDetail!!.image)
-            .placeholder(R.mipmap.no_image_placeholder).into(holder.shopimage)
-        holder.shopname.text = list[position]!!.user!!.vendorDetail!!.shopName
-        holder.shopaddress.text =
-            Html.fromHtml(list[position]!!.user!!.vendorDetail!!.shopName)
+
+        if(list[position].user!=null) {
+            Glide.with(context)
+                .load("http://54.252.10.181:8300" + list[position].user!!.vendorDetail!!.image)
+                .placeholder(R.mipmap.no_image_placeholder).into(holder.shopimage)
+            holder.shopname.text = list[position].user!!.vendorDetail!!.shopName
+            holder.shopaddress.text =
+                Html.fromHtml(list[position].user!!.vendorDetail!!.shopName)
+        }
         holder.itemView.setOnClickListener {
             val i = Intent(context, Productlisting::class.java)
-            i.putExtra("categoryId", list[position]!!.vendorId.toString())
+            i.putExtra("categoryId", list[position].vendorId.toString())
             context.startActivity(i)
         }
     }

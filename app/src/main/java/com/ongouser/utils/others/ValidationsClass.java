@@ -191,7 +191,4 @@ public class ValidationsClass {
         }
         return false;
     }*/
-
-
-
 }

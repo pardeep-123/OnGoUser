@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mContaxt=this;
-         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationbar);
+         bottomNavigationView = findViewById(R.id.navigationbar);
         underlineMenuItem(bottomNavigationView.getMenu().getItem(0));
         bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
 

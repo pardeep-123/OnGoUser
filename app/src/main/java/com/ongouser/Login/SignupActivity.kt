@@ -126,6 +126,7 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
         when (v!!.id) {
             R.id.btnVerification -> {
                 if (isValid()) {
+
                     val bodyimage = mValidationClass.prepareFilePart("image", File(mImagePath))
                     val partRole = mValidationClass.createPartFromString(Constants.TYPE_USER)
                     val partEmail = mValidationClass.createPartFromString(et_email.text.toString().trim())
@@ -140,22 +141,28 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
                     val partType = mValidationClass.createPartFromString(Constants.Device_Type)
 
                     val map = HashMap<String, RequestBody>()
-                    map.put("name", partName)
-                    map.put("role", partRole)
-                    map.put("email", partEmail)
-                    map.put("countryCode", partCountryCode)
-                    map.put("phone", partPhoneNumber)
-                    map.put("password", partPassword)
-                    map.put("deviceType", partType)
-                    map.put("deviceToken", partToken)
+                    map["name"] = partName
+                    map["role"] = partRole
+                    map["email"] = partEmail
+                    map["countryCode"] = partCountryCode
+                    map["phone"] = partPhoneNumber
+                    map["password"] = partPassword
+                    map["deviceType"] = partType
+                    map["deviceToken"] = partToken
                     /*  map.put("is_accept", is_accept)
   */
 
                     // map.put("social_id", partSocialId)
                     // map.put("social_type", partSocialType)
+       if(mImagePath==""){
 
-                    viewModel.signUpApi(this, true, map, bodyimage)
-                    viewModel.mResponse.observe(this, this)
+           viewModel.withoutsignUpApi(this, true, map)
+           viewModel.mResponse.observe(this, this)
+       }else{
+           viewModel.signUpApi(this, true, map, bodyimage)
+           viewModel.mResponse.observe(this, this)
+       }
+
 
 
                 }
@@ -246,7 +253,7 @@ class SignupActivity : BaseActivity(), View.OnClickListener, Observer<RestObserv
                                 Constants.UserData,
                                 modelToString(registerResponse.getBody()!!)
                         )
-                        SharedPrefUtil.getInstance().isLogin = true
+                     //   SharedPrefUtil.getInstance().isLogin = true
                         SharedPrefUtil.getInstance().saveAuthToken(registerResponse.getBody()!!.token)
                         SharedPrefUtil.getInstance().saveImage(registerResponse.getBody()!!.image)
                         SharedPrefUtil.getInstance().saveUserId(registerResponse.getBody()!!.id.toString())

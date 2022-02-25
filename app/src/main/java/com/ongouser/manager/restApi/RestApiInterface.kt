@@ -21,6 +21,13 @@ interface RestApiInterface {
             @PartMap map: HashMap<String, RequestBody>, @Part image: MultipartBody.Part?
     ): Observable<SignupResponsess>
 
+
+    @Multipart
+    @POST(Constants.SignUp)
+    fun withoutSignUp(
+        @PartMap map: HashMap<String, RequestBody>
+    ): Observable<SignupResponsess>
+
     @FormUrlEncoded
     @POST(Constants.Login)
     fun login(

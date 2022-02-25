@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
         style="@style/AVLoadingIndicatorView"
@@ -13,4 +14,5 @@
         android:visibility="visible"
         app:indicatorColor="@color/black"
         app:indicatorName="BallClipRotatePulseIndicator" />
+
 </RelativeLayout>
