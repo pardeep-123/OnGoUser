@@ -97,7 +97,7 @@ interface RestApiInterface {
 
     @GET(Constants.GETCARTLIST)
     fun getcartlisting(
-    ): Observable<GetCartItemsModel>
+    ): Observable<CartListingModel>
 
     @FormUrlEncoded
     @POST(Constants.GetFavoriteProducts)

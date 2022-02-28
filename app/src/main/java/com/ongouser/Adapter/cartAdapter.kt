@@ -11,10 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.makeramen.roundedimageview.RoundedImageView
 import com.ongouser.R
+import com.ongouser.pojo.CartListingModel
 import com.ongouser.pojo.GetCartItemsBody
 import com.ongouser.pojo.GetCartItemsModel
 
-class cartAdapter(var context: Context, var getCartItemsModel: GetCartItemsBody, var cartItemRemoved: CartItemRemoved) : RecyclerView.Adapter<cartAdapter.RecyclerViewHolder>() {
+class cartAdapter(var context: Context, var getCartItemsModel: CartListingModel.Body, var cartItemRemoved: CartItemRemoved) : RecyclerView.Adapter<cartAdapter.RecyclerViewHolder>() {
     var inflater: LayoutInflater
 
     inner class RecyclerViewHolder(view: View?) : RecyclerView.ViewHolder(view!!)

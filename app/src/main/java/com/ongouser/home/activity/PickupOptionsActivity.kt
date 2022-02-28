@@ -32,6 +32,7 @@ class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
     var vendorid = ""
     var totalFee = ""
     var totalTax = ""
+    var homeDelivery = ""
 
     override fun getContentId(): Int {
         return R.layout.activity_delivery_options1
@@ -45,6 +46,7 @@ class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
 
         totalFee = intent.getStringExtra(Constants.TotalFee)!!
         totalTax = intent.getStringExtra(Constants.TotalTax)!!
+        homeDelivery = intent.getStringExtra("homeDelivery")!!
 
         Log.e("totalamount",totalamount)
         mContext = this
@@ -86,18 +88,39 @@ class PickupOptionsActivity : BaseActivity(), View.OnClickListener {
                 cardhome.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.white))
             }
             R.id.cardhome -> {
-                ispickup = "0"
-                cardpick.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.white))
-                cardpackage.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.white))
-                cardhome.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark))
-                tv_homedelivery.setTextColor(ContextCompat.getColor(mContext, R.color.white))
-                tvpick.setTextColor(ContextCompat.getColor(mContext, R.color.black))
-                tvpackage.setTextColor(ContextCompat.getColor(mContext, R.color.black))
+                 if (homeDelivery == "0"){
+                     showAlerterRed("Shop does not provide Home Delivery")
+
+                 }else {
+                     ispickup = "0"
+                     cardpick.setCardBackgroundColor(
+                         ContextCompat.getColor(
+                             mContext,
+                             R.color.white
+                         )
+                     )
+                     cardpackage.setCardBackgroundColor(
+                         ContextCompat.getColor(
+                             mContext,
+                             R.color.white
+                         )
+                     )
+                     cardhome.setCardBackgroundColor(
+                         ContextCompat.getColor(
+                             mContext,
+                             R.color.colorPrimaryDark
+                         )
+                     )
+                     tv_homedelivery.setTextColor(ContextCompat.getColor(mContext, R.color.white))
+                     tvpick.setTextColor(ContextCompat.getColor(mContext, R.color.black))
+                     tvpackage.setTextColor(ContextCompat.getColor(mContext, R.color.black))
+                 }
             }
             R.id.btnConfirm -> {
 
                 if (ispickup.isEmpty())
                     showAlerterRed("Please select a delivery option")
+
                 else{
                     val intent = Intent(this, AddressListActivity::class.java)
                     intent.putExtra(Constants.TotalAmount,totalamount)

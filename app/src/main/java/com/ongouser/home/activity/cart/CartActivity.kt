@@ -45,8 +45,9 @@ class CartActivity: BaseActivity() , View.OnClickListener, Observer<RestObservab
     var taxfee = 0.0
     var itemremovepositoin = -1
     var vendorid = ""
+    var homeDelivery = ""
     private var carttotalamount : TextView?=null
-    lateinit var getCartItemsModel: GetCartItemsBody
+    lateinit var getCartItemsModel: CartListingModel.Body
 
     var calculatedFee = 0.0
     var calculatedGst = 0.0
@@ -117,7 +118,7 @@ class CartActivity: BaseActivity() , View.OnClickListener, Observer<RestObservab
                // Send Seperated fee and gst
                i.putExtra(Constants.TotalFee,calculatedFee.toString())
                i.putExtra(Constants.TotalTax,calculatedGst.toString())
-
+               i.putExtra("homeDelivery",homeDelivery)
                startActivity(i)
            }
            R.id.btnpayment -> {
@@ -166,15 +167,15 @@ class CartActivity: BaseActivity() , View.OnClickListener, Observer<RestObservab
                     }
 
                 }
-                if (it.data is GetCartItemsModel) {
+                if (it.data is CartListingModel) {
 
 
-                   getCartItemsModel  = it.data.body!!
+                   getCartItemsModel  = it.data.body
 
 
                     if (it.data.code == Constants.success_code) {
                         //showSuccessToast(this,getCartItemsModel.message!!)
-                        if (getCartItemsModel.cartItems!!.size ==0){
+                        if (getCartItemsModel.cartItems.size ==0){
                             tvnoproduct.visibility = View.VISIBLE
                             rl_linear.visibility = View.GONE
                             btncheckout.visibility = View.GONE
@@ -182,7 +183,7 @@ class CartActivity: BaseActivity() , View.OnClickListener, Observer<RestObservab
                             btncheckout.visibility = View.VISIBLE
                             rl_linear.visibility = View.VISIBLE
                             tvnoproduct.visibility = View.GONE
-                            SharedPrefUtil.getInstance().saveBadge(getCartItemsModel!!.cartItems?.size!!)
+                            SharedPrefUtil.getInstance().saveBadge(getCartItemsModel.cartItems?.size!!)
 
                             cartAdapter = cartAdapter(mContext,getCartItemsModel,object : cartAdapter.CartItemRemoved{
                                 override fun onitemremoved(position:Int,id: String) {
@@ -203,6 +204,7 @@ class CartActivity: BaseActivity() , View.OnClickListener, Observer<RestObservab
                             recyclerview.layoutManager = LinearLayoutManager(mContext)
                             recyclerview.adapter = cartAdapter
                             vendorid = getCartItemsModel.cartItems!![0]!!.vendorId.toString()
+                            homeDelivery = getCartItemsModel.vendorDetail.homeDelivery.toString()
                             totalCalculate()
                            /* getCartItemsModel!!.cartItems?.run {
                                 forEach { it?.product?.run {
