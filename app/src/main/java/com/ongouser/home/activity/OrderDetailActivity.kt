@@ -134,20 +134,24 @@ class OrderDetailActivity : BaseActivity() , View.OnClickListener, Observer<Rest
 
                     if (myOrderModel.code == Constants.success_code) {
 
-                        if (myOrderModel.body!!.pastdates!!.isEmpty()){
-                            showAlerterRed("No orders found")
-                        }else {
+                        if (!myOrderModel.body!!.pastdates!!.isEmpty()){
                             orderlist.clear()
                             orderlist.addAll(myOrderModel.body!!.pastdates!!)
                             Collections.reverse(orderlist)
+                        }
+
+                        if (myOrderModel.body.futureDates!!.isEmpty())
+                        {showAlerterRed("No current orders found")}
+                        else {
                             futureorderlist.clear()
                             futureorderlist.addAll(myOrderModel.body!!.futureDates!!)
                             Collections.reverse(futureorderlist)
-                            if (futureorderlist.isEmpty())
-                            {showAlerterRed("No current orders found")}
-                            orderDetailAdapter = OrderDetailAdapter(mContext, "1",futureorderlist)
-                            rec_order.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
+
+                            orderDetailAdapter = OrderDetailAdapter(mContext, "1", futureorderlist)
+                            rec_order.layoutManager =
+                                LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
                             rec_order.adapter = orderDetailAdapter
+
                         }
 
 
