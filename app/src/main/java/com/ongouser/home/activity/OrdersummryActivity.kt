@@ -42,11 +42,11 @@ class OrdersummryActivity : BaseActivity(), View.OnClickListener, Observer<RestO
         mContext= this
         ivBack = findViewById(R.id.ivBack)
         ivBack.setOnClickListener(mContext)
-        imagelist.add(findViewById<ImageView>(R.id.pendingimage))
-        imagelist.add(findViewById<ImageView>(R.id.acceptedimage))
-        imagelist.add(findViewById<ImageView>(R.id.packedimage))
-        imagelist.add(findViewById<ImageView>(R.id.shippedimage))
-        imagelist.add(findViewById<ImageView>(R.id.deliveredimage))
+        imagelist.add(findViewById(R.id.pendingimage))
+        imagelist.add(findViewById(R.id.acceptedimage))
+        imagelist.add(findViewById(R.id.packedimage))
+        imagelist.add(findViewById(R.id.shippedimage))
+        imagelist.add(findViewById(R.id.deliveredimage))
         getorders()
     }
 

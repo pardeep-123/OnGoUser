@@ -1081,4 +1081,27 @@ public class CommonMethods {
     }
 
 
+    public static String parseDateToddMMyyyy(String dateAndTime,String dateFormate) {
+        //String inputPattern = "yyyy-MM-dd'T'HH:mm:ss";
+        String inputPattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+        SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
+        SimpleDateFormat outputFormat = new SimpleDateFormat(dateFormate);
+        //ne line
+        inputFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+        Date date = null;
+        String str = null;
+
+        try {
+            date = inputFormat.parse(dateAndTime);
+            str = outputFormat.format(date);
+
+            //new line
+            outputFormat.setTimeZone(TimeZone.getDefault());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return str;
+    }
 }

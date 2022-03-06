@@ -176,8 +176,8 @@
                         android:layout_toEndOf="@+id/search"
                         android:background="@color/transparent"
                         android:hint="Search Products"
-                        android:paddingRight="@dimen/_5sdp"
-                        android:textSize="@dimen/_11sdp"></TextView>
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp"/>
 
                 </RelativeLayout>
             </LinearLayout>

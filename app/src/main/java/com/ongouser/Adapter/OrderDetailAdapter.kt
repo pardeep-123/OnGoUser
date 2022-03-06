@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.ongouser.R
 import com.ongouser.home.activity.OrdersummryActivity
 import com.ongouser.pojo.PastdatesItem
+import com.ongouser.utils.others.CommonMethods
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 class OrderDetailAdapter(var context: Context, var type: String,var orderlist : ArrayList<PastdatesItem>) : RecyclerView.Adapter<OrderDetailAdapter.RecyclerViewHolder>() {
@@ -48,6 +49,7 @@ class OrderDetailAdapter(var context: Context, var type: String,var orderlist : 
         holder.tvName.setText(orderlist[position].vendorName)
         holder.orderno.setText("Order Number ${orderlist[position].orderNo}")
         holder.orderamount.setText("$${orderlist[position].totalamount}")
+        holder.tvdate.text = "Ordered on: "+ CommonMethods.parseDateToddMMyyyy(orderlist[position].createdAt,"dd-MM-yyyy")
         Glide.with(context).load(orderlist[position].vendorImage).error(R.mipmap.no_image_placeholder).into(holder.vendorimage)
 
         if (type == "2") {
@@ -56,7 +58,7 @@ class OrderDetailAdapter(var context: Context, var type: String,var orderlist : 
             holder.tv_reorder.visibility = View.GONE
         } else {
            // holder.tvstatus.visibility = View.GONE
-            holder.tvdate.visibility = View.GONE
+            holder.tvdate.visibility = View.VISIBLE
             holder.tv_reorder.visibility = View.GONE
         }
 

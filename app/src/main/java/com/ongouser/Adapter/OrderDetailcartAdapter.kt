@@ -41,12 +41,12 @@ class OrderDetailcartAdapter(var context: Context ,var orderitems:ArrayList<Orde
         holder.qty.setText("Qty: ${orderitems[position]!!.qty.toString()}")
 
         try {
-            var value=orderitems[position]!!.netAmount!!.toInt()* orderitems[position]!!.qty!!.toInt()
-            holder.price.setText("$"+value)
+            val value=orderitems[position]!!.netAmount!!.toFloat()* orderitems[position]!!.qty!!.toInt()
+            holder.price.text = "$"+value
         } catch (e: Exception) {
         }
-        orderitems!![position]!!.product?.run {
-            holder.name.setText(name)
+        orderitems[position].product?.run {
+            holder.name.text = name
         }
         /*holder.itemView.setOnClickListener {
             val i = Intent(context, ProductDetailActivity::class.java)
