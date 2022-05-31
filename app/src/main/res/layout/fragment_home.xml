@@ -219,7 +219,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tvbname"
-                    android:layout_marginTop="@dimen/_5sdp"></androidx.recyclerview.widget.RecyclerView>
+                    android:layout_marginTop="@dimen/_5sdp"/>
 
                 <TextView
                     android:id="@+id/tv_no_store"

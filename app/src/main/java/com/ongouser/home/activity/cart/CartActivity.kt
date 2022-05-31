@@ -281,16 +281,15 @@ class CartActivity: BaseActivity() , View.OnClickListener, Observer<RestObservab
     private fun totalCalculate(){
 
         totalamount=0.0
-        for ( i in 0 until getCartItemsModel.cartItems!!.size){
+        for ( i in 0 until getCartItemsModel.cartItems.size){
 
-            val mrp = getCartItemsModel.cartItems!![i]!!.product!!.mrp!!.toDouble()
-            val temp=mrp* getCartItemsModel.cartItems!![i]!!.qty!!.toInt()
-            taxfee = getCartItemsModel.taxDetails?.siteComission!!.toDouble()
-            gstfee = getCartItemsModel.taxDetails?.gst!!.toDouble()
+            val mrp = getCartItemsModel.cartItems[i].product.mrp.toDouble()
+            val temp=mrp* getCartItemsModel.cartItems[i].qty.toInt()
+            taxfee = getCartItemsModel.taxDetails.siteComission.toDouble()
+            gstfee = getCartItemsModel.taxDetails.gst.toDouble()
             totalamount += temp
 
-            newtotalamount = (String.format("%.2f",(totalamount+((totalamount*taxfee).div(100))+
-                    ((totalamount*gstfee).div(100))))).toDouble()
+            newtotalamount = (String.format("%.2f",(totalamount+((totalamount*gstfee).div(100))))).toDouble()
 
             calculatedFee = ((totalamount*taxfee).div(100))
             calculatedGst = ((totalamount*gstfee).div(100))
@@ -298,7 +297,8 @@ class CartActivity: BaseActivity() , View.OnClickListener, Observer<RestObservab
 
         tv_subtotal.text = "$$totalamount"
         tax.text = getCartItemsModel.taxDetails?.siteComission.toString() +"%"
-        gst.text = getCartItemsModel.taxDetails?.gst.toString() +"%"
+//        gst.text = getCartItemsModel.taxDetails?.gst.toString() +"%"
+        gst.text = "$"+newtotalamount.div(11).toString()
 
         // Set Total Amount including gst and grocery fees
         carttotalamount?.text = "$"+ newtotalamount

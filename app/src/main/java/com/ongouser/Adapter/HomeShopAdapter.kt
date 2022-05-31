@@ -42,8 +42,12 @@ class HomeShopAdapter(var context: Context?,
         fun bindItems(vendorList: VendorsItem) {
             val ivVendorProfile = itemView.findViewById(R.id.iv_shop_img) as ImageView
             val tvShopname = itemView.findViewById(R.id.tv_shopname) as TextView
+            val tvShopCategory = itemView.findViewById(R.id.tv_shopCategory) as TextView
+            val tvShopDistance = itemView.findViewById(R.id.tv_shopDistance) as TextView
 
-            tvShopname.setText(vendorList.name)
+            tvShopname.text = vendorList.name
+            tvShopCategory.text = vendorList.shopCategory
+            tvShopDistance.text = "("+vendorList.distance.toString() + " km)"
              /*tvShopname.setOnClickListener {
                  Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
 
@@ -60,11 +64,6 @@ class HomeShopAdapter(var context: Context?,
             itemView.setOnClickListener {
 
             }
-
-        }
-
-
-        init {
 
         }
 

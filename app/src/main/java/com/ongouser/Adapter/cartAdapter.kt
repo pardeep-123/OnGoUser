@@ -35,8 +35,8 @@ class cartAdapter(var context: Context, var getCartItemsModel: CartListingModel.
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        Glide.with(context).load(getCartItemsModel.cartItems!![position]!!.product!!.image).placeholder(R.mipmap.no_image_placeholder).into(holder.productimage)
-        holder.qty.setText(getCartItemsModel.cartItems!![position]!!.qty.toString())
+        Glide.with(context).load(getCartItemsModel.cartItems[position].product.image).placeholder(R.mipmap.no_image_placeholder).into(holder.productimage)
+        holder.qty.setText(getCartItemsModel.cartItems[position].qty.toString())
         getCartItemsModel.cartItems!![position]!!.product?.run {
             holder.name.setText(name)
             holder.price.setText("$$mrp")
@@ -74,11 +74,11 @@ class cartAdapter(var context: Context, var getCartItemsModel: CartListingModel.
 
     fun removecartitem(position: Int)
     {
-        getCartItemsModel.cartItems!!.removeAt(position);
+        getCartItemsModel.cartItems.removeAt(position);
         notifyItemRemoved(position)
     }
     override fun getItemCount(): Int {
-        return getCartItemsModel.cartItems!!.size
+        return getCartItemsModel.cartItems.size
     }
 
     init {

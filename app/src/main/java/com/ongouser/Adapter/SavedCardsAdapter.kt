@@ -34,14 +34,14 @@ class SavedCardsAdapter(
         if (savedCardLists[position].isSelected.equals("true"))
         {
             holder.cvv.visibility = View.VISIBLE
-            holder.ivSelectCard.visibility = View.VISIBLE
+            holder.ivSelectCard.visibility = View.GONE
             holder.tvSelectCard.visibility = View.GONE
 
 
         } else {
             holder.ivSelectCard.visibility = View.GONE
             holder.cvv.visibility = View.GONE
-            holder.tvSelectCard.visibility = View.VISIBLE
+            holder.tvSelectCard.visibility = View.GONE
         }
 
      /*   if (selectedpos == position)
@@ -143,14 +143,18 @@ class SavedCardsAdapter(
                 cardid = savedCardList.id.toString()
                 notifyDataSetChanged()
             }
-
-        }
-
-        init {
             itemView.setOnClickListener {
-
+                cvvtext=""
+                selectedpos = position
+                for (i in 0 until savedCardLists.size){
+                    savedCardLists.get(i).isSelected="false"
+                }
+                savedCardLists.get(position).isSelected="true"
+                cardid = savedCardList.id.toString()
+                notifyDataSetChanged()
             }
         }
+
     }
     fun getselectedcvv():String{
         return cvvtext

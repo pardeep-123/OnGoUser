@@ -81,6 +81,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_10sdp"
             android:fontFamily="@font/regular"
+
             android:text="@string/select" />
     </LinearLayout>
 
